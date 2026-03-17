@@ -1,0 +1,1688 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="IntegrationTest_PatientReg_Clinical" this:IntegrationTest_PatientReg_Clinical.in_quantityOfPts="1" this:IntegrationTest_PatientReg_Clinical.in_Email="Yurii.Rybachuk@CereCore.net" this:IntegrationTest_PatientReg_Clinical.in_StorageBucket="DPX_Root" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:r="clr-namespace:RDP_Session_Viewing_Windows;assembly=RDP.Session.Viewing_Windows" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ucas="clr-namespace:UiPath.Core.Activities.Storage;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:uta="clr-namespace:UiPath.Testing.Activities;assembly=UiPath.Testing.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="o_AccountNumber" Type="InArgument(x:String)" />
+    <x:Property Name="o_MRN" Type="InArgument(x:String)" />
+    <x:Property Name="o_PatientName" Type="InArgument(x:String)" />
+    <x:Property Name="in_quantityOfPts" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_Facility" Type="InArgument(x:String)" />
+    <x:Property Name="in_HCIS" Type="InArgument(x:String)" />
+    <x:Property Name="in_3_4ID" Type="InArgument(x:String)" />
+    <x:Property Name="in_ExpanseNetwork" Type="InArgument(x:String)" />
+    <x:Property Name="in_Email" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Please, put your asset name where your credentials where stored under 'Assets' tab in Cloud Orchestrator." Name="in_AssetName" Type="InArgument(x:String)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
+    <x:Property sap2010:Annotation.AnnotationText="Please, enter the lab orders by using mnemonic name (like GLU,HCT....). If this argument is empty then default lab orders will be taken from excel file." Name="in_LabOrders" Type="InArgument(x:String)" />
+    <x:Property Name="in_StorageBucket" Type="InArgument(x:String)" />
+    <x:Property Name="statusAfterExecution" Type="OutArgument(x:String)" />
+  </x:Members>
+  <this:IntegrationTest_PatientReg_Clinical.o_AccountNumber>
+    <InArgument x:TypeArguments="x:String" />
+  </this:IntegrationTest_PatientReg_Clinical.o_AccountNumber>
+  <this:IntegrationTest_PatientReg_Clinical.o_MRN>
+    <InArgument x:TypeArguments="x:String" />
+  </this:IntegrationTest_PatientReg_Clinical.o_MRN>
+  <this:IntegrationTest_PatientReg_Clinical.o_PatientName>
+    <InArgument x:TypeArguments="x:String" />
+  </this:IntegrationTest_PatientReg_Clinical.o_PatientName>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:Annotation.AnnotationText>UPTF00000088eyI8SGVscExpbms+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8SW5pdGlhbFRvb2x0aXA+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8VmVyc2lvbj5rX19CYWNraW5nRmllbGQiOjF9</sap2010:Annotation.AnnotationText>
+  <sap:VirtualizedContainerService.HintSize>1428,33450</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>IntegrationTest_PatientReg_Clinical_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="126">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Testing.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Model</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.Activities.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
+      <x:String>UiPath.OCR.Activities</x:String>
+      <x:String>UiPath.OCR.Contracts.Activities</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.Core.Activities.Storage</x:String>
+      <x:String>UiPath.Core.Activities.Orchestrator</x:String>
+      <x:String>UiPath.Web</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+      <x:String>UiPath.Activities.System.Arrays</x:String>
+      <x:String>UiPath.Mail</x:String>
+      <x:String>UiPath.Mail.SMTP.Activities</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>UiPath.Mail.Outlook.Activities</x:String>
+      <x:String>UiPath.Mail.Activities.Business</x:String>
+      <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
+      <x:String>RDP_Session_Viewing_Windows</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="142">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>RDP.Session.Viewing_Windows</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices.RuntimeInformation</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms.Design</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Activities.Contracts</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Web</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>Microsoft.Extensions.DependencyModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="IntegrationTest_PatientReg_Clinical" sap:VirtualizedContainerService.HintSize="1556,12432" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="PatientData" />
+      <Variable x:TypeArguments="x:String" Name="patientName" />
+      <Variable x:TypeArguments="x:String" Name="facility" />
+      <Variable x:TypeArguments="x:String" Name="expanseBrowserUrl" />
+      <Variable x:TypeArguments="sd:DataTable" Name="patientsDt" />
+      <Variable x:TypeArguments="x:Int32" Default="1" Name="counter" />
+      <Variable x:TypeArguments="x:Int32" Name="valueOfLastRow" />
+      <Variable x:TypeArguments="x:Boolean" Default="True" Name="variableForWhileLoop" />
+      <Variable x:TypeArguments="x:String" Name="patientSheetWithClData" />
+      <Variable x:TypeArguments="x:String" Name="fullName" />
+      <Variable x:TypeArguments="x:String" Name="ptAcctNum" />
+      <Variable x:TypeArguments="x:Boolean" Default="True" Name="retry" />
+      <Variable x:TypeArguments="scg:IList(x:String)" Default="[New List(Of String)]" Name="acctNumbersList" />
+      <Variable x:TypeArguments="x:Int32" Name="numberToThrowException" />
+      <Variable x:TypeArguments="x:String" Name="patientSheetNameForAcctNum" />
+      <Variable x:TypeArguments="x:String" Name="facilityFullName" />
+      <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Default="[New Dictionary(Of String, String)]" Name="outputDataHM" />
+      <Variable x:TypeArguments="x:String" Name="atSite" />
+      <Variable x:TypeArguments="x:String" Name="currentWorkflowExecution" />
+      <Variable x:TypeArguments="x:String" Name="expanseLoginUrl" />
+      <Variable x:TypeArguments="x:String" Name="registrationTypeForExcel" />
+      <Variable x:TypeArguments="x:String" Name="provider" />
+      <Variable x:TypeArguments="x:String" Name="lisSite" />
+      <Variable x:TypeArguments="x:String" Name="bodyOfReportText" />
+      <Variable x:TypeArguments="sd:DataTable" Name="patientsForLabResultsDT" />
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="firstRunSkipCondition" />
+      <Variable x:TypeArguments="x:Boolean" Name="loginSkipper" />
+      <Variable x:TypeArguments="x:Boolean" Name="workflowSkip" />
+      <Variable x:TypeArguments="x:Int32" Name="statusCode" />
+      <Variable x:TypeArguments="x:String" Name="responseBody" />
+      <Variable x:TypeArguments="x:Boolean" Name="noCartWithRoom" />
+      <Variable x:TypeArguments="x:String" Name="MRN" />
+      <Variable x:TypeArguments="x:Int32" Name="totalRows" />
+      <Variable x:TypeArguments="x:Int32" Name="currentIndex" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <r:GetSessionID sap:VirtualizedContainerService.HintSize="930,173" sap2010:WorkflowViewState.IdRef="GetSessionID_1" streamingDelay_Time="00:00:30" streaming_Is_On="True" />
+    <ucas:DownloadStorageFile TimeoutMS="{x:Null}" Destination="Utility/ExcelDataTables/Network_Data_values.xlsx" DisplayName="Download Storage File" sap:VirtualizedContainerService.HintSize="930,165" sap2010:WorkflowViewState.IdRef="DownloadStorageFile_1" Path="Network_Data_values.xlsx" StorageBucketName="[in_StorageBucket]" />
+    <ucas:DownloadStorageFile TimeoutMS="{x:Null}" Destination="Utility/ExcelDataTables/Patients_for_adding_lab_results.xlsx" DisplayName="Download Storage File" sap:VirtualizedContainerService.HintSize="930,165" sap2010:WorkflowViewState.IdRef="DownloadStorageFile_11" Path="Patients_for_adding_lab_results.xlsx" StorageBucketName="[in_StorageBucket]" />
+    <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[retry]" DisplayName="While loop" sap:VirtualizedContainerService.HintSize="930,11906" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+      <ui:InterruptibleWhile.Body>
+        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="896,11769" sap2010:WorkflowViewState.IdRef="Sequence_59">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="862,11709" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" WorkbookPath="Utility\ExcelDataTables\Patients_for_adding_lab_results.xlsx">
+            <ui:ExcelApplicationScope.Body>
+              <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="828,11576" sap2010:WorkflowViewState.IdRef="Sequence_99">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:ExcelReadRange AddHeaders="True" DataTable="[patientsForLabResultsDT]" DisplayName="Read Range: Available patients for adding the lab results" sap:VirtualizedContainerService.HintSize="794,92" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="Patients_for_labResults">
+                    <ui:ExcelReadRange.Range>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" Value="" />
+                      </InArgument>
+                    </ui:ExcelReadRange.Range>
+                  </ui:ExcelReadRange>
+                  <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[currentIndex]" DataTable="[patientsForLabResultsDT]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="794,11424" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                    <ui:ForEachRow.Body>
+                      <ActivityAction x:TypeArguments="sd:DataRow">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="760,11237" sap2010:WorkflowViewState.IdRef="Sequence_100">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="726,11177" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <TryCatch.Try>
+                              <Sequence DisplayName="Patient Reg Sequence" sap:VirtualizedContainerService.HintSize="688,10926" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If Condition="[String.IsNullOrEmpty(facility) And String.IsNullOrEmpty(in_ExpanseNetwork)]" sap:VirtualizedContainerService.HintSize="654,740" sap2010:WorkflowViewState.IdRef="If_26">
+                                  <If.Then>
+                                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="Sequence_115">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_32" Level="Info" Message="[&quot;First run of the process or after the exeption.&quot;]" />
+                                    </Sequence>
+                                  </If.Then>
+                                  <If.Else>
+                                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,346" sap2010:WorkflowViewState.IdRef="Sequence_116">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,173" sap2010:WorkflowViewState.IdRef="LogMessage_33" Level="Info" Message="[&quot;facility variable is not empty: &quot; + facility + &quot;. Comparing with the next one. Network as well.&quot;]" />
+                                      <uta:VerifyExpression AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" OutputMessageFormat="{x:Null}" ScreenshotsPath="{x:Null}" ContinueOnFailure="True" DisplayName="Verify Expression" Expression="[CurrentRow(&quot;Facility&quot;).Equals(facility) And CurrentRow(&quot;Network&quot;).Equals(in_ExpanseNetwork)]" sap:VirtualizedContainerService.HintSize="382,113" sap2010:WorkflowViewState.IdRef="VerifyExpression_1" Result="[loginSkipper]" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False" />
+                                    </Sequence>
+                                  </If.Else>
+                                </If>
+                                <If Condition="[loginSkipper]" DisplayName="If: skipping/not skipping changing the Expanse network" sap:VirtualizedContainerService.HintSize="654,2368" sap2010:WorkflowViewState.IdRef="If_24">
+                                  <If.Then>
+                                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="513,620" sap2010:WorkflowViewState.IdRef="Sequence_112">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_28" Level="Info" Message="[&quot;Skipping the log in action.&quot;]" />
+                                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,387" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+                                        <ui:MultipleAssign.AssignOperations>
+                                          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_29">
+                                              <ui:AssignOperation.To>
+                                                <OutArgument x:TypeArguments="x:String">[bodyOfReportText]</OutArgument>
+                                              </ui:AssignOperation.To>
+                                              <ui:AssignOperation.Value>
+                                                <InArgument x:TypeArguments="x:String">THIS IS THE BODY OF AN ULTRASOUND ABDOMINAL REPORT</InArgument>
+                                              </ui:AssignOperation.Value>
+                                            </ui:AssignOperation>
+                                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_30">
+                                              <ui:AssignOperation.To>
+                                                <OutArgument x:TypeArguments="x:String">[provider]</OutArgument>
+                                              </ui:AssignOperation.To>
+                                              <ui:AssignOperation.Value>
+                                                <InArgument x:TypeArguments="x:String">DR.ATND01</InArgument>
+                                              </ui:AssignOperation.Value>
+                                            </ui:AssignOperation>
+                                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_31">
+                                              <ui:AssignOperation.To>
+                                                <OutArgument x:TypeArguments="x:String">[registrationTypeForExcel]</OutArgument>
+                                              </ui:AssignOperation.To>
+                                              <ui:AssignOperation.Value>
+                                                <InArgument x:TypeArguments="x:String">SDC</InArgument>
+                                              </ui:AssignOperation.Value>
+                                            </ui:AssignOperation>
+                                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_32">
+                                              <ui:AssignOperation.To>
+                                                <OutArgument x:TypeArguments="x:String">[patientSheetWithClData]</OutArgument>
+                                              </ui:AssignOperation.To>
+                                              <ui:AssignOperation.Value>
+                                                <InArgument x:TypeArguments="x:String">Clinical data(SDC)</InArgument>
+                                              </ui:AssignOperation.Value>
+                                            </ui:AssignOperation>
+                                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_33">
+                                              <ui:AssignOperation.To>
+                                                <OutArgument x:TypeArguments="x:String">[patientSheetNameForAcctNum]</OutArgument>
+                                              </ui:AssignOperation.To>
+                                              <ui:AssignOperation.Value>
+                                                <InArgument x:TypeArguments="x:String">Surgical Day Care</InArgument>
+                                              </ui:AssignOperation.Value>
+                                            </ui:AssignOperation>
+                                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_34">
+                                              <ui:AssignOperation.To>
+                                                <OutArgument x:TypeArguments="x:String">[facility]</OutArgument>
+                                              </ui:AssignOperation.To>
+                                              <ui:AssignOperation.Value>
+                                                <InArgument x:TypeArguments="x:String">[CurrentRow("Facility").ToString.ToUpper]</InArgument>
+                                              </ui:AssignOperation.Value>
+                                            </ui:AssignOperation>
+                                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_35">
+                                              <ui:AssignOperation.To>
+                                                <OutArgument x:TypeArguments="x:String">[MRN]</OutArgument>
+                                              </ui:AssignOperation.To>
+                                              <ui:AssignOperation.Value>
+                                                <InArgument x:TypeArguments="x:String">[CurrentRow("MRN").ToString]</InArgument>
+                                              </ui:AssignOperation.Value>
+                                            </ui:AssignOperation>
+                                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_36">
+                                              <ui:AssignOperation.To>
+                                                <OutArgument x:TypeArguments="x:String">[in_ExpanseNetwork]</OutArgument>
+                                              </ui:AssignOperation.To>
+                                              <ui:AssignOperation.Value>
+                                                <InArgument x:TypeArguments="x:String">[CurrentRow("Network").ToString]</InArgument>
+                                              </ui:AssignOperation.Value>
+                                            </ui:AssignOperation>
+                                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_37">
+                                              <ui:AssignOperation.To>
+                                                <OutArgument x:TypeArguments="x:Int32">[totalRows]</OutArgument>
+                                              </ui:AssignOperation.To>
+                                              <ui:AssignOperation.Value>
+                                                <InArgument x:TypeArguments="x:Int32">[patientsForLabResultsDT.Rows.Count]</InArgument>
+                                              </ui:AssignOperation.Value>
+                                            </ui:AssignOperation>
+                                          </scg:List>
+                                        </ui:MultipleAssign.AssignOperations>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </ui:MultipleAssign>
+                                    </Sequence>
+                                  </If.Then>
+                                  <If.Else>
+                                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="547,1578" sap2010:WorkflowViewState.IdRef="Sequence_113">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="513,173" sap2010:WorkflowViewState.IdRef="LogMessage_29" Level="Info" Message="[&quot;Executing the log in order to change the Network.&quot;]" />
+                                      <Sequence DisplayName="Logging in to the proper Network scope" sap:VirtualizedContainerService.HintSize="513,1345" sap2010:WorkflowViewState.IdRef="Sequence_108">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,396" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                                          <ui:MultipleAssign.AssignOperations>
+                                            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
+                                                <ui:AssignOperation.To>
+                                                  <OutArgument x:TypeArguments="x:String">[bodyOfReportText]</OutArgument>
+                                                </ui:AssignOperation.To>
+                                                <ui:AssignOperation.Value>
+                                                  <InArgument x:TypeArguments="x:String">THIS IS THE BODY OF AN ULTRASOUND ABDOMINAL REPORT</InArgument>
+                                                </ui:AssignOperation.Value>
+                                              </ui:AssignOperation>
+                                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
+                                                <ui:AssignOperation.To>
+                                                  <OutArgument x:TypeArguments="x:String">[provider]</OutArgument>
+                                                </ui:AssignOperation.To>
+                                                <ui:AssignOperation.Value>
+                                                  <InArgument x:TypeArguments="x:String">DR.ATND01</InArgument>
+                                                </ui:AssignOperation.Value>
+                                              </ui:AssignOperation>
+                                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_18">
+                                                <ui:AssignOperation.To>
+                                                  <OutArgument x:TypeArguments="x:String">[registrationTypeForExcel]</OutArgument>
+                                                </ui:AssignOperation.To>
+                                                <ui:AssignOperation.Value>
+                                                  <InArgument x:TypeArguments="x:String">SDC</InArgument>
+                                                </ui:AssignOperation.Value>
+                                              </ui:AssignOperation>
+                                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
+                                                <ui:AssignOperation.To>
+                                                  <OutArgument x:TypeArguments="x:String">[patientSheetWithClData]</OutArgument>
+                                                </ui:AssignOperation.To>
+                                                <ui:AssignOperation.Value>
+                                                  <InArgument x:TypeArguments="x:String">Clinical data(SDC)</InArgument>
+                                                </ui:AssignOperation.Value>
+                                              </ui:AssignOperation>
+                                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">
+                                                <ui:AssignOperation.To>
+                                                  <OutArgument x:TypeArguments="x:String">[patientSheetNameForAcctNum]</OutArgument>
+                                                </ui:AssignOperation.To>
+                                                <ui:AssignOperation.Value>
+                                                  <InArgument x:TypeArguments="x:String">Surgical Day Care</InArgument>
+                                                </ui:AssignOperation.Value>
+                                              </ui:AssignOperation>
+                                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_22">
+                                                <ui:AssignOperation.To>
+                                                  <OutArgument x:TypeArguments="x:String">[facility]</OutArgument>
+                                                </ui:AssignOperation.To>
+                                                <ui:AssignOperation.Value>
+                                                  <InArgument x:TypeArguments="x:String">[CurrentRow("Facility").ToString.ToUpper]</InArgument>
+                                                </ui:AssignOperation.Value>
+                                              </ui:AssignOperation>
+                                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_23">
+                                                <ui:AssignOperation.To>
+                                                  <OutArgument x:TypeArguments="x:String">[MRN]</OutArgument>
+                                                </ui:AssignOperation.To>
+                                                <ui:AssignOperation.Value>
+                                                  <InArgument x:TypeArguments="x:String">[CurrentRow("MRN").ToString]</InArgument>
+                                                </ui:AssignOperation.Value>
+                                              </ui:AssignOperation>
+                                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_24">
+                                                <ui:AssignOperation.To>
+                                                  <OutArgument x:TypeArguments="x:String">[in_ExpanseNetwork]</OutArgument>
+                                                </ui:AssignOperation.To>
+                                                <ui:AssignOperation.Value>
+                                                  <InArgument x:TypeArguments="x:String">[CurrentRow("Network").ToString]</InArgument>
+                                                </ui:AssignOperation.Value>
+                                              </ui:AssignOperation>
+                                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_25">
+                                                <ui:AssignOperation.To>
+                                                  <OutArgument x:TypeArguments="x:Int32">[totalRows]</OutArgument>
+                                                </ui:AssignOperation.To>
+                                                <ui:AssignOperation.Value>
+                                                  <InArgument x:TypeArguments="x:Int32">[patientsForLabResultsDT.Rows.Count]</InArgument>
+                                                </ui:AssignOperation.Value>
+                                              </ui:AssignOperation>
+                                            </scg:List>
+                                          </ui:MultipleAssign.AssignOperations>
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </ui:MultipleAssign>
+                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_30" Level="Info" Message="[&quot;Total rows extracted: &quot; + totalRows.ToString]" />
+                                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Utility\Network_Selection.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="479,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_115" UnSafe="False" WorkflowFileName="Utility\Network_Selection.xaml">
+                                          <ui:InvokeWorkflowFile.Arguments>
+                                            <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseNetwork">[in_ExpanseNetwork]</InArgument>
+                                            <OutArgument x:TypeArguments="x:String" x:Key="out_ExpanseLoginUrl">[expanseLoginUrl]</OutArgument>
+                                            <OutArgument x:TypeArguments="x:String" x:Key="out_LISSite">[lisSite]</OutArgument>
+                                            <OutArgument x:TypeArguments="x:String" x:Key="out_IDMSite" />
+                                            <OutArgument x:TypeArguments="x:String" x:Key="out_ExpanseNetworkUrl">[expanseBrowserUrl]</OutArgument>
+                                            <OutArgument x:TypeArguments="x:String" x:Key="out_RoomService" />
+                                            <OutArgument x:TypeArguments="x:String" x:Key="out_PHASite" />
+                                            <OutArgument x:TypeArguments="x:String" x:Key="out_HCIS">[in_HCIS]</OutArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="in_Facility">[facility]</InArgument>
+                                            <InOutArgument x:TypeArguments="x:String" x:Key="out_labOrders">[in_LabOrders]</InOutArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="BreakTriggerScopeInArgument" />
+                                          </ui:InvokeWorkflowFile.Arguments>
+                                        </ui:InvokeWorkflowFile>
+                                        <Assign DisplayName="Assign: Nona_Launch_and_Login.xaml" sap:VirtualizedContainerService.HintSize="479,114" sap2010:WorkflowViewState.IdRef="Assign_10">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:String">[currentWorkflowExecution]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:String">Utility\Nona_Launch_and_Login.xaml</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Utility\Nona_Launch_and_Login.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="479,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Utility\Nona_Launch_and_Login.xaml">
+                                          <ui:InvokeWorkflowFile.Arguments>
+                                            <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseURL">[expanseLoginUrl]</InArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="in_HCIS">[in_HCIS]</InArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="in_AssetName">[in_AssetName]</InArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="in_OrchestratorFolder">QACOE</InArgument>
+                                            <OutArgument x:TypeArguments="x:String" x:Key="in_34ID">[in_3_4ID]</OutArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="in_Email">[in_Email]</InArgument>
+                                            <OutArgument x:TypeArguments="x:Int32" x:Key="out_Counter">[numberToThrowException]</OutArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseNetwork">[in_ExpanseNetwork]</InArgument>
+                                          </ui:InvokeWorkflowFile.Arguments>
+                                        </ui:InvokeWorkflowFile>
+                                        <If Condition="[numberToThrowException &gt; counter]" DisplayName="If credentials have been entered incorrectly" sap:VirtualizedContainerService.HintSize="479,57" sap2010:WorkflowViewState.IdRef="If_10">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <If.Then>
+                                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,173" sap2010:WorkflowViewState.IdRef="Sequence_72">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <Throw Exception="[New Exception(&quot;Credentials are entered incorrectly, throwing exception to prevent the blocking an Expanse account. Please, check if credentials were put correctly in Assets.&quot;)]" sap:VirtualizedContainerService.HintSize="382,113" sap2010:WorkflowViewState.IdRef="Throw_3" />
+                                            </Sequence>
+                                          </If.Then>
+                                          <If.Else>
+                                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_73">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </Sequence>
+                                          </If.Else>
+                                        </If>
+                                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Utility\go_to_RegisterMDesktop_AdministrativeTab.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="479,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_153" UnSafe="False" WorkflowFileName="Utility\go_to_RegisterMDesktop_AdministrativeTab.xaml">
+                                          <ui:InvokeWorkflowFile.Arguments>
+                                            <InArgument x:TypeArguments="x:String" x:Key="in_Facility">[facility]</InArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[expanseBrowserUrl]</InArgument>
+                                          </ui:InvokeWorkflowFile.Arguments>
+                                        </ui:InvokeWorkflowFile>
+                                      </Sequence>
+                                    </Sequence>
+                                  </If.Else>
+                                </If>
+                                <If Condition="[CurrentRow(&quot;Status(pending/done)&quot;).ToString.ToLower.Contains(&quot;pend&quot;)]" DisplayName="If: checking the patient's status for adding the labs OR not" sap:VirtualizedContainerService.HintSize="654,6623" sap2010:WorkflowViewState.IdRef="If_20">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <If.Then>
+                                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="620,6229" sap2010:WorkflowViewState.IdRef="Sequence_103">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="586,173" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="Info" Message="[&quot;Patient &quot; + MRN + &quot; has the &quot; + CurrentRow(&quot;Status(pending/done)&quot;).ToString + &quot; status. Adding the lab results.&quot;]" />
+                                      <If Condition="[facility.ToUpper.Equals(&quot;COCIE&quot;)  Or facility.ToUpper.Equals(&quot;COCUE&quot;)  Or facility.ToUpper.Equals(&quot;COCXJ&quot;)  Or facility.ToUpper.Equals(&quot;COCYKW&quot;)  _ &#xA;Or facility.ToUpper.Equals(&quot;COCYKO&quot;)  Or facility.ToUpper.Equals(&quot;COCULN&quot;) Or facility.ToUpper.Equals(&quot;COCTL&quot;) Or facility.ToUpper.Equals(&quot;COCHNA&quot;)]" DisplayName="If: Skipping the labs part due to idm site issues for certain facilities " sap:VirtualizedContainerService.HintSize="586,5996" sap2010:WorkflowViewState.IdRef="If_14">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <If.Then>
+                                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="Sequence_82">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Labs part temporary skipped for facilities: COCIE, COCUE, COCXJ, COCYKW, COCYKO and COCULN&quot;]" />
+                                          </Sequence>
+                                        </If.Then>
+                                        <If.Else>
+                                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="552,5611" sap2010:WorkflowViewState.IdRef="Sequence_83">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <Switch x:TypeArguments="x:String" DisplayName="Select the right LIS Site for certain facilities" Expression="[facility.ToUpper]" sap:VirtualizedContainerService.HintSize="518,478" sap2010:WorkflowViewState.IdRef="Switch`1_5">
+                                              <Assign x:Key="COCXS" DisplayName="Changing LIS site" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_89">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:String">[lisSite]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:String">DOMIXS</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                              <Assign x:Key="COCYS" DisplayName="Changing LIS site" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_90">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:String">[lisSite]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:String">RESTYS</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                              <Assign x:Key="COCSS" DisplayName="Changing LIS site" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_91">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:String">[lisSite]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:String">SSHCSS</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                              <Assign x:Key="COCJFK" DisplayName="Changing LIS site" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_94">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:String">[lisSite]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:String">JFKDJFK</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                              <Assign x:Key="COCPA" DisplayName="Changing LIS site" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_95">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:String">[lisSite]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:String">NJFKPA</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                              <Assign x:Key="COCVW" DisplayName="Changing LIS site" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_96">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:String">[lisSite]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:String">LRMCVM</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                              <Assign x:Key="COCPF" DisplayName="Changing LIS Site" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_97">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:String">[lisSite]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:String">PWEHPF</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                              <Assign x:Key="COCCC" DisplayName="Changing LIS Site" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_98">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:String">[lisSite]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:String">CJWCCC</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                              <Assign x:Key="COCJW" DisplayName="Changing LIS Site" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_99">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:String">[lisSite]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:String">CJWJJW</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                              <Assign x:Key="COCHR" DisplayName="Changing LIS Site" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_100">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:String">[lisSite]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:String">HENRHR</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                              <Assign x:Key="COCPD" DisplayName="Changing LIS Site" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_101">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:String">[lisSite]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:String">HDHPPD</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                              <Assign x:Key="COCRD" DisplayName="Changing LIS Site" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_102">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:String">[lisSite]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:String">RETRRD</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                              <Assign x:Key="COCTC" DisplayName="Changing LIS Site" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_103">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:String">[lisSite]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:String">JRMCTC</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                              <Assign x:Key="COCFW" DisplayName="Changing LIS Site" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_138">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:String">[lisSite]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:String">FWMCFW</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                              <Assign x:Key="COCWR" DisplayName="Changing LIS Site" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_139">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:String">[lisSite]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:String">WFLHWR</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                            </Switch>
+                                            <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_ExpanseNetwork.ToUpper]" sap:VirtualizedContainerService.HintSize="518,170" sap2010:WorkflowViewState.IdRef="Switch`1_7">
+                                              <Assign x:Key="GCD" DisplayName="Changing LIS Site" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_104">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:String">[lisSite]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:String">NCYMNC</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                            </Switch>
+                                            <If Condition="[loginSkipper]" sap:VirtualizedContainerService.HintSize="518,892" sap2010:WorkflowViewState.IdRef="If_27">
+                                              <If.Then>
+                                                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,633" sap2010:WorkflowViewState.IdRef="Sequence_118">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <Assign DisplayName="Assign: Ancillary\Navigation\go_to_Change_Users_LIS_Site.xaml" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_136">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:String">[currentWorkflowExecution]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:String">Ancillary\Navigation\go_to_Change_Users_LIS_Site.xaml</InArgument>
+                                                    </Assign.Value>
+                                                  </Assign>
+                                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Ancillary\Navigation\go_to_Change_Users_LIS_Site.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_151" UnSafe="False" WorkflowFileName="Ancillary\Navigation\go_to_Change_Users_LIS_Site.xaml">
+                                                    <ui:InvokeWorkflowFile.Arguments>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[expanseBrowserUrl]</InArgument>
+                                                    </ui:InvokeWorkflowFile.Arguments>
+                                                  </ui:InvokeWorkflowFile>
+                                                  <Assign DisplayName="Assign: Ancillary\Laboratory\LAB_Change_User's_LIS_Site.xaml" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_137">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:String">[currentWorkflowExecution]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:String">Ancillary\Laboratory\LAB_Change_User's_LIS_Site.xaml</InArgument>
+                                                    </Assign.Value>
+                                                  </Assign>
+                                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Ancillary\Laboratory\LAB_Change_User's_LIS_Site.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_152" UnSafe="False" WorkflowFileName="Ancillary\Laboratory\LAB_Change_User's_LIS_Site.xaml">
+                                                    <ui:InvokeWorkflowFile.Arguments>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="in_LIS_Site">[lisSite]</InArgument>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[expanseBrowserUrl]</InArgument>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="in_RegTypeExcelSheet">[registrationTypeForExcel]</InArgument>
+                                                      <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="OutputDataHM">[outputDataHM]</InOutArgument>
+                                                    </ui:InvokeWorkflowFile.Arguments>
+                                                  </ui:InvokeWorkflowFile>
+                                                </Sequence>
+                                              </If.Then>
+                                              <If.Else>
+                                                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_119">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                </Sequence>
+                                              </If.Else>
+                                            </If>
+                                            <Assign DisplayName="Assign: Ancillary\Navigation\go_to_Requisitions_from_LaboratoryTab.xaml" sap:VirtualizedContainerService.HintSize="518,114" sap2010:WorkflowViewState.IdRef="Assign_51">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="x:String">[currentWorkflowExecution]</OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="x:String">Ancillary\Navigation\go_to_Requisitions_from_LaboratoryTab.xaml</InArgument>
+                                              </Assign.Value>
+                                            </Assign>
+                                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Ancillary\Navigation\go_to_Requisitions_from_LaboratoryTab.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="518,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_41" UnSafe="False" WorkflowFileName="Ancillary\Navigation\go_to_Requisitions_from_LaboratoryTab.xaml">
+                                              <ui:InvokeWorkflowFile.Arguments>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_HCIS">NCFL TEST HCIS</InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_Facility">[facility]</InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[expanseBrowserUrl]</InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_LISSite">[lisSite]</InArgument>
+                                              </ui:InvokeWorkflowFile.Arguments>
+                                            </ui:InvokeWorkflowFile>
+                                            <Assign DisplayName="Assign: Ancillary\Laboratory\LAB_DynamicEnter_LIS_Requisition_OrdersTab.xaml" sap:VirtualizedContainerService.HintSize="518,114" sap2010:WorkflowViewState.IdRef="Assign_52">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="x:String">[currentWorkflowExecution]</OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="x:String">Ancillary\Laboratory\LAB_DynamicEnter_LIS_Requisition_OrdersTab_by_MRN.xaml</InArgument>
+                                              </Assign.Value>
+                                            </Assign>
+                                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="LAB_DynamicEnter_LIS_Requisition_OrdersTab_by_MRN - Invoke Workflow File (Ancillary\Laboratory\LAB_DynamicEnter_LIS_Requisition_OrdersTab_by_MRN.xaml)" sap:VirtualizedContainerService.HintSize="518,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_154" UnSafe="False" WorkflowFileName="Ancillary\Laboratory\LAB_DynamicEnter_LIS_Requisition_OrdersTab_by_MRN.xaml">
+                                              <ui:InvokeWorkflowFile.Arguments>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_3_4ID">[in_3_4ID]</InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_Reason">Testing.</InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[expanseBrowserUrl]</InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_RegTypeExcelSheet">[registrationTypeForExcel]</InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_listOfLabOrders">[in_LabOrders]</InArgument>
+                                                <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="OutputDataHM">[outputDataHM]</InOutArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_MRN">[MRN]</InArgument>
+                                              </ui:InvokeWorkflowFile.Arguments>
+                                            </ui:InvokeWorkflowFile>
+                                            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="518,57" sap2010:WorkflowViewState.IdRef="CommentOut_6">
+                                              <ui:CommentOut.Body>
+                                                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,228" sap2010:WorkflowViewState.IdRef="Sequence_120">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="LAB_DynamicEnter_LIS_Requisition_OrdersTab.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="382,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_42" UnSafe="False" WorkflowFileName="Ancillary\Laboratory\LAB_DynamicEnter_LIS_Requisition_OrdersTab.xaml">
+                                                    <ui:InvokeWorkflowFile.Arguments>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="in_3_4ID">[in_3_4ID]</InArgument>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="in_Reason">Testing.</InArgument>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[expanseBrowserUrl]</InArgument>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="in_RegTypeExcelSheet">[registrationTypeForExcel]</InArgument>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="in_listOfLabOrders">[in_LabOrders]</InArgument>
+                                                      <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="OutputDataHM">[outputDataHM]</InOutArgument>
+                                                    </ui:InvokeWorkflowFile.Arguments>
+                                                  </ui:InvokeWorkflowFile>
+                                                </Sequence>
+                                              </ui:CommentOut.Body>
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </ui:CommentOut>
+                                            <Assign DisplayName="Assign: Utility\ClickCloseToExit.xaml" sap:VirtualizedContainerService.HintSize="518,114" sap2010:WorkflowViewState.IdRef="Assign_31">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="x:String">[currentWorkflowExecution]</OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="x:String">Utility\ClickCloseToExit.xaml</InArgument>
+                                              </Assign.Value>
+                                            </Assign>
+                                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Utility\ClickCloseToExit.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="518,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_43" UnSafe="False" WorkflowFileName="Utility\ClickCloseToExit.xaml">
+                                              <ui:InvokeWorkflowFile.Arguments>
+                                                <InArgument x:TypeArguments="x:Int32" x:Key="in_NumberOfClicks">1</InArgument>
+                                                <InArgument x:TypeArguments="x:Int32" x:Key="in_PostClickDelay">0</InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[expanseBrowserUrl]</InArgument>
+                                              </ui:InvokeWorkflowFile.Arguments>
+                                            </ui:InvokeWorkflowFile>
+                                            <If Condition="[in_ExpanseNetwork.ToUpper.Equals(&quot;NHA&quot;) Or in_ExpanseNetwork.ToUpper.Equals(&quot;SAN&quot;) Or in_ExpanseNetwork.ToUpper.Equals(&quot;EFL&quot;) Or in_ExpanseNetwork.ToUpper.Equals(&quot;GCD&quot;) _&#xA;Or in_ExpanseNetwork.ToUpper.Equals(&quot;NCFL&quot;)]" sap:VirtualizedContainerService.HintSize="518,3081" sap2010:WorkflowViewState.IdRef="If_3">
+                                              <If.Then>
+                                                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="484,1414" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                                                  <Sequence.Variables>
+                                                    <Variable x:TypeArguments="x:String" Name="statusCellPosition" />
+                                                  </Sequence.Variables>
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <Assign DisplayName="Assign: Ancillary\Navigation\go_to_EnterResults_Standart_from_LabTab.xaml" sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_53">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:String">[currentWorkflowExecution]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:String">Ancillary\Navigation\go_to_EnterResults_Standart_from_LabTab.xaml</InArgument>
+                                                    </Assign.Value>
+                                                  </Assign>
+                                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Ancillary\Navigation\go_to_EnterResults_Standart_from_LabTab.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="450,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_92" UnSafe="False" WorkflowFileName="Ancillary\Navigation\go_to_EnterResults_Standart_from_LabTab.xaml">
+                                                    <ui:InvokeWorkflowFile.Arguments>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[expanseBrowserUrl]</InArgument>
+                                                    </ui:InvokeWorkflowFile.Arguments>
+                                                  </ui:InvokeWorkflowFile>
+                                                  <Assign DisplayName="Assign: Ancillary\Laboratory\LAB_DynamicEnter_Results_Standart.xaml" sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_54">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:String">[currentWorkflowExecution]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:String">Ancillary\Laboratory\LAB_DynamicEnter_Results_Standart.xaml</InArgument>
+                                                    </Assign.Value>
+                                                  </Assign>
+                                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="LAB_DynamicEnter_Results_Standart.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="450,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_93" UnSafe="False" WorkflowFileName="Ancillary\Laboratory\LAB_DynamicEnter_Results_Standart_with_RECD_status.xaml">
+                                                    <ui:InvokeWorkflowFile.Arguments>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[expanseBrowserUrl]</InArgument>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="in_RegTypeExcelSheet">[registrationTypeForExcel]</InArgument>
+                                                    </ui:InvokeWorkflowFile.Arguments>
+                                                  </ui:InvokeWorkflowFile>
+                                                  <Assign DisplayName="Assign: Utility\ClickCloseToExit.xaml" sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_32">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:String">[currentWorkflowExecution]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:String">Utility\ClickCloseToExit.xaml</InArgument>
+                                                    </Assign.Value>
+                                                  </Assign>
+                                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Utility\ClickCloseToExit.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="450,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_94" UnSafe="False" WorkflowFileName="Utility\ClickCloseToExit.xaml">
+                                                    <ui:InvokeWorkflowFile.Arguments>
+                                                      <InArgument x:TypeArguments="x:Int32" x:Key="in_NumberOfClicks">1</InArgument>
+                                                      <InArgument x:TypeArguments="x:Int32" x:Key="in_PostClickDelay">0</InArgument>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[expanseBrowserUrl]</InArgument>
+                                                    </ui:InvokeWorkflowFile.Arguments>
+                                                  </ui:InvokeWorkflowFile>
+                                                  <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="450,433" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" InstanceCachePeriod="3000" WorkbookPath="Utility\ExcelDataTables\Patients_for_adding_lab_results.xlsx">
+                                                    <ui:ExcelApplicationScope.Body>
+                                                      <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                                                        <ActivityAction.Argument>
+                                                          <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                                                        </ActivityAction.Argument>
+                                                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,291" sap2010:WorkflowViewState.IdRef="Sequence_122">
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                            </scg:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                          <ui:ExcelLookUpRange DisplayName="Lookup Range" sap:VirtualizedContainerService.HintSize="382,120" sap2010:WorkflowViewState.IdRef="ExcelLookUpRange_1" Result="[statusCellPosition]" SheetName="Patients_for_labResults" Value="[CurrentRow(&quot;MRN&quot;).ToString]">
+                                                            <ui:ExcelLookUpRange.Range>
+                                                              <InArgument x:TypeArguments="x:String">
+                                                                <Literal x:TypeArguments="x:String" Value="" />
+                                                              </InArgument>
+                                                            </ui:ExcelLookUpRange.Range>
+                                                          </ui:ExcelLookUpRange>
+                                                          <ui:ExcelWriteCell Cell="[statusCellPosition.Replace(&quot;A&quot;, &quot;D&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="382,111" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_1" SheetName="Patients_for_labResults" Text="done" />
+                                                        </Sequence>
+                                                      </ActivityAction>
+                                                    </ui:ExcelApplicationScope.Body>
+                                                  </ui:ExcelApplicationScope>
+                                                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,48" sap2010:WorkflowViewState.IdRef="CommentOut_7">
+                                                    <ui:CommentOut.Body>
+                                                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_121">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_109">
+                                                          <Assign.To>
+                                                            <OutArgument x:TypeArguments="x:Int32">[firstRunSkipCondition]</OutArgument>
+                                                          </Assign.To>
+                                                          <Assign.Value>
+                                                            <InArgument x:TypeArguments="x:Int32">[firstRunSkipCondition + 1]</InArgument>
+                                                          </Assign.Value>
+                                                        </Assign>
+                                                      </Sequence>
+                                                    </ui:CommentOut.Body>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </ui:CommentOut>
+                                                </Sequence>
+                                              </If.Then>
+                                              <If.Else>
+                                                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="469,1506" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <Assign DisplayName="Assign: Ancillary\Navigation\go_to_Change_Users_LIS_Site.xaml" sap:VirtualizedContainerService.HintSize="435,114" sap2010:WorkflowViewState.IdRef="Assign_55">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:String">[currentWorkflowExecution]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:String">Ancillary\Navigation\go_to_Change_Users_LIS_Site.xaml</InArgument>
+                                                    </Assign.Value>
+                                                  </Assign>
+                                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Ancillary\Navigation\go_to_Change_Users_LIS_Site.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="435,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_105" UnSafe="False" WorkflowFileName="Ancillary\Navigation\go_to_Change_Users_LIS_Site.xaml">
+                                                    <ui:InvokeWorkflowFile.Arguments>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[expanseBrowserUrl]</InArgument>
+                                                    </ui:InvokeWorkflowFile.Arguments>
+                                                  </ui:InvokeWorkflowFile>
+                                                  <Assign DisplayName="Assign: Ancillary\Laboratory\LAB_Change_User's_LIS_Site.xaml" sap:VirtualizedContainerService.HintSize="435,114" sap2010:WorkflowViewState.IdRef="Assign_56">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:String">[currentWorkflowExecution]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:String">Ancillary\Laboratory\LAB_Change_User's_LIS_Site.xaml</InArgument>
+                                                    </Assign.Value>
+                                                  </Assign>
+                                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Ancillary\Laboratory\LAB_Change_User's_LIS_Site.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="435,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_106" UnSafe="False" WorkflowFileName="Ancillary\Laboratory\LAB_Change_User's_LIS_Site.xaml">
+                                                    <ui:InvokeWorkflowFile.Arguments>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="in_LIS_Site">[lisSite]</InArgument>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[expanseBrowserUrl]</InArgument>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="in_RegTypeExcelSheet">[registrationTypeForExcel]</InArgument>
+                                                      <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="OutputDataHM">[outputDataHM]</InOutArgument>
+                                                    </ui:InvokeWorkflowFile.Arguments>
+                                                  </ui:InvokeWorkflowFile>
+                                                  <Assign DisplayName="Assign: Ancillary\Navigation\go_to_EnterResults_Standart_from_LabTab.xaml" sap:VirtualizedContainerService.HintSize="435,114" sap2010:WorkflowViewState.IdRef="Assign_57">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:String">[currentWorkflowExecution]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:String">Ancillary\Navigation\go_to_EnterResults_Standart_from_LabTab.xaml</InArgument>
+                                                    </Assign.Value>
+                                                  </Assign>
+                                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Ancillary\Navigation\go_to_EnterResults_Standart_from_LabTab.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="435,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_107" UnSafe="False" WorkflowFileName="Ancillary\Navigation\go_to_EnterResults_Standart_from_LabTab.xaml">
+                                                    <ui:InvokeWorkflowFile.Arguments>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[expanseBrowserUrl]</InArgument>
+                                                    </ui:InvokeWorkflowFile.Arguments>
+                                                  </ui:InvokeWorkflowFile>
+                                                  <Assign DisplayName="Assign: Ancillary\Laboratory\LAB_DynamicEnter_Results_Standart.xaml" sap:VirtualizedContainerService.HintSize="435,114" sap2010:WorkflowViewState.IdRef="Assign_93">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:String">[currentWorkflowExecution]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:String">Ancillary\Laboratory\LAB_DynamicEnter_Results_Standart.xaml</InArgument>
+                                                    </Assign.Value>
+                                                  </Assign>
+                                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="LAB_DynamicEnter_Results_Standart.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="435,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_108" UnSafe="False" WorkflowFileName="Ancillary\Laboratory\LAB_DynamicEnter_Results_Standart.xaml">
+                                                    <ui:InvokeWorkflowFile.Arguments>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[expanseBrowserUrl]</InArgument>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="in_RegTypeExcelSheet">[registrationTypeForExcel]</InArgument>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="BreakTriggerScopeInArgument" />
+                                                    </ui:InvokeWorkflowFile.Arguments>
+                                                  </ui:InvokeWorkflowFile>
+                                                  <Assign DisplayName="Assign: Utility\ClickCloseToExit.xaml" sap:VirtualizedContainerService.HintSize="435,114" sap2010:WorkflowViewState.IdRef="Assign_33">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:String">[currentWorkflowExecution]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:String">Utility\ClickCloseToExit.xaml</InArgument>
+                                                    </Assign.Value>
+                                                  </Assign>
+                                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Utility\ClickCloseToExit.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="435,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_109" UnSafe="False" WorkflowFileName="Utility\ClickCloseToExit.xaml">
+                                                    <ui:InvokeWorkflowFile.Arguments>
+                                                      <InArgument x:TypeArguments="x:Int32" x:Key="in_NumberOfClicks">1</InArgument>
+                                                      <InArgument x:TypeArguments="x:Int32" x:Key="in_PostClickDelay">0</InArgument>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[expanseBrowserUrl]</InArgument>
+                                                    </ui:InvokeWorkflowFile.Arguments>
+                                                  </ui:InvokeWorkflowFile>
+                                                </Sequence>
+                                              </If.Else>
+                                            </If>
+                                          </Sequence>
+                                        </If.Else>
+                                      </If>
+                                    </Sequence>
+                                  </If.Then>
+                                  <If.Else>
+                                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="Sequence_104">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="Info" Message="[&quot;Patient &quot; + MRN + &quot; has the &quot; + CurrentRow(&quot;Status(pending/done)&quot;).ToString + &quot; status. Skipping this patient.&quot;]" />
+                                    </Sequence>
+                                  </If.Else>
+                                </If>
+                                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="654,219" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+                                  <ui:CommentOut.Body>
+                                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,108" sap2010:WorkflowViewState.IdRef="Sequence_117">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <If Condition="[firstRunSkipCondition = 1]" DisplayName="If: Skipping/Not skipping the part with comparing the next patient's facility location after process execution" sap:VirtualizedContainerService.HintSize="382,48" sap2010:WorkflowViewState.IdRef="If_19">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <If.Then>
+                                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_101">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </Sequence>
+                                        </If.Then>
+                                        <If.Else>
+                                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="484,726" sap2010:WorkflowViewState.IdRef="Sequence_102">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <If Condition="[CurrentRow(&quot;Status(pending/done)&quot;).Equals(&quot;pending&quot;)]" DisplayName="If: checking the patient's status for adding the labs OR not" sap:VirtualizedContainerService.HintSize="450,666" sap2010:WorkflowViewState.IdRef="If_21">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <If.Then>
+                                                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,281" sap2010:WorkflowViewState.IdRef="Sequence_106">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,173" sap2010:WorkflowViewState.IdRef="LogMessage_25" Level="Info" Message="[&quot;Patient &quot; + MRN + &quot; has the &quot; + CurrentRow(&quot;Status(pending/done)&quot;).ToString + &quot; status. Adding the lab results.&quot;]" />
+                                                  <If Condition="[in_Facility.ToUpper.Equals(&quot;COCIE&quot;)  Or in_Facility.ToUpper.Equals(&quot;COCUE&quot;)  Or in_Facility.ToUpper.Equals(&quot;COCXJ&quot;)  Or in_Facility.ToUpper.Equals(&quot;COCYKW&quot;)  _ &#xA;Or in_Facility.ToUpper.Equals(&quot;COCYKO&quot;)  Or in_Facility.ToUpper.Equals(&quot;COCULN&quot;) Or in_Facility.ToUpper.Equals(&quot;COCTL&quot;) Or in_Facility.ToUpper.Equals(&quot;COCHNA&quot;)  _&#xA;Or in_Facility.ToUpper.Equals(&quot;COCFW&quot;) Or in_Facility.ToUpper.Equals(&quot;COCTW&quot;) Or in_Facility.ToUpper.Equals(&quot;COCWR&quot;)]" DisplayName="If: Skipping the labs part due to idm site issues for certain facilities " sap:VirtualizedContainerService.HintSize="382,48" sap2010:WorkflowViewState.IdRef="If_22">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                    <If.Then>
+                                                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="Sequence_109">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_27" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Labs part temporary skipped for facilities: COCIE, COCUE, COCXJ, COCYKW, COCYKO and COCULN&quot;]" />
+                                                      </Sequence>
+                                                    </If.Then>
+                                                    <If.Else>
+                                                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="537,3178" sap2010:WorkflowViewState.IdRef="Sequence_111">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <Switch x:TypeArguments="x:String" DisplayName="Select the right LIS Site for certain facilities" Expression="[in_Facility.ToUpper]" sap:VirtualizedContainerService.HintSize="503,434" sap2010:WorkflowViewState.IdRef="Switch`1_8">
+                                                          <Assign x:Key="COCXS" DisplayName="Changing LIS site" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_110">
+                                                            <Assign.To>
+                                                              <OutArgument x:TypeArguments="x:String">[lisSite]</OutArgument>
+                                                            </Assign.To>
+                                                            <Assign.Value>
+                                                              <InArgument x:TypeArguments="x:String">DOMIXS</InArgument>
+                                                            </Assign.Value>
+                                                          </Assign>
+                                                          <Assign x:Key="COCYS" DisplayName="Changing LIS site" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_111">
+                                                            <Assign.To>
+                                                              <OutArgument x:TypeArguments="x:String">[lisSite]</OutArgument>
+                                                            </Assign.To>
+                                                            <Assign.Value>
+                                                              <InArgument x:TypeArguments="x:String">RESTYS</InArgument>
+                                                            </Assign.Value>
+                                                          </Assign>
+                                                          <Assign x:Key="COCSS" DisplayName="Changing LIS site" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_112">
+                                                            <Assign.To>
+                                                              <OutArgument x:TypeArguments="x:String">[lisSite]</OutArgument>
+                                                            </Assign.To>
+                                                            <Assign.Value>
+                                                              <InArgument x:TypeArguments="x:String">SSHCSS</InArgument>
+                                                            </Assign.Value>
+                                                          </Assign>
+                                                          <Assign x:Key="COCJFK" DisplayName="Changing LIS site" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_113">
+                                                            <Assign.To>
+                                                              <OutArgument x:TypeArguments="x:String">[lisSite]</OutArgument>
+                                                            </Assign.To>
+                                                            <Assign.Value>
+                                                              <InArgument x:TypeArguments="x:String">JFKDJFK</InArgument>
+                                                            </Assign.Value>
+                                                          </Assign>
+                                                          <Assign x:Key="COCPA" DisplayName="Changing LIS site" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_114">
+                                                            <Assign.To>
+                                                              <OutArgument x:TypeArguments="x:String">[lisSite]</OutArgument>
+                                                            </Assign.To>
+                                                            <Assign.Value>
+                                                              <InArgument x:TypeArguments="x:String">NJFKPA</InArgument>
+                                                            </Assign.Value>
+                                                          </Assign>
+                                                          <Assign x:Key="COCVW" DisplayName="Changing LIS site" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_115">
+                                                            <Assign.To>
+                                                              <OutArgument x:TypeArguments="x:String">[lisSite]</OutArgument>
+                                                            </Assign.To>
+                                                            <Assign.Value>
+                                                              <InArgument x:TypeArguments="x:String">LRMCVM</InArgument>
+                                                            </Assign.Value>
+                                                          </Assign>
+                                                          <Assign x:Key="COCPF" DisplayName="Changing LIS Site" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_116">
+                                                            <Assign.To>
+                                                              <OutArgument x:TypeArguments="x:String">[lisSite]</OutArgument>
+                                                            </Assign.To>
+                                                            <Assign.Value>
+                                                              <InArgument x:TypeArguments="x:String">PWEHPF</InArgument>
+                                                            </Assign.Value>
+                                                          </Assign>
+                                                          <Assign x:Key="COCCC" DisplayName="Changing LIS Site" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_117">
+                                                            <Assign.To>
+                                                              <OutArgument x:TypeArguments="x:String">[lisSite]</OutArgument>
+                                                            </Assign.To>
+                                                            <Assign.Value>
+                                                              <InArgument x:TypeArguments="x:String">CJWCCC</InArgument>
+                                                            </Assign.Value>
+                                                          </Assign>
+                                                          <Assign x:Key="COCJW" DisplayName="Changing LIS Site" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_118">
+                                                            <Assign.To>
+                                                              <OutArgument x:TypeArguments="x:String">[lisSite]</OutArgument>
+                                                            </Assign.To>
+                                                            <Assign.Value>
+                                                              <InArgument x:TypeArguments="x:String">CJWJJW</InArgument>
+                                                            </Assign.Value>
+                                                          </Assign>
+                                                          <Assign x:Key="COCHR" DisplayName="Changing LIS Site" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_119">
+                                                            <Assign.To>
+                                                              <OutArgument x:TypeArguments="x:String">[lisSite]</OutArgument>
+                                                            </Assign.To>
+                                                            <Assign.Value>
+                                                              <InArgument x:TypeArguments="x:String">HENRHR</InArgument>
+                                                            </Assign.Value>
+                                                          </Assign>
+                                                          <Assign x:Key="COCPD" DisplayName="Changing LIS Site" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_120">
+                                                            <Assign.To>
+                                                              <OutArgument x:TypeArguments="x:String">[lisSite]</OutArgument>
+                                                            </Assign.To>
+                                                            <Assign.Value>
+                                                              <InArgument x:TypeArguments="x:String">HDHPPD</InArgument>
+                                                            </Assign.Value>
+                                                          </Assign>
+                                                          <Assign x:Key="COCRD" DisplayName="Changing LIS Site" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_121">
+                                                            <Assign.To>
+                                                              <OutArgument x:TypeArguments="x:String">[lisSite]</OutArgument>
+                                                            </Assign.To>
+                                                            <Assign.Value>
+                                                              <InArgument x:TypeArguments="x:String">RETRRD</InArgument>
+                                                            </Assign.Value>
+                                                          </Assign>
+                                                          <Assign x:Key="COCTC" DisplayName="Changing LIS Site" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_122">
+                                                            <Assign.To>
+                                                              <OutArgument x:TypeArguments="x:String">[lisSite]</OutArgument>
+                                                            </Assign.To>
+                                                            <Assign.Value>
+                                                              <InArgument x:TypeArguments="x:String">JRMCTC</InArgument>
+                                                            </Assign.Value>
+                                                          </Assign>
+                                                        </Switch>
+                                                        <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_ExpanseNetwork.ToUpper]" sap:VirtualizedContainerService.HintSize="503,170" sap2010:WorkflowViewState.IdRef="Switch`1_9">
+                                                          <Assign x:Key="GCD" DisplayName="Changing LIS Site" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_123">
+                                                            <Assign.To>
+                                                              <OutArgument x:TypeArguments="x:String">[lisSite]</OutArgument>
+                                                            </Assign.To>
+                                                            <Assign.Value>
+                                                              <InArgument x:TypeArguments="x:String">NCYMNC</InArgument>
+                                                            </Assign.Value>
+                                                          </Assign>
+                                                        </Switch>
+                                                        <Assign DisplayName="Assign: Ancillary\Navigation\go_to_Requisitions_from_LaboratoryTab.xaml" sap:VirtualizedContainerService.HintSize="503,114" sap2010:WorkflowViewState.IdRef="Assign_124">
+                                                          <Assign.To>
+                                                            <OutArgument x:TypeArguments="x:String">[currentWorkflowExecution]</OutArgument>
+                                                          </Assign.To>
+                                                          <Assign.Value>
+                                                            <InArgument x:TypeArguments="x:String">Ancillary\Navigation\go_to_Requisitions_from_LaboratoryTab.xaml</InArgument>
+                                                          </Assign.Value>
+                                                        </Assign>
+                                                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Ancillary\Navigation\go_to_Requisitions_from_LaboratoryTab.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="503,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_138" UnSafe="False" WorkflowFileName="Ancillary\Navigation\go_to_Requisitions_from_LaboratoryTab.xaml">
+                                                          <ui:InvokeWorkflowFile.Arguments>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="in_HCIS">NCFL TEST HCIS</InArgument>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="in_Facility">[facility]</InArgument>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[expanseBrowserUrl]</InArgument>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="in_LISSite">[lisSite]</InArgument>
+                                                          </ui:InvokeWorkflowFile.Arguments>
+                                                        </ui:InvokeWorkflowFile>
+                                                        <Assign DisplayName="Assign: Ancillary\Laboratory\LAB_DynamicEnter_LIS_Requisition_OrdersTab.xaml" sap:VirtualizedContainerService.HintSize="503,114" sap2010:WorkflowViewState.IdRef="Assign_125">
+                                                          <Assign.To>
+                                                            <OutArgument x:TypeArguments="x:String">[currentWorkflowExecution]</OutArgument>
+                                                          </Assign.To>
+                                                          <Assign.Value>
+                                                            <InArgument x:TypeArguments="x:String">Ancillary\Laboratory\LAB_DynamicEnter_LIS_Requisition_OrdersTab.xaml</InArgument>
+                                                          </Assign.Value>
+                                                        </Assign>
+                                                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="LAB_DynamicEnter_LIS_Requisition_OrdersTab.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="503,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_139" UnSafe="False" WorkflowFileName="Ancillary\Laboratory\LAB_DynamicEnter_LIS_Requisition_OrdersTab.xaml">
+                                                          <ui:InvokeWorkflowFile.Arguments>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="in_3_4ID">[in_3_4ID]</InArgument>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="in_Reason">Testing.</InArgument>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[expanseBrowserUrl]</InArgument>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="in_RegTypeExcelSheet">[registrationTypeForExcel]</InArgument>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="in_listOfLabOrders">[in_LabOrders]</InArgument>
+                                                            <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="OutputDataHM">[outputDataHM]</InOutArgument>
+                                                          </ui:InvokeWorkflowFile.Arguments>
+                                                        </ui:InvokeWorkflowFile>
+                                                        <Assign DisplayName="Assign: Utility\ClickCloseToExit.xaml" sap:VirtualizedContainerService.HintSize="503,114" sap2010:WorkflowViewState.IdRef="Assign_126">
+                                                          <Assign.To>
+                                                            <OutArgument x:TypeArguments="x:String">[currentWorkflowExecution]</OutArgument>
+                                                          </Assign.To>
+                                                          <Assign.Value>
+                                                            <InArgument x:TypeArguments="x:String">Utility\ClickCloseToExit.xaml</InArgument>
+                                                          </Assign.Value>
+                                                        </Assign>
+                                                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Utility\ClickCloseToExit.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="503,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_140" UnSafe="False" WorkflowFileName="Utility\ClickCloseToExit.xaml">
+                                                          <ui:InvokeWorkflowFile.Arguments>
+                                                            <InArgument x:TypeArguments="x:Int32" x:Key="in_NumberOfClicks">1</InArgument>
+                                                            <InArgument x:TypeArguments="x:Int32" x:Key="in_PostClickDelay">0</InArgument>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[expanseBrowserUrl]</InArgument>
+                                                          </ui:InvokeWorkflowFile.Arguments>
+                                                        </ui:InvokeWorkflowFile>
+                                                        <If Condition="[in_ExpanseNetwork.ToUpper.Equals(&quot;NHA&quot;) Or in_ExpanseNetwork.ToUpper.Equals(&quot;SAN&quot;) Or in_ExpanseNetwork.ToUpper.Equals(&quot;EFL&quot;) Or in_ExpanseNetwork.ToUpper.Equals(&quot;GCD&quot;)]" sap:VirtualizedContainerService.HintSize="503,1641" sap2010:WorkflowViewState.IdRef="If_23">
+                                                          <If.Then>
+                                                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="469,1455" sap2010:WorkflowViewState.IdRef="Sequence_105">
+                                                              <Sequence.Variables>
+                                                                <Variable x:TypeArguments="x:String" Name="statusCellPosition" />
+                                                              </Sequence.Variables>
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                </scg:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                              <Assign DisplayName="Assign: Ancillary\Navigation\go_to_EnterResults_Standart_from_LabTab.xaml" sap:VirtualizedContainerService.HintSize="435,114" sap2010:WorkflowViewState.IdRef="Assign_127">
+                                                                <Assign.To>
+                                                                  <OutArgument x:TypeArguments="x:String">[currentWorkflowExecution]</OutArgument>
+                                                                </Assign.To>
+                                                                <Assign.Value>
+                                                                  <InArgument x:TypeArguments="x:String">Ancillary\Navigation\go_to_EnterResults_Standart_from_LabTab.xaml</InArgument>
+                                                                </Assign.Value>
+                                                              </Assign>
+                                                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Ancillary\Navigation\go_to_EnterResults_Standart_from_LabTab.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="435,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_141" UnSafe="False" WorkflowFileName="Ancillary\Navigation\go_to_EnterResults_Standart_from_LabTab.xaml">
+                                                                <ui:InvokeWorkflowFile.Arguments>
+                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[expanseBrowserUrl]</InArgument>
+                                                                </ui:InvokeWorkflowFile.Arguments>
+                                                              </ui:InvokeWorkflowFile>
+                                                              <Assign DisplayName="Assign: Ancillary\Laboratory\LAB_DynamicEnter_Results_Standart.xaml" sap:VirtualizedContainerService.HintSize="435,114" sap2010:WorkflowViewState.IdRef="Assign_128">
+                                                                <Assign.To>
+                                                                  <OutArgument x:TypeArguments="x:String">[currentWorkflowExecution]</OutArgument>
+                                                                </Assign.To>
+                                                                <Assign.Value>
+                                                                  <InArgument x:TypeArguments="x:String">Ancillary\Laboratory\LAB_DynamicEnter_Results_Standart.xaml</InArgument>
+                                                                </Assign.Value>
+                                                              </Assign>
+                                                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="LAB_DynamicEnter_Results_Standart.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="435,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_142" UnSafe="False" WorkflowFileName="Ancillary\Laboratory\LAB_DynamicEnter_Results_Standart.xaml">
+                                                                <ui:InvokeWorkflowFile.Arguments>
+                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[expanseBrowserUrl]</InArgument>
+                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_RegTypeExcelSheet">[registrationTypeForExcel]</InArgument>
+                                                                  <InArgument x:TypeArguments="x:String" x:Key="BreakTriggerScopeInArgument" />
+                                                                </ui:InvokeWorkflowFile.Arguments>
+                                                              </ui:InvokeWorkflowFile>
+                                                              <Assign DisplayName="Assign: Utility\ClickCloseToExit.xaml" sap:VirtualizedContainerService.HintSize="435,114" sap2010:WorkflowViewState.IdRef="Assign_129">
+                                                                <Assign.To>
+                                                                  <OutArgument x:TypeArguments="x:String">[currentWorkflowExecution]</OutArgument>
+                                                                </Assign.To>
+                                                                <Assign.Value>
+                                                                  <InArgument x:TypeArguments="x:String">Utility\ClickCloseToExit.xaml</InArgument>
+                                                                </Assign.Value>
+                                                              </Assign>
+                                                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Utility\ClickCloseToExit.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="435,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_143" UnSafe="False" WorkflowFileName="Utility\ClickCloseToExit.xaml">
+                                                                <ui:InvokeWorkflowFile.Arguments>
+                                                                  <InArgument x:TypeArguments="x:Int32" x:Key="in_NumberOfClicks">1</InArgument>
+                                                                  <InArgument x:TypeArguments="x:Int32" x:Key="in_PostClickDelay">0</InArgument>
+                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[expanseBrowserUrl]</InArgument>
+                                                                </ui:InvokeWorkflowFile.Arguments>
+                                                              </ui:InvokeWorkflowFile>
+                                                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Utility\Network_Selection.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="435,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_144" UnSafe="False" WorkflowFileName="Utility\Network_Selection.xaml">
+                                                                <ui:InvokeWorkflowFile.Arguments>
+                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseNetwork">[in_ExpanseNetwork]</InArgument>
+                                                                  <OutArgument x:TypeArguments="x:String" x:Key="out_ExpanseLoginUrl" />
+                                                                  <OutArgument x:TypeArguments="x:String" x:Key="out_LISSite">[lisSite]</OutArgument>
+                                                                  <OutArgument x:TypeArguments="x:String" x:Key="out_IDMSite" />
+                                                                  <OutArgument x:TypeArguments="x:String" x:Key="out_ExpanseNetworkUrl" />
+                                                                  <OutArgument x:TypeArguments="x:String" x:Key="out_RoomService" />
+                                                                  <OutArgument x:TypeArguments="x:String" x:Key="out_PHASite" />
+                                                                  <OutArgument x:TypeArguments="x:String" x:Key="out_HCIS" />
+                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_Facility">[in_Facility]</InArgument>
+                                                                  <InOutArgument x:TypeArguments="x:String" x:Key="out_labOrders">[in_LabOrders]</InOutArgument>
+                                                                  <InArgument x:TypeArguments="x:String" x:Key="BreakTriggerScopeInArgument" />
+                                                                </ui:InvokeWorkflowFile.Arguments>
+                                                              </ui:InvokeWorkflowFile>
+                                                              <ui:ExcelLookUpRange DisplayName="Lookup Range" sap:VirtualizedContainerService.HintSize="435,120" sap2010:WorkflowViewState.IdRef="ExcelLookUpRange_2" Result="[statusCellPosition]" SheetName="Patients_for_labResults" Value="[CurrentRow(&quot;Status(pending/done)&quot;).ToString]">
+                                                                <ui:ExcelLookUpRange.Range>
+                                                                  <InArgument x:TypeArguments="x:String">
+                                                                    <Literal x:TypeArguments="x:String" Value="" />
+                                                                  </InArgument>
+                                                                </ui:ExcelLookUpRange.Range>
+                                                              </ui:ExcelLookUpRange>
+                                                              <ui:ExcelWriteCell Cell="[statusCellPosition]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="435,120" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_2" SheetName="Sheet1" Text="done" />
+                                                              <Assign sap:VirtualizedContainerService.HintSize="435,105" sap2010:WorkflowViewState.IdRef="Assign_130">
+                                                                <Assign.To>
+                                                                  <OutArgument x:TypeArguments="x:Int32">[firstRunSkipCondition]</OutArgument>
+                                                                </Assign.To>
+                                                                <Assign.Value>
+                                                                  <InArgument x:TypeArguments="x:Int32">[firstRunSkipCondition + 1]</InArgument>
+                                                                </Assign.Value>
+                                                              </Assign>
+                                                            </Sequence>
+                                                          </If.Then>
+                                                          <If.Else>
+                                                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_110">
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                                </scg:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                              <Assign DisplayName="Assign: Ancillary\Navigation\go_to_Change_Users_LIS_Site.xaml" sap:VirtualizedContainerService.HintSize="435,114" sap2010:WorkflowViewState.IdRef="Assign_131">
+                                                                <Assign.To>
+                                                                  <OutArgument x:TypeArguments="x:String">[currentWorkflowExecution]</OutArgument>
+                                                                </Assign.To>
+                                                                <Assign.Value>
+                                                                  <InArgument x:TypeArguments="x:String">Ancillary\Navigation\go_to_Change_Users_LIS_Site.xaml</InArgument>
+                                                                </Assign.Value>
+                                                              </Assign>
+                                                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Ancillary\Navigation\go_to_Change_Users_LIS_Site.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="435,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_145" UnSafe="False" WorkflowFileName="Ancillary\Navigation\go_to_Change_Users_LIS_Site.xaml">
+                                                                <ui:InvokeWorkflowFile.Arguments>
+                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[expanseBrowserUrl]</InArgument>
+                                                                </ui:InvokeWorkflowFile.Arguments>
+                                                              </ui:InvokeWorkflowFile>
+                                                              <Assign DisplayName="Assign: Ancillary\Laboratory\LAB_Change_User's_LIS_Site.xaml" sap:VirtualizedContainerService.HintSize="435,114" sap2010:WorkflowViewState.IdRef="Assign_132">
+                                                                <Assign.To>
+                                                                  <OutArgument x:TypeArguments="x:String">[currentWorkflowExecution]</OutArgument>
+                                                                </Assign.To>
+                                                                <Assign.Value>
+                                                                  <InArgument x:TypeArguments="x:String">Ancillary\Laboratory\LAB_Change_User's_LIS_Site.xaml</InArgument>
+                                                                </Assign.Value>
+                                                              </Assign>
+                                                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Ancillary\Laboratory\LAB_Change_User's_LIS_Site.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="435,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_146" UnSafe="False" WorkflowFileName="Ancillary\Laboratory\LAB_Change_User's_LIS_Site.xaml">
+                                                                <ui:InvokeWorkflowFile.Arguments>
+                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_LIS_Site">[lisSite]</InArgument>
+                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[expanseBrowserUrl]</InArgument>
+                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_RegTypeExcelSheet">[registrationTypeForExcel]</InArgument>
+                                                                  <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="OutputDataHM">[outputDataHM]</InOutArgument>
+                                                                </ui:InvokeWorkflowFile.Arguments>
+                                                              </ui:InvokeWorkflowFile>
+                                                              <Assign DisplayName="Assign: Ancillary\Navigation\go_to_EnterResults_Standart_from_LabTab.xaml" sap:VirtualizedContainerService.HintSize="435,114" sap2010:WorkflowViewState.IdRef="Assign_133">
+                                                                <Assign.To>
+                                                                  <OutArgument x:TypeArguments="x:String">[currentWorkflowExecution]</OutArgument>
+                                                                </Assign.To>
+                                                                <Assign.Value>
+                                                                  <InArgument x:TypeArguments="x:String">Ancillary\Navigation\go_to_EnterResults_Standart_from_LabTab.xaml</InArgument>
+                                                                </Assign.Value>
+                                                              </Assign>
+                                                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Ancillary\Navigation\go_to_EnterResults_Standart_from_LabTab.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="435,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_147" UnSafe="False" WorkflowFileName="Ancillary\Navigation\go_to_EnterResults_Standart_from_LabTab.xaml">
+                                                                <ui:InvokeWorkflowFile.Arguments>
+                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[expanseBrowserUrl]</InArgument>
+                                                                </ui:InvokeWorkflowFile.Arguments>
+                                                              </ui:InvokeWorkflowFile>
+                                                              <Assign DisplayName="Assign: Ancillary\Laboratory\LAB_DynamicEnter_Results_Standart.xaml" sap:VirtualizedContainerService.HintSize="435,114" sap2010:WorkflowViewState.IdRef="Assign_134">
+                                                                <Assign.To>
+                                                                  <OutArgument x:TypeArguments="x:String">[currentWorkflowExecution]</OutArgument>
+                                                                </Assign.To>
+                                                                <Assign.Value>
+                                                                  <InArgument x:TypeArguments="x:String">Ancillary\Laboratory\LAB_DynamicEnter_Results_Standart.xaml</InArgument>
+                                                                </Assign.Value>
+                                                              </Assign>
+                                                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="LAB_DynamicEnter_Results_Standart.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="435,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_148" UnSafe="False" WorkflowFileName="Ancillary\Laboratory\LAB_DynamicEnter_Results_Standart.xaml">
+                                                                <ui:InvokeWorkflowFile.Arguments>
+                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[expanseBrowserUrl]</InArgument>
+                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_RegTypeExcelSheet">[registrationTypeForExcel]</InArgument>
+                                                                  <InArgument x:TypeArguments="x:String" x:Key="BreakTriggerScopeInArgument" />
+                                                                </ui:InvokeWorkflowFile.Arguments>
+                                                              </ui:InvokeWorkflowFile>
+                                                              <Assign DisplayName="Assign: Utility\ClickCloseToExit.xaml" sap:VirtualizedContainerService.HintSize="435,114" sap2010:WorkflowViewState.IdRef="Assign_135">
+                                                                <Assign.To>
+                                                                  <OutArgument x:TypeArguments="x:String">[currentWorkflowExecution]</OutArgument>
+                                                                </Assign.To>
+                                                                <Assign.Value>
+                                                                  <InArgument x:TypeArguments="x:String">Utility\ClickCloseToExit.xaml</InArgument>
+                                                                </Assign.Value>
+                                                              </Assign>
+                                                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Utility\ClickCloseToExit.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="435,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_149" UnSafe="False" WorkflowFileName="Utility\ClickCloseToExit.xaml">
+                                                                <ui:InvokeWorkflowFile.Arguments>
+                                                                  <InArgument x:TypeArguments="x:Int32" x:Key="in_NumberOfClicks">1</InArgument>
+                                                                  <InArgument x:TypeArguments="x:Int32" x:Key="in_PostClickDelay">0</InArgument>
+                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[expanseBrowserUrl]</InArgument>
+                                                                </ui:InvokeWorkflowFile.Arguments>
+                                                              </ui:InvokeWorkflowFile>
+                                                            </Sequence>
+                                                          </If.Else>
+                                                        </If>
+                                                      </Sequence>
+                                                    </If.Else>
+                                                  </If>
+                                                </Sequence>
+                                              </If.Then>
+                                              <If.Else>
+                                                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="Sequence_107">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_26" Level="Info" Message="[&quot;Patient &quot; + MRN + &quot; has the &quot; + CurrentRow(&quot;Status(pending/done)&quot;).ToString + &quot; status. Skipping this patient.&quot;]" />
+                                                </Sequence>
+                                              </If.Else>
+                                            </If>
+                                          </Sequence>
+                                        </If.Else>
+                                      </If>
+                                    </Sequence>
+                                  </ui:CommentOut.Body>
+                                </ui:CommentOut>
+                                <ucas:UploadStorageFile FileResource="{x:Null}" TimeoutMS="{x:Null}" Destination="Patients_for_adding_lab_results.xlsx" DisplayName="Upload Storage File" sap:VirtualizedContainerService.HintSize="654,271" sap2010:WorkflowViewState.IdRef="UploadStorageFile_1" Path="Utility/ExcelDataTables/Patients_for_adding_lab_results.xlsx" StorageBucketName="[in_StorageBucket]" />
+                                <If Condition="[currentIndex +1 &gt;= totalRows]" sap:VirtualizedContainerService.HintSize="654,645" sap2010:WorkflowViewState.IdRef="If_25">
+                                  <If.Then>
+                                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,395" sap2010:WorkflowViewState.IdRef="Sequence_74">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_31" Level="Info" Message="[&quot;Current number of row &quot; + currentIndex.ToString + &quot; is equal or greater than total rows &quot; + totalRows.ToString]" />
+                                      <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_79">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:Boolean">[retry]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <ui:Break sap:VirtualizedContainerService.HintSize="434,48" sap2010:WorkflowViewState.IdRef="Break_1" />
+                                    </Sequence>
+                                  </If.Then>
+                                  <If.Else>
+                                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_75">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </Sequence>
+                                  </If.Else>
+                                </If>
+                              </Sequence>
+                            </TryCatch.Try>
+                            <TryCatch.Catches>
+                              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="692,22" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ActivityAction x:TypeArguments="s:Exception">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                  </ActivityAction.Argument>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="554,2801" sap2010:WorkflowViewState.IdRef="Sequence_58">
+                                    <Sequence.Variables>
+                                      <Variable x:TypeArguments="x:String" Name="randomNums" />
+                                      <Variable x:TypeArguments="x:String" Name="capturedScreenshot" />
+                                    </Sequence.Variables>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Utility\Bogus\Generate_RandomNums.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="520,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_116" UnSafe="False" WorkflowFileName="Utility\Bogus\Generate_RandomNums.xaml">
+                                      <ui:InvokeWorkflowFile.Arguments>
+                                        <InArgument x:TypeArguments="x:Int32" x:Key="in_DigitNumbers">4</InArgument>
+                                        <OutArgument x:TypeArguments="x:String" x:Key="out_RandomizedNumbers">[randomNums]</OutArgument>
+                                      </ui:InvokeWorkflowFile.Arguments>
+                                    </ui:InvokeWorkflowFile>
+                                    <uix:NTakeScreenshot DisplayName="Take Screenshot" FileName="[&quot;ExceptionScreenshot_ &quot; + randomNums + &quot;.png&quot;]" FileNameMode="None" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="520,263" sap2010:WorkflowViewState.IdRef="NTakeScreenshot_1" Version="V3" />
+                                    <Assign sap:VirtualizedContainerService.HintSize="520,114" sap2010:WorkflowViewState.IdRef="Assign_9">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[capturedScreenshot]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">["ExceptionScreenshot_ " + randomNums + ".png"]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" Email="{x:Null}" MailMessage="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" Body="[&quot;The user's 3-4 ID who triggered the process : &quot; + in_3_4ID + &quot;.&quot; + Environment.NewLine + Environment.NewLine + &quot;Exception message : &quot; + Exception.Source + &quot;: &quot; + Exception.Message + &quot;.&quot; + Environment.NewLine + &quot;Full path of workflow where exception is happened : &quot; + currentWorkflowExecution +&#xA;Environment.NewLine + Environment.NewLine + &quot;Automation Team&quot; + Environment.NewLine + &quot;**Autogenerated email. Please do not reply.**&quot;]" DisplayName="Send SMTP Mail Message" EnableSSL="True" From="corpuIpathautomation@hcahealthcare.com" sap:VirtualizedContainerService.HintSize="520,178" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="False" Name="Bot: Expanse Automation" Port="25" SecureConnection="None" Server="smtp-gw.nas.medcity.net" Subject="[&quot;Lab results: Failed run: &quot; + counter.ToString +  &quot; attempt out of 3&quot;]" To="[in_Email]">
+                                      <ui:SendMail.Files>
+                                        <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                                          <InArgument x:TypeArguments="x:String">[capturedScreenshot]</InArgument>
+                                        </scg:List>
+                                      </ui:SendMail.Files>
+                                    </ui:SendMail>
+                                    <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="520,112" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[capturedScreenshot]" />
+                                    <ui:LogMessage DisplayName="Exception Message" sap:VirtualizedContainerService.HintSize="520,173" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[Exception.Source + &quot;: &quot; + Exception.Message]" />
+                                    <Assign sap:VirtualizedContainerService.HintSize="520,114" sap2010:WorkflowViewState.IdRef="Assign_3">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:Int32">[counter]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:Int32">[counter + 1]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="520,210" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+                                      <ui:MultipleAssign.AssignOperations>
+                                        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_26">
+                                            <ui:AssignOperation.To>
+                                              <OutArgument x:TypeArguments="x:String">[facility]</OutArgument>
+                                            </ui:AssignOperation.To>
+                                            <ui:AssignOperation.Value>
+                                              <InArgument x:TypeArguments="x:String">
+                                                <Literal x:TypeArguments="x:String" Value="" />
+                                              </InArgument>
+                                            </ui:AssignOperation.Value>
+                                          </ui:AssignOperation>
+                                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_27">
+                                            <ui:AssignOperation.To>
+                                              <OutArgument x:TypeArguments="x:String">[in_ExpanseNetwork]</OutArgument>
+                                            </ui:AssignOperation.To>
+                                            <ui:AssignOperation.Value>
+                                              <InArgument x:TypeArguments="x:String">
+                                                <Literal x:TypeArguments="x:String" Value="" />
+                                              </InArgument>
+                                            </ui:AssignOperation.Value>
+                                          </ui:AssignOperation>
+                                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_28">
+                                            <ui:AssignOperation.To>
+                                              <OutArgument x:TypeArguments="x:Boolean">[loginSkipper]</OutArgument>
+                                            </ui:AssignOperation.To>
+                                            <ui:AssignOperation.Value>
+                                              <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                            </ui:AssignOperation.Value>
+                                          </ui:AssignOperation>
+                                        </scg:List>
+                                      </ui:MultipleAssign.AssignOperations>
+                                    </ui:MultipleAssign>
+                                    <ucas:UploadStorageFile FileResource="{x:Null}" TimeoutMS="{x:Null}" Destination="Patients_for_adding_lab_results.xlsx" DisplayName="Upload Storage File" sap:VirtualizedContainerService.HintSize="520,271" sap2010:WorkflowViewState.IdRef="UploadStorageFile_2" Path="Utility/ExcelDataTables/Patients_for_adding_lab_results.xlsx" StorageBucketName="[in_StorageBucket]" />
+                                    <If Condition="[counter &lt;= 3]" sap:VirtualizedContainerService.HintSize="520,1129" sap2010:WorkflowViewState.IdRef="If_6">
+                                      <If.Then>
+                                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="486,508" sap2010:WorkflowViewState.IdRef="Sequence_54">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="452,284" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                                            <ui:CommentOut.Body>
+                                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,173" sap2010:WorkflowViewState.IdRef="Sequence_76">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <Throw Exception="[New Exception(&quot;Temporary throwing exception after one attempt, going to opimize the '3 times try run' feature&quot;)]" sap:VirtualizedContainerService.HintSize="382,113" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                                              </Sequence>
+                                            </ui:CommentOut.Body>
+                                          </ui:CommentOut>
+                                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,164" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Try number: &quot; + counter.ToString]" />
+                                        </Sequence>
+                                      </If.Then>
+                                      <If.Else>
+                                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,460" sap2010:WorkflowViewState.IdRef="Sequence_55">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="[UiPath.Core.Activities.LogLevel.Warn]" Message="[&quot;3 attempts were used and all with exceptions.&quot;]" />
+                                          <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_4">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Boolean">[retry]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                          <Throw Exception="[Exception]" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                                        </Sequence>
+                                      </If.Else>
+                                    </If>
+                                  </Sequence>
+                                </ActivityAction>
+                              </Catch>
+                            </TryCatch.Catches>
+                          </TryCatch>
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:ForEachRow.Body>
+                  </ui:ForEachRow>
+                </Sequence>
+              </ActivityAction>
+            </ui:ExcelApplicationScope.Body>
+          </ui:ExcelApplicationScope>
+        </Sequence>
+      </ui:InterruptibleWhile.Body>
+    </ui:InterruptibleWhile>
+  </Sequence>
+</Activity>
