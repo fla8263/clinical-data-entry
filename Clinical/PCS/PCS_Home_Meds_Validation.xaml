@@ -1,0 +1,438 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="PCS_Home_Meds_Validation" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_RegTypeExcelSheet" Type="InArgument(x:String)" />
+    <x:Property Name="in_ExpanseBrowserUrl" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:PCS_Home_Meds_Validation.in_ExpanseBrowserUrl>
+    <InArgument x:TypeArguments="x:String" />
+  </this:PCS_Home_Meds_Validation.in_ExpanseBrowserUrl>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1423,4774</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>PCS_Home_Meds_Validation_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>UiPath.Excel.Model</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="84">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="PCS_Home_Meds_Validation" sap:VirtualizedContainerService.HintSize="886,4709" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="actualDataForExcel" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Chart - MEDITECH" sap:VirtualizedContainerService.HintSize="824,4598" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="53cdc3c6-f22b-4846-8fa2-076fd5d8e5e7" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="790,4381" sap2010:WorkflowViewState.IdRef="Sequence_10">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="728,90" sap2010:WorkflowViewState.IdRef="Delay_1" />
+            <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="728,4136" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1">
+              <ueab:ExcelProcessScopeX.Body>
+                <ActivityAction x:TypeArguments="ui:IExcelProcess">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="694,4049" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="632,3938" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ResizeWindow="None" WorkbookPath="Utility\ExcelDataTables\Output_Data(Expected Result).xlsx">
+                      <ueab:ExcelApplicationCard.Body>
+                        <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="598,3669" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                            <Sequence.Variables>
+                              <Variable x:TypeArguments="x:String" Name="actualDataForExcel2" />
+                            </Sequence.Variables>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <uix:NGetText DisplayName="Get Text 'Home Meds'" sap:VirtualizedContainerService.HintSize="536,157" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="53cdc3c6-f22b-4846-8fa2-076fd5d8e5e7" TextString="[actualDataForExcel]" Version="V3">
+                              <uix:NGetText.Target>
+                                <uix:TargetAnchorable BrowserURL="https://ehrcap.exp.hca.cloud/test/s0001212686474458/" DesignTimeRectangle="1761, 950, 141, 16" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Last Taken: 06/19/24'" FullSelectorArgument="&lt;webctrl aaname='Last Taken: 06/19/24' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' tag='SPAN' class='' /&gt;" Guid="a43f897b-be57-4128-96dd-668058c72d82" InformativeScreenshot="22a94a6a129f68ea960fcf4753a96e40.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Chart - MEDITECH' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
+                                  <uix:TargetAnchorable.Anchors>
+                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                                      <uix:Target DesignTimeRectangle="1662, 775, 91, 17" ElementType="Text" FriendlyName="'Home Meds'" FullSelectorArgument="&lt;webctrl aaname='Home Meds' class='s_204' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Home Meds' class='s_204' tag='SPAN' type='' check:innerText='Home Meds' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAF8AAAAVCAYAAAAgjzL/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOISURBVGhD7VY9UxNRFN2/YyO/AEtt7P34AdjqjPbEXq1tszTojBZ2YmOgFCpCKABriF0IjYb1nfv27J697M5mMphYbHHm5n68+/XOW0iy2c/sOqCTy5dJdh1+EDB2+tL05Hp2Fm6iwypgn50SZ/K70/+13jF/hciZzxvp5CJyK32XJUmSPbh/L/t1cXDD3yQj8//Em9gdfLQkAH7TPp0cZc82npodErqe+9/kaPgtW1u7UyxkfL5f+KeX5SxAGhbXlq9Npv1y+eOLUGvOc4H5uIUIXf4elp/br6RhW37QYaefoO7lsv2jo3L5AJhJ/3GDT8+35feyyvx40eonvD1n/qkZdgcfiqYi86N9Ohk65g/NDj+YwzMABhsNdwo/mICm4Ev7b7Ne70URCx1xvc3SBj/rQkamPin8AHTYNU4l6uuCNd73G5lfnm+bB1L3pCiZX983oPUWYj502LlI2pRxPA8mcPm0e/Z5G3TkZz5l1GupyRdIsF/NhXj8ho1EePVyo/CT+Toj63MfPI/88NGG/hDnma8z68vC4lVP7BZyNN2owlgUmG/suhsHwDnmIIsZh+8tGzGmh5h5bcwFyfzsEbWNkbldob19/vTe8iInzsIOG/2sxbyItb8RweZ7il+AyGbtCT4927Qbj/xfzVO7CTYA4IYtKNinl+6zE/QqA3bsPOL5bNmI/+wgX8UW4lFf2YIXFZl489kSVpefg7x/9ot+yGywF/mQG/nQ/8H+l8LP+mRvE+DXy4DOemkqyw9z6HwKuzDpt5H5emN642Q0Yz0DPQs8exDTZkOTTSybB555OhfqqZ/1fd8+J1DXN1B3VmMVOkv45scfkNrkXr582OuWfwx2yYDMU36TY5wyGk0iThvbCqzBuQrzQ4OIg2Suq/Da2E+btOXmzMYcrId+0bf6WR9x0Pmi6vLqHjAn7bp8zOHPQfq9wJ4z/8QCdgfbFgBgobRPJ4dF0Xj40Oy9zeeVhKPh18qF4HwcfN1saf+NnRuf/ygWHRlUjUNexGk+xtH++NFDywOddvX7Ppr8zKuL5TxqZx5dNOtjrmhbtzmwR92T7k/nWPizQx+bITAUmEO/sjwWbrfp09TaCt+HQj8rOkedn/UJPw/gZ+KL9IgXguWXe1T4XirMj5Lw9s5/2/6C+XjGdbfV4fYx+L7N5Ydb+B1vY5bLTl+OHpffYSXomL8y/ST7C87iFKWdQTLgAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                                      <uix:Target DesignTimeRectangle="1631, 911, 150, 19" ElementType="Text" FriendlyName="'furosemide [Lasix]'" FullSelectorArgument="&lt;webctrl aaname='furosemide [Lasix]' class='s_62' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='furosemide [Lasix]' class='s_62' type='' tag='SPAN' check:innerText='furosemide [Lasix]' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJoAAAAXCAYAAADz0VYRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMqSURBVGhD7ZjRTTMxEITTUcqglPRBAamCKnhOERTBc17v14eYaBjt+oIIF+D3J1kQe73eHU/uELtlMtmAabTJJkyjTTZhGm2yCdNok034YLTz+bwcDodlt9u9jaenp/eVSfLy8rLs9/vldDq9z3wN8kh3BvfAffwG0jeM1OWD0R4fH39Vg9+BLnzNQN9hNPKRN+EL363dGjzw8PCwvL6+vs98jk6Xi9FIzAH/+1NsGm0jo91KuL/OXzXaV1k1Gibzd6xc3QlA8+58P4BvBTl83zXvcZndY/wMofwa+RTWnwDPz88f4jgv68j8nVB89lwaGaf9Wq/qryBPpTNcY7SqvursKg69hN8rg9/zbGlY1aT+U5fVV2cnQGc0Cs9DlNsbUsOKrWLgeDxezlaDDP0dqXO9bhkxBZSwOlP5PK4Sir2pQRWXPQG5XacO9uQZojo/Yb9rAHl2VR9rxElPcvge3YtrPqqn0gVubrQ8ADJW+Hx3jjPK40IgnH+Grr61PphnnTjn2jjNV7o4o/7JuaZNReasdElSDyAPBmUt+0669W83Gk3lU0N4bu3PJsVaHt93S6N5jc61cao7dU26/cDebs1RTXpya6hG8vC50lCkHkJ71/anLuKuRss9/FQzGqpHeXJdw2u8l9GqujRGlwPdOUCN3ZogP+f4/akm1QiK08i8qYeQ/tWak7qIH/NEq5AoxI3yJMTcw2ijXtYY7afGUW7VUt1dGs3RnXv/qYdgXuYc3UHqIlaN1m3Mgro4GBVfzYusaS1e3NJo3b6cz1o/C3nIR96EnN0adDXyeWQ0yHMrjT2Pfu/67GpZNZrm3cXEcNjogpwqhxevz/lNYc5FUJ40EfPs1dwtjQbk8xjVkZcoXaozci5h3Xt12N+tAX3m0159eD2sZx2pVeqhXj33qJ5KP1g1GnjRDGKyoO4AITGUwwUAvzyNrhma9jiG153iQVfftX34mcSzXsWlVopX/g7lq/qlRs/nQ7lTP/rX/xFVIz+17nGuk+uhnBmju6zq7fS7GG1yX0ZG+01Mo/1wptEmm8DFjF5pPxm9Sr3+abTJXZhGm2zAsvwDpg5c25+QfXIAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                                    </scg:List>
+                                  </uix:TargetAnchorable.Anchors>
+                                </uix:TargetAnchorable>
+                              </uix:NGetText.Target>
+                            </uix:NGetText>
+                            <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_RegTypeExcelSheet]" sap:VirtualizedContainerService.HintSize="536,564" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+                              <Sequence x:Key="SDC" sap:VirtualizedContainerService.HintSize="496,270" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ueab:WriteCellX Cell="[Excel.Sheet(in_RegTypeExcelSheet).Cell(&quot;C72&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="WriteCellX_1" Value="[actualDataForExcel]" />
+                              </Sequence>
+                              <Sequence x:Key="Inpatient" sap:VirtualizedContainerService.HintSize="496,270" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ueab:WriteCellX Cell="[Excel.Sheet(in_RegTypeExcelSheet).Cell(&quot;C77&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="WriteCellX_2" Value="[actualDataForExcel]" />
+                              </Sequence>
+                              <Sequence x:Key="Emergency" sap:VirtualizedContainerService.HintSize="496,270" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ueab:WriteCellX Cell="[Excel.Sheet(in_RegTypeExcelSheet).Cell(&quot;C77&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="WriteCellX_3" Value="[actualDataForExcel]" />
+                              </Sequence>
+                              <Sequence x:Key="Observation" sap:VirtualizedContainerService.HintSize="496,270" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ueab:WriteCellX Cell="[Excel.Sheet(in_RegTypeExcelSheet).Cell(&quot;C77&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="WriteCellX_4" Value="[actualDataForExcel]" />
+                              </Sequence>
+                              <Sequence x:Key="Newborn" sap:VirtualizedContainerService.HintSize="496,270" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ueab:WriteCellX Cell="[Excel.Sheet(in_RegTypeExcelSheet).Cell(&quot;C64&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="WriteCellX_5" Value="[actualDataForExcel]" />
+                              </Sequence>
+                              <Sequence x:Key="Out patient" sap:VirtualizedContainerService.HintSize="496,270" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ueab:WriteCellX Cell="[Excel.Sheet(in_RegTypeExcelSheet).Cell(&quot;C72&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="WriteCellX_6" Value="[actualDataForExcel]" />
+                              </Sequence>
+                            </Switch>
+                            <uix:NGetText DisplayName="Get Text 'glipizide'" sap:VirtualizedContainerService.HintSize="536,157" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="53cdc3c6-f22b-4846-8fa2-076fd5d8e5e7" TextString="[actualDataForExcel]" Version="V3">
+                              <uix:NGetText.Target>
+                                <uix:TargetAnchorable BrowserURL="https://ehrcap.exp.hca.cloud/test/s0001212686474458/" DesignTimeRectangle="1761, 1017, 141, 16" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Last Taken: 06/20/24'" FullSelectorArgument="&lt;webctrl aaname='Last Taken: 06/20/24' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;span' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' tag='SPAN' class='' /&gt;" Guid="9148510b-324e-4af7-ab9c-60bbe7de048d" InformativeScreenshot="049c50cce18f40f2c1d627fa9314b0fe.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Chart - MEDITECH' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
+                                  <uix:TargetAnchorable.Anchors>
+                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                                      <uix:Target DesignTimeRectangle="1631, 978, 65, 19" ElementType="Text" FriendlyName="'glipizide'" FullSelectorArgument="&lt;webctrl aaname='glipizide' class='s_62' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='glipizide' class='s_62' type='' tag='SPAN' check:innerText='glipizide' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEUAAAAXCAYAAABdy4LVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHNSURBVFhH7VTRjcIwFOtCTAEjsEEXYAGm6D9L8MsQ7NBffvudkyscPXxOLyCk63FBstokjp+fk9Kl+2+apoY7WigGLRSDFopBC8Xg6VDGcUy73S6dTie7vhbAH3zCr1tfwltCOR6PLxm4XC6p67r56dYdamu1UAx+PZQ14q2h4CRwesR+v38Qd6Gogev1mjabTTqfz6nv+6ylJsnjTeHNcWC9UrPqG3A87I8c7IvrQA7ldrvNDaiQXlc8Ma4JBcA75qgP4D3ylj4f1I86WsvpOh5Q6kWDyaHAWCxOqDiFakLRZnX+p1Cgi9OM61qr1neJh/nIA3IoSEvTBlQcT4wxX+KUmtW9S6FwTU9Ra9X6LvFQZ7vdPoS1ylDgAV6iJlHbrOPF/xJF9LDKUOAF8/H0CNdsbSiO55BDURFC57Uxxyk1i3Fs1vHwjpOL+hFaS8clntZeQg6FzSJRLtJ0FCcvmlYDrtklffIcR6G13B4GG3mlTxLz2BvncigYsAC/M4gMw2BN1IRCHSLuiTyGgnXdQ7BprQWob3Adj/ujLvmR8xCKA0Rqv0XC3ZS/hBwKmj4cDnNDXHy1uY8KBTdCr9YrjX1MKG7xv6KF8g1T+gIrFrii6QBQuQAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                                      <uix:Target DesignTimeRectangle="1662, 775, 91, 17" ElementType="Text" FriendlyName="'Home Meds'" FullSelectorArgument="&lt;webctrl aaname='Home Meds' class='s_204' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Home Meds' class='s_204' tag='SPAN' type='' check:innerText='Home Meds' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAF8AAAAVCAYAAAAgjzL/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOISURBVGhD7VY9UxNRFN2/YyO/AEtt7P34AdjqjPbEXq1tszTojBZ2YmOgFCpCKABriF0IjYb1nfv27J697M5mMphYbHHm5n68+/XOW0iy2c/sOqCTy5dJdh1+EDB2+tL05Hp2Fm6iwypgn50SZ/K70/+13jF/hciZzxvp5CJyK32XJUmSPbh/L/t1cXDD3yQj8//Em9gdfLQkAH7TPp0cZc82npodErqe+9/kaPgtW1u7UyxkfL5f+KeX5SxAGhbXlq9Npv1y+eOLUGvOc4H5uIUIXf4elp/br6RhW37QYaefoO7lsv2jo3L5AJhJ/3GDT8+35feyyvx40eonvD1n/qkZdgcfiqYi86N9Ohk65g/NDj+YwzMABhsNdwo/mICm4Ev7b7Ne70URCx1xvc3SBj/rQkamPin8AHTYNU4l6uuCNd73G5lfnm+bB1L3pCiZX983oPUWYj502LlI2pRxPA8mcPm0e/Z5G3TkZz5l1GupyRdIsF/NhXj8ho1EePVyo/CT+Toj63MfPI/88NGG/hDnma8z68vC4lVP7BZyNN2owlgUmG/suhsHwDnmIIsZh+8tGzGmh5h5bcwFyfzsEbWNkbldob19/vTe8iInzsIOG/2sxbyItb8RweZ7il+AyGbtCT4927Qbj/xfzVO7CTYA4IYtKNinl+6zE/QqA3bsPOL5bNmI/+wgX8UW4lFf2YIXFZl489kSVpefg7x/9ot+yGywF/mQG/nQ/8H+l8LP+mRvE+DXy4DOemkqyw9z6HwKuzDpt5H5emN642Q0Yz0DPQs8exDTZkOTTSybB555OhfqqZ/1fd8+J1DXN1B3VmMVOkv45scfkNrkXr582OuWfwx2yYDMU36TY5wyGk0iThvbCqzBuQrzQ4OIg2Suq/Da2E+btOXmzMYcrId+0bf6WR9x0Pmi6vLqHjAn7bp8zOHPQfq9wJ4z/8QCdgfbFgBgobRPJ4dF0Xj40Oy9zeeVhKPh18qF4HwcfN1saf+NnRuf/ygWHRlUjUNexGk+xtH++NFDywOddvX7Ppr8zKuL5TxqZx5dNOtjrmhbtzmwR92T7k/nWPizQx+bITAUmEO/sjwWbrfp09TaCt+HQj8rOkedn/UJPw/gZ+KL9IgXguWXe1T4XirMj5Lw9s5/2/6C+XjGdbfV4fYx+L7N5Ydb+B1vY5bLTl+OHpffYSXomL8y/ST7C87iFKWdQTLgAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                                    </scg:List>
+                                  </uix:TargetAnchorable.Anchors>
+                                </uix:TargetAnchorable>
+                              </uix:NGetText.Target>
+                            </uix:NGetText>
+                            <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_RegTypeExcelSheet]" sap:VirtualizedContainerService.HintSize="536,564" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+                              <Sequence x:Key="SDC" sap:VirtualizedContainerService.HintSize="496,270" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ueab:WriteCellX Cell="[Excel.Sheet(in_RegTypeExcelSheet).Cell(&quot;C74&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="WriteCellX_7" Value="[actualDataForExcel]" />
+                              </Sequence>
+                              <Sequence x:Key="Inpatient" sap:VirtualizedContainerService.HintSize="496,270" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ueab:WriteCellX Cell="[Excel.Sheet(in_RegTypeExcelSheet).Cell(&quot;C79&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="WriteCellX_8" Value="[actualDataForExcel]" />
+                              </Sequence>
+                              <Sequence x:Key="Emergency" sap:VirtualizedContainerService.HintSize="496,270" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ueab:WriteCellX Cell="[Excel.Sheet(in_RegTypeExcelSheet).Cell(&quot;C79&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="WriteCellX_9" Value="[actualDataForExcel]" />
+                              </Sequence>
+                              <Sequence x:Key="Observation" sap:VirtualizedContainerService.HintSize="496,270" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ueab:WriteCellX Cell="[Excel.Sheet(in_RegTypeExcelSheet).Cell(&quot;C79&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="WriteCellX_10" Value="[actualDataForExcel]" />
+                              </Sequence>
+                              <Sequence x:Key="Newborn" sap:VirtualizedContainerService.HintSize="496,270" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ueab:WriteCellX Cell="[Excel.Sheet(in_RegTypeExcelSheet).Cell(&quot;C66&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="WriteCellX_11" Value="[actualDataForExcel]" />
+                              </Sequence>
+                              <Sequence x:Key="Out patient" sap:VirtualizedContainerService.HintSize="496,270" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ueab:WriteCellX Cell="[Excel.Sheet(in_RegTypeExcelSheet).Cell(&quot;C74&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="WriteCellX_12" Value="[actualDataForExcel]" />
+                              </Sequence>
+                            </Switch>
+                            <uix:NGetText DisplayName="Get Text 'Home Meds'" sap:VirtualizedContainerService.HintSize="536,157" sap2010:WorkflowViewState.IdRef="NGetText_3" ScopeIdentifier="53cdc3c6-f22b-4846-8fa2-076fd5d8e5e7" TextString="[actualDataForExcel]" Version="V3">
+                              <uix:NGetText.Target>
+                                <uix:TargetAnchorable BrowserURL="https://ehrcap.exp.hca.cloud/test/s0001212686474458/" DesignTimeRectangle="1631, 911, 150, 19" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'furosemide [Lasix]'" FullSelectorArgument="&lt;webctrl aaname='furosemide [Lasix]' class='s_62' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='s_62' type='' tag='SPAN' /&gt;" Guid="ffca1a1f-d8af-4bf6-a72a-7938a1ecccaf" InformativeScreenshot="7d2639d18e44b50410e39dd997300592.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Chart - MEDITECH' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
+                                  <uix:TargetAnchorable.Anchors>
+                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                      <uix:Target DesignTimeRectangle="1660, 773, 95, 21" ElementType="Text" FriendlyName="'Home Meds'" FullSelectorArgument="&lt;webctrl aaname='Home Meds' class='s_204' tag='SPAN' /&gt;" FuzzyMatches="10000" FuzzySelectorArgument="&lt;webctrl aaname='Home Meds' class='s_204' tag='SPAN' type='' check:innerText='Home Meds' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAF8AAAAVCAYAAAAgjzL/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOISURBVGhD7VY9UxNRFN2/YyO/AEtt7P34AdjqjPbEXq1tszTojBZ2YmOgFCpCKABriF0IjYb1nfv27J697M5mMphYbHHm5n68+/XOW0iy2c/sOqCTy5dJdh1+EDB2+tL05Hp2Fm6iwypgn50SZ/K70/+13jF/hciZzxvp5CJyK32XJUmSPbh/L/t1cXDD3yQj8//Em9gdfLQkAH7TPp0cZc82npodErqe+9/kaPgtW1u7UyxkfL5f+KeX5SxAGhbXlq9Npv1y+eOLUGvOc4H5uIUIXf4elp/br6RhW37QYaefoO7lsv2jo3L5AJhJ/3GDT8+35feyyvx40eonvD1n/qkZdgcfiqYi86N9Ohk65g/NDj+YwzMABhsNdwo/mICm4Ev7b7Ne70URCx1xvc3SBj/rQkamPin8AHTYNU4l6uuCNd73G5lfnm+bB1L3pCiZX983oPUWYj502LlI2pRxPA8mcPm0e/Z5G3TkZz5l1GupyRdIsF/NhXj8ho1EePVyo/CT+Toj63MfPI/88NGG/hDnma8z68vC4lVP7BZyNN2owlgUmG/suhsHwDnmIIsZh+8tGzGmh5h5bcwFyfzsEbWNkbldob19/vTe8iInzsIOG/2sxbyItb8RweZ7il+AyGbtCT4927Qbj/xfzVO7CTYA4IYtKNinl+6zE/QqA3bsPOL5bNmI/+wgX8UW4lFf2YIXFZl489kSVpefg7x/9ot+yGywF/mQG/nQ/8H+l8LP+mRvE+DXy4DOemkqyw9z6HwKuzDpt5H5emN642Q0Yz0DPQs8exDTZkOTTSybB555OhfqqZ/1fd8+J1DXN1B3VmMVOkv45scfkNrkXr582OuWfwx2yYDMU36TY5wyGk0iThvbCqzBuQrzQ4OIg2Suq/Da2E+btOXmzMYcrId+0bf6WR9x0Pmi6vLqHjAn7bp8zOHPQfq9wJ4z/8QCdgfbFgBgobRPJ4dF0Xj40Oy9zeeVhKPh18qF4HwcfN1saf+NnRuf/ygWHRlUjUNexGk+xtH++NFDywOddvX7Ppr8zKuL5TxqZx5dNOtjrmhbtzmwR92T7k/nWPizQx+bITAUmEO/sjwWbrfp09TaCt+HQj8rOkedn/UJPw/gZ+KL9IgXguWXe1T4XirMj5Lw9s5/2/6C+XjGdbfV4fYx+L7N5Ydb+B1vY5bLTl+OHpffYSXomL8y/ST7C87iFKWdQTLgAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                                    </scg:List>
+                                  </uix:TargetAnchorable.Anchors>
+                                </uix:TargetAnchorable>
+                              </uix:NGetText.Target>
+                            </uix:NGetText>
+                            <uix:NGetText DisplayName="Get Text 'furosemide [Lasix]'" sap:VirtualizedContainerService.HintSize="536,157" sap2010:WorkflowViewState.IdRef="NGetText_4" ScopeIdentifier="53cdc3c6-f22b-4846-8fa2-076fd5d8e5e7" TextString="[actualDataForExcel2]" Version="V3">
+                              <uix:NGetText.Target>
+                                <uix:TargetAnchorable BrowserURL="https://ehrcap.exp.hca.cloud/test/s0001212686474458/" DesignTimeRectangle="1631, 930, 271, 19" DesignTimeScaleFactor="1" FriendlyName="'20 mgPOQ48H'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='82' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' class='flowcomp comp navcomp' tag='DIV' aaname='' /&gt;" Guid="83bc0f3f-6842-4001-a407-650fd1c92770" InformativeScreenshot="8e242eb151a9a37723165b6882cb70f8.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Chart - MEDITECH' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
+                                  <uix:TargetAnchorable.Anchors>
+                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                                      <uix:Target DesignTimeRectangle="1631, 911, 150, 19" ElementType="Text" FriendlyName="'furosemide [Lasix]'" FullSelectorArgument="&lt;webctrl aaname='furosemide [Lasix]' class='s_62' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='furosemide [Lasix]' class='s_62' type='' tag='SPAN' check:innerText='furosemide [Lasix]' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJoAAAAXCAYAAADz0VYRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMqSURBVGhD7ZjRTTMxEITTUcqglPRBAamCKnhOERTBc17v14eYaBjt+oIIF+D3J1kQe73eHU/uELtlMtmAabTJJkyjTTZhGm2yCdNok034YLTz+bwcDodlt9u9jaenp/eVSfLy8rLs9/vldDq9z3wN8kh3BvfAffwG0jeM1OWD0R4fH39Vg9+BLnzNQN9hNPKRN+EL363dGjzw8PCwvL6+vs98jk6Xi9FIzAH/+1NsGm0jo91KuL/OXzXaV1k1Gibzd6xc3QlA8+58P4BvBTl83zXvcZndY/wMofwa+RTWnwDPz88f4jgv68j8nVB89lwaGaf9Wq/qryBPpTNcY7SqvursKg69hN8rg9/zbGlY1aT+U5fVV2cnQGc0Cs9DlNsbUsOKrWLgeDxezlaDDP0dqXO9bhkxBZSwOlP5PK4Sir2pQRWXPQG5XacO9uQZojo/Yb9rAHl2VR9rxElPcvge3YtrPqqn0gVubrQ8ADJW+Hx3jjPK40IgnH+Grr61PphnnTjn2jjNV7o4o/7JuaZNReasdElSDyAPBmUt+0669W83Gk3lU0N4bu3PJsVaHt93S6N5jc61cao7dU26/cDebs1RTXpya6hG8vC50lCkHkJ71/anLuKuRss9/FQzGqpHeXJdw2u8l9GqujRGlwPdOUCN3ZogP+f4/akm1QiK08i8qYeQ/tWak7qIH/NEq5AoxI3yJMTcw2ijXtYY7afGUW7VUt1dGs3RnXv/qYdgXuYc3UHqIlaN1m3Mgro4GBVfzYusaS1e3NJo3b6cz1o/C3nIR96EnN0adDXyeWQ0yHMrjT2Pfu/67GpZNZrm3cXEcNjogpwqhxevz/lNYc5FUJ40EfPs1dwtjQbk8xjVkZcoXaozci5h3Xt12N+tAX3m0159eD2sZx2pVeqhXj33qJ5KP1g1GnjRDGKyoO4AITGUwwUAvzyNrhma9jiG153iQVfftX34mcSzXsWlVopX/g7lq/qlRs/nQ7lTP/rX/xFVIz+17nGuk+uhnBmju6zq7fS7GG1yX0ZG+01Mo/1wptEmm8DFjF5pPxm9Sr3+abTJXZhGm2zAsvwDpg5c25+QfXIAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                                      <uix:Target DesignTimeRectangle="1660, 773, 95, 21" ElementType="Text" FriendlyName="'Home Meds'" FullSelectorArgument="&lt;webctrl aaname='Home Meds' class='s_204' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Home Meds' class='s_204' tag='SPAN' type='' check:innerText='Home Meds' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAF8AAAAVCAYAAAAgjzL/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOISURBVGhD7VY9UxNRFN2/YyO/AEtt7P34AdjqjPbEXq1tszTojBZ2YmOgFCpCKABriF0IjYb1nfv27J697M5mMphYbHHm5n68+/XOW0iy2c/sOqCTy5dJdh1+EDB2+tL05Hp2Fm6iwypgn50SZ/K70/+13jF/hciZzxvp5CJyK32XJUmSPbh/L/t1cXDD3yQj8//Em9gdfLQkAH7TPp0cZc82npodErqe+9/kaPgtW1u7UyxkfL5f+KeX5SxAGhbXlq9Npv1y+eOLUGvOc4H5uIUIXf4elp/br6RhW37QYaefoO7lsv2jo3L5AJhJ/3GDT8+35feyyvx40eonvD1n/qkZdgcfiqYi86N9Ohk65g/NDj+YwzMABhsNdwo/mICm4Ev7b7Ne70URCx1xvc3SBj/rQkamPin8AHTYNU4l6uuCNd73G5lfnm+bB1L3pCiZX983oPUWYj502LlI2pRxPA8mcPm0e/Z5G3TkZz5l1GupyRdIsF/NhXj8ho1EePVyo/CT+Toj63MfPI/88NGG/hDnma8z68vC4lVP7BZyNN2owlgUmG/suhsHwDnmIIsZh+8tGzGmh5h5bcwFyfzsEbWNkbldob19/vTe8iInzsIOG/2sxbyItb8RweZ7il+AyGbtCT4927Qbj/xfzVO7CTYA4IYtKNinl+6zE/QqA3bsPOL5bNmI/+wgX8UW4lFf2YIXFZl489kSVpefg7x/9ot+yGywF/mQG/nQ/8H+l8LP+mRvE+DXy4DOemkqyw9z6HwKuzDpt5H5emN642Q0Yz0DPQs8exDTZkOTTSybB555OhfqqZ/1fd8+J1DXN1B3VmMVOkv45scfkNrkXr582OuWfwx2yYDMU36TY5wyGk0iThvbCqzBuQrzQ4OIg2Suq/Da2E+btOXmzMYcrId+0bf6WR9x0Pmi6vLqHjAn7bp8zOHPQfq9wJ4z/8QCdgfbFgBgobRPJ4dF0Xj40Oy9zeeVhKPh18qF4HwcfN1saf+NnRuf/ygWHRlUjUNexGk+xtH++NFDywOddvX7Ppr8zKuL5TxqZx5dNOtjrmhbtzmwR92T7k/nWPizQx+bITAUmEO/sjwWbrfp09TaCt+HQj8rOkedn/UJPw/gZ+KL9IgXguWXe1T4XirMj5Lw9s5/2/6C+XjGdbfV4fYx+L7N5Ydb+B1vY5bLTl+OHpffYSXomL8y/ST7C87iFKWdQTLgAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                                    </scg:List>
+                                  </uix:TargetAnchorable.Anchors>
+                                </uix:TargetAnchorable>
+                              </uix:NGetText.Target>
+                            </uix:NGetText>
+                            <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_RegTypeExcelSheet]" sap:VirtualizedContainerService.HintSize="536,564" sap2010:WorkflowViewState.IdRef="Switch`1_3">
+                              <Sequence x:Key="SDC" sap:VirtualizedContainerService.HintSize="496,270" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ueab:WriteCellX Cell="[Excel.Sheet(in_RegTypeExcelSheet).Cell(&quot;C71&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="WriteCellX_13" Value="[actualDataForExcel + &quot; &quot;  + actualDataForExcel2]" />
+                              </Sequence>
+                              <Sequence x:Key="Inpatient" sap:VirtualizedContainerService.HintSize="496,270" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ueab:WriteCellX Cell="[Excel.Sheet(in_RegTypeExcelSheet).Cell(&quot;C76&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="WriteCellX_14" Value="[actualDataForExcel + &quot; &quot;  + actualDataForExcel2]" />
+                              </Sequence>
+                              <Sequence x:Key="Emergency" sap:VirtualizedContainerService.HintSize="496,270" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ueab:WriteCellX Cell="[Excel.Sheet(in_RegTypeExcelSheet).Cell(&quot;C76&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="WriteCellX_15" Value="[actualDataForExcel + &quot; &quot;  + actualDataForExcel2]" />
+                              </Sequence>
+                              <Sequence x:Key="Observation" sap:VirtualizedContainerService.HintSize="496,270" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ueab:WriteCellX Cell="[Excel.Sheet(in_RegTypeExcelSheet).Cell(&quot;C76&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="WriteCellX_16" Value="[actualDataForExcel + &quot; &quot;  + actualDataForExcel2]" />
+                              </Sequence>
+                              <Sequence x:Key="Newborn" sap:VirtualizedContainerService.HintSize="496,270" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ueab:WriteCellX Cell="[Excel.Sheet(in_RegTypeExcelSheet).Cell(&quot;C63&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="WriteCellX_17" Value="[actualDataForExcel + &quot; &quot;  + actualDataForExcel2]" />
+                              </Sequence>
+                              <Sequence x:Key="Out patient" sap:VirtualizedContainerService.HintSize="496,270" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ueab:WriteCellX Cell="[Excel.Sheet(in_RegTypeExcelSheet).Cell(&quot;C71&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="WriteCellX_18" Value="[actualDataForExcel + &quot; &quot;  + actualDataForExcel2]" />
+                              </Sequence>
+                            </Switch>
+                            <uix:NGetText DisplayName="Get Text 'Home Meds'" sap:VirtualizedContainerService.HintSize="536,157" sap2010:WorkflowViewState.IdRef="NGetText_5" ScopeIdentifier="53cdc3c6-f22b-4846-8fa2-076fd5d8e5e7" TextString="[actualDataForExcel]" Version="V3">
+                              <uix:NGetText.Target>
+                                <uix:TargetAnchorable BrowserURL="https://ehrcap.exp.hca.cloud/test/s0001212686474458/" DesignTimeRectangle="1631, 978, 65, 19" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'glipizide'" FullSelectorArgument="&lt;webctrl aaname='glipizide' class='s_62' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='s_62' type='' tag='SPAN' /&gt;" Guid="db14cfd9-5b3c-4686-8094-6844811f25ae" InformativeScreenshot="a81ae0209a8ad0b88a44ed4b49e18748.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Chart - MEDITECH' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
+                                  <uix:TargetAnchorable.Anchors>
+                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                                      <uix:Target DesignTimeRectangle="1660, 773, 95, 21" ElementType="Text" FriendlyName="'Home Meds'" FullSelectorArgument="&lt;webctrl aaname='Home Meds' class='s_204' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Home Meds' class='s_204' tag='SPAN' type='' check:innerText='Home Meds' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAF8AAAAVCAYAAAAgjzL/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOISURBVGhD7VY9UxNRFN2/YyO/AEtt7P34AdjqjPbEXq1tszTojBZ2YmOgFCpCKABriF0IjYb1nfv27J697M5mMphYbHHm5n68+/XOW0iy2c/sOqCTy5dJdh1+EDB2+tL05Hp2Fm6iwypgn50SZ/K70/+13jF/hciZzxvp5CJyK32XJUmSPbh/L/t1cXDD3yQj8//Em9gdfLQkAH7TPp0cZc82npodErqe+9/kaPgtW1u7UyxkfL5f+KeX5SxAGhbXlq9Npv1y+eOLUGvOc4H5uIUIXf4elp/br6RhW37QYaefoO7lsv2jo3L5AJhJ/3GDT8+35feyyvx40eonvD1n/qkZdgcfiqYi86N9Ohk65g/NDj+YwzMABhsNdwo/mICm4Ev7b7Ne70URCx1xvc3SBj/rQkamPin8AHTYNU4l6uuCNd73G5lfnm+bB1L3pCiZX983oPUWYj502LlI2pRxPA8mcPm0e/Z5G3TkZz5l1GupyRdIsF/NhXj8ho1EePVyo/CT+Toj63MfPI/88NGG/hDnma8z68vC4lVP7BZyNN2owlgUmG/suhsHwDnmIIsZh+8tGzGmh5h5bcwFyfzsEbWNkbldob19/vTe8iInzsIOG/2sxbyItb8RweZ7il+AyGbtCT4927Qbj/xfzVO7CTYA4IYtKNinl+6zE/QqA3bsPOL5bNmI/+wgX8UW4lFf2YIXFZl489kSVpefg7x/9ot+yGywF/mQG/nQ/8H+l8LP+mRvE+DXy4DOemkqyw9z6HwKuzDpt5H5emN642Q0Yz0DPQs8exDTZkOTTSybB555OhfqqZ/1fd8+J1DXN1B3VmMVOkv45scfkNrkXr582OuWfwx2yYDMU36TY5wyGk0iThvbCqzBuQrzQ4OIg2Suq/Da2E+btOXmzMYcrId+0bf6WR9x0Pmi6vLqHjAn7bp8zOHPQfq9wJ4z/8QCdgfbFgBgobRPJ4dF0Xj40Oy9zeeVhKPh18qF4HwcfN1saf+NnRuf/ygWHRlUjUNexGk+xtH++NFDywOddvX7Ppr8zKuL5TxqZx5dNOtjrmhbtzmwR92T7k/nWPizQx+bITAUmEO/sjwWbrfp09TaCt+HQj8rOkedn/UJPw/gZ+KL9IgXguWXe1T4XirMj5Lw9s5/2/6C+XjGdbfV4fYx+L7N5Ydb+B1vY5bLTl+OHpffYSXomL8y/ST7C87iFKWdQTLgAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                                      <uix:Target DesignTimeRectangle="1631, 851, 183, 12" ElementType="Text" FriendlyName="'MEDICATIONS (INSTRUCTIO…'" FullSelectorArgument="&lt;webctrl aaname='MEDICATIONS (INSTRUCTIONS)' class='s_61' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='MEDICATIONS (INSTRUCTIONS)' class='s_61' type='' tag='SPAN' check:innerText='MEDICATIONS (INSTRUCTIONS)' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALsAAAAQCAYAAABOSw5HAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAO7SURBVGhD7ZW9i5xVGMXzR1qntkphEwhCQBAhRTBdrExstkixRUgEISCCWNisYCFus0QLCQRik6R7ze9lf5vDmfuOHzA2cw9cZub5OM95zr3ZXFsmJo4E87FPHA3mY584GszHPnE0mI/9wPj14vly/eYny4e37ywvX/15GZ04FO5+ebJ8cOPW8sPZz5eR97h67I++frYWffz5F8vrN2/XGA3EvCgO34l5uEgudF8OdH5fjoMeoY6/6/GcPP5m3SNjLs9uWzmgD3AzA2Bg/lZPntSb6F75PeSBl6T/6sz76F7Odz+e7ezjgdN/bBlPH6kZ+ZpzR15/dfp0J+ZB59aeYF8u9Xov+t2/88AJ9C09FzuPnSOpF2DjyAjROYemkSMhLpcx5muAPb1Uoi9MdFyNOcu95U0fjMFjj0arD1BnbcLdOidHxuFzLnn31k9qRz3eFbAmY2pQr7/lJT7yyLz1W/cDmkPs21ONrcff1BiTh0+/53z4c8ZoLth57JBwGMqwjz67d7VoG5EY5RSuMOLk0zjnunwjzdiaDf/I7I6PTGjd5Oh5+O4vl73wqFmOkY6GXK1rpMMZ909O18/f/3ixzkhd3s8WrEkv9c8+Z/ubz9Q48qM5G80hes/RGwHZr159oFcePv2+z3/nuKPYeexPvv1+feCf3n+wXjikNEIgCXWezqWIjnGSD2wZJdJsav2e2OLo+OjiWhM19Pz0y/kah4Nj3nr352zphyt3FV4YeeGM84vf1k+95zBTL3Nuc4/28/FkX89N/c5xbudH2KrpPdVCfSJ1W0OMgxbepPl/4r817iB2HjuEDvGvi6a2EYlRrpdThHwg5zbkzMU4bdaW2R1v80HrJmeP+ulJzQn1tyagj9030kG/teY5I68B9c2hlvQy78Dvqak9GvnRnI3mEL1nc4vsVyM9vhc4tjSoDw5hX88ZPnZhk+ZsiQWdszdNaD7gch3jvzHNchFnZC3YMrvjo3739kL4zB44yNtD3lrQGhPNJfoRAPqdoU/U6Cf5vBt6m8NY1jEbDeqzpn/b0/vYn54R434Etf9mz5wnv3v62x457CGefK0XeM8ZA//psTuc45KjXBrU+TTHBbMXPW0MUGcu3GbnY/HIsS8H4E0udbuL8/O0qcK9Umv328tn+mVvPvbs4yQvkDv3kcc5uX/OTl7jQo6sydnUp2dga0+wLzfyTH3s1b3dD6gjnhzg6rFPHAZcRD7iicOi/0An5mM/MPxLNR/8/4P8X6AxH/vE0WA+9okjwbL8BfmWi4GeBioiAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                                    </scg:List>
+                                  </uix:TargetAnchorable.Anchors>
+                                </uix:TargetAnchorable>
+                              </uix:NGetText.Target>
+                            </uix:NGetText>
+                            <uix:NGetText DisplayName="Get Text 'glipizide'" sap:VirtualizedContainerService.HintSize="536,157" sap2010:WorkflowViewState.IdRef="NGetText_6" ScopeIdentifier="53cdc3c6-f22b-4846-8fa2-076fd5d8e5e7" TextString="[actualDataForExcel2]" Version="V3">
+                              <uix:NGetText.Target>
+                                <uix:TargetAnchorable BrowserURL="https://ehrcap.exp.hca.cloud/test/s0001212686474458/" DesignTimeRectangle="1631, 997, 271, 19" DesignTimeScaleFactor="1" FriendlyName="'10 mgPODAILY'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='85' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' class='flowcomp comp navcomp' tag='DIV' aaname='' /&gt;" Guid="4dcc5336-27e3-4fb6-a2e7-871448193cb2" InformativeScreenshot="d8d4ee11f7dee12765916a776c955422.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Chart - MEDITECH' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive">
+                                  <uix:TargetAnchorable.Anchors>
+                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                                      <uix:Target DesignTimeRectangle="1631, 978, 65, 19" ElementType="Text" FriendlyName="'glipizide'" FullSelectorArgument="&lt;webctrl aaname='glipizide' class='s_62' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='glipizide' class='s_62' type='' tag='SPAN' check:innerText='glipizide' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEUAAAAXCAYAAABdy4LVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHNSURBVFhH7VTRjcIwFOtCTAEjsEEXYAGm6D9L8MsQ7NBffvudkyscPXxOLyCk63FBstokjp+fk9Kl+2+apoY7WigGLRSDFopBC8Xg6VDGcUy73S6dTie7vhbAH3zCr1tfwltCOR6PLxm4XC6p67r56dYdamu1UAx+PZQ14q2h4CRwesR+v38Qd6Gogev1mjabTTqfz6nv+6ylJsnjTeHNcWC9UrPqG3A87I8c7IvrQA7ldrvNDaiQXlc8Ma4JBcA75qgP4D3ylj4f1I86WsvpOh5Q6kWDyaHAWCxOqDiFakLRZnX+p1Cgi9OM61qr1neJh/nIA3IoSEvTBlQcT4wxX+KUmtW9S6FwTU9Ra9X6LvFQZ7vdPoS1ylDgAV6iJlHbrOPF/xJF9LDKUOAF8/H0CNdsbSiO55BDURFC57Uxxyk1i3Fs1vHwjpOL+hFaS8clntZeQg6FzSJRLtJ0FCcvmlYDrtklffIcR6G13B4GG3mlTxLz2BvncigYsAC/M4gMw2BN1IRCHSLuiTyGgnXdQ7BprQWob3Adj/ujLvmR8xCKA0Rqv0XC3ZS/hBwKmj4cDnNDXHy1uY8KBTdCr9YrjX1MKG7xv6KF8g1T+gIrFrii6QBQuQAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                                      <uix:Target DesignTimeRectangle="1660, 773, 95, 21" ElementType="Text" FriendlyName="'Home Meds'" FullSelectorArgument="&lt;webctrl aaname='Home Meds' class='s_204' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Home Meds' class='s_204' tag='SPAN' type='' check:innerText='Home Meds' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAF8AAAAVCAYAAAAgjzL/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOISURBVGhD7VY9UxNRFN2/YyO/AEtt7P34AdjqjPbEXq1tszTojBZ2YmOgFCpCKABriF0IjYb1nfv27J697M5mMphYbHHm5n68+/XOW0iy2c/sOqCTy5dJdh1+EDB2+tL05Hp2Fm6iwypgn50SZ/K70/+13jF/hciZzxvp5CJyK32XJUmSPbh/L/t1cXDD3yQj8//Em9gdfLQkAH7TPp0cZc82npodErqe+9/kaPgtW1u7UyxkfL5f+KeX5SxAGhbXlq9Npv1y+eOLUGvOc4H5uIUIXf4elp/br6RhW37QYaefoO7lsv2jo3L5AJhJ/3GDT8+35feyyvx40eonvD1n/qkZdgcfiqYi86N9Ohk65g/NDj+YwzMABhsNdwo/mICm4Ev7b7Ne70URCx1xvc3SBj/rQkamPin8AHTYNU4l6uuCNd73G5lfnm+bB1L3pCiZX983oPUWYj502LlI2pRxPA8mcPm0e/Z5G3TkZz5l1GupyRdIsF/NhXj8ho1EePVyo/CT+Toj63MfPI/88NGG/hDnma8z68vC4lVP7BZyNN2owlgUmG/suhsHwDnmIIsZh+8tGzGmh5h5bcwFyfzsEbWNkbldob19/vTe8iInzsIOG/2sxbyItb8RweZ7il+AyGbtCT4927Qbj/xfzVO7CTYA4IYtKNinl+6zE/QqA3bsPOL5bNmI/+wgX8UW4lFf2YIXFZl489kSVpefg7x/9ot+yGywF/mQG/nQ/8H+l8LP+mRvE+DXy4DOemkqyw9z6HwKuzDpt5H5emN642Q0Yz0DPQs8exDTZkOTTSybB555OhfqqZ/1fd8+J1DXN1B3VmMVOkv45scfkNrkXr582OuWfwx2yYDMU36TY5wyGk0iThvbCqzBuQrzQ4OIg2Suq/Da2E+btOXmzMYcrId+0bf6WR9x0Pmi6vLqHjAn7bp8zOHPQfq9wJ4z/8QCdgfbFgBgobRPJ4dF0Xj40Oy9zeeVhKPh18qF4HwcfN1saf+NnRuf/ygWHRlUjUNexGk+xtH++NFDywOddvX7Ppr8zKuL5TxqZx5dNOtjrmhbtzmwR92T7k/nWPizQx+bITAUmEO/sjwWbrfp09TaCt+HQj8rOkedn/UJPw/gZ+KL9IgXguWXe1T4XirMj5Lw9s5/2/6C+XjGdbfV4fYx+L7N5Ydb+B1vY5bLTl+OHpffYSXomL8y/ST7C87iFKWdQTLgAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                                    </scg:List>
+                                  </uix:TargetAnchorable.Anchors>
+                                </uix:TargetAnchorable>
+                              </uix:NGetText.Target>
+                            </uix:NGetText>
+                            <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_RegTypeExcelSheet]" sap:VirtualizedContainerService.HintSize="536,564" sap2010:WorkflowViewState.IdRef="Switch`1_4">
+                              <Sequence x:Key="SDC" sap:VirtualizedContainerService.HintSize="496,270" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ueab:WriteCellX Cell="[Excel.Sheet(in_RegTypeExcelSheet).Cell(&quot;C73&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="WriteCellX_19" Value="[actualDataForExcel + &quot; &quot;  + actualDataForExcel2]" />
+                              </Sequence>
+                              <Sequence x:Key="Inpatient" sap:VirtualizedContainerService.HintSize="496,270" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ueab:WriteCellX Cell="[Excel.Sheet(in_RegTypeExcelSheet).Cell(&quot;C78&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="WriteCellX_20" Value="[actualDataForExcel + &quot; &quot;  + actualDataForExcel2]" />
+                              </Sequence>
+                              <Sequence x:Key="Emergency" sap:VirtualizedContainerService.HintSize="496,270" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ueab:WriteCellX Cell="[Excel.Sheet(in_RegTypeExcelSheet).Cell(&quot;C78&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="WriteCellX_21" Value="[actualDataForExcel + &quot; &quot;  + actualDataForExcel2]" />
+                              </Sequence>
+                              <Sequence x:Key="Observation" sap:VirtualizedContainerService.HintSize="496,270" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ueab:WriteCellX Cell="[Excel.Sheet(in_RegTypeExcelSheet).Cell(&quot;C78&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="WriteCellX_22" Value="[actualDataForExcel + &quot; &quot;  + actualDataForExcel2]" />
+                              </Sequence>
+                              <Sequence x:Key="Newborn" sap:VirtualizedContainerService.HintSize="496,270" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ueab:WriteCellX Cell="[Excel.Sheet(in_RegTypeExcelSheet).Cell(&quot;C65&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="WriteCellX_23" Value="[actualDataForExcel + &quot; &quot;  + actualDataForExcel2]" />
+                              </Sequence>
+                              <Sequence x:Key="Out patient" sap:VirtualizedContainerService.HintSize="496,270" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ueab:WriteCellX Cell="[Excel.Sheet(in_RegTypeExcelSheet).Cell(&quot;C73&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="WriteCellX_24" Value="[actualDataForExcel + &quot; &quot;  + actualDataForExcel2]" />
+                              </Sequence>
+                            </Switch>
+                          </Sequence>
+                        </ActivityAction>
+                      </ueab:ExcelApplicationCard.Body>
+                    </ueab:ExcelApplicationCard>
+                  </Sequence>
+                </ActivityAction>
+              </ueab:ExcelProcessScopeX.Body>
+            </ueab:ExcelProcessScopeX>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAuSURBVDhPY0g40PCfEkx9AwgBdPVYDUAXw4eHqwH4ALr60UCkRSCSigfagIb/AFw/yr9yPXeMAAAAAElFTkSuQmCC" InformativeScreenshot="f8f1aeda1bed70193c9b9ec02773908f.jpg" Selector="&lt;html app='chrome.exe' title='Chart - MEDITECH' /&gt;" Url="[in_ExpanseBrowserUrl]" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

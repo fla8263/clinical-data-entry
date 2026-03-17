@@ -1,0 +1,512 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Test" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_AcctNumber" Type="InArgument(x:String)" />
+    <x:Property Name="in_RegType" Type="InArgument(x:String)" />
+    <x:Property Name="in_Facility" Type="InArgument(x:String)" />
+    <x:Property Name="in_ExpanseBrowserUrl" Type="InArgument(x:String)" />
+    <x:Property Name="in_ExpanseClinic" Type="InArgument(x:String)" />
+    <x:Property Name="in_RegTypeExcelSheet" Type="InArgument(x:String)" />
+    <x:Property Name="out_CurrentExecutionProcess" Type="OutArgument(x:String)" />
+    <x:Property Name="OutputDataHM" Type="InOutArgument(scg:Dictionary(x:String, x:String))" />
+  </x:Members>
+  <this:Test.in_RegType>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Test.in_RegType>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1423,7694</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Test_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="48">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="66">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="IntegrationTest_Nursing" sap:VirtualizedContainerService.HintSize="1475,5238" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="accountNum" />
+      <Variable x:TypeArguments="x:String" Name="registrationType" />
+      <Variable x:TypeArguments="x:String" Name="facility" />
+      <Variable x:TypeArguments="x:String" Name="fullName" />
+      <Variable x:TypeArguments="x:Int32" Name="totalCareItemsShown" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Assign DisplayName="Assign: Clinical\PCS\Navigation\go_to_PCS_Status_Board.xaml" sap:VirtualizedContainerService.HintSize="639,114" sap2010:WorkflowViewState.IdRef="Assign_5">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_CurrentExecutionProcess]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">Clinical\PCS\Navigation\go_to_PCS_Status_Board.xaml</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="go_to_PCS_Status_Board.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="639,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Clinical\PCS\Navigation\go_to_PCS_Status_Board.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[in_ExpanseBrowserUrl]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <Assign sap:VirtualizedContainerService.HintSize="639,114" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[accountNum]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[in_AcctNumber]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="639,114" sap2010:WorkflowViewState.IdRef="Assign_3">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[registrationType]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[in_RegType]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="639,114" sap2010:WorkflowViewState.IdRef="Assign_4">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[facility]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[in_Facility]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign: Clinical\PCS\FindPatient_PCS_Status_Board.xaml" sap:VirtualizedContainerService.HintSize="639,114" sap2010:WorkflowViewState.IdRef="Assign_6">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_CurrentExecutionProcess]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">Clinical\PCS\FindPatient_PCS_Status_Board.xaml</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="PCS\FindPatient_PCS_Status_Board.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="639,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Clinical\PCS\FindPatient_PCS_Status_Board.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_PatientAcctNumber">[accountNum]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_MRN">AB00006550</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[in_ExpanseBrowserUrl]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <Assign DisplayName="Assign: Clinical\PCS\PCS_Worklist.xaml" sap:VirtualizedContainerService.HintSize="639,114" sap2010:WorkflowViewState.IdRef="Assign_7">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_CurrentExecutionProcess]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">Clinical\PCS\PCS_Worklist.xaml</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="PCS_Worklist.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="639,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_19" UnSafe="False" WorkflowFileName="Clinical\PCS\PCS_Worklist.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[in_ExpanseBrowserUrl]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <Assign DisplayName="Assign: Clinical\PCS\PCS_Adding_CareItems_If_needed.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="639,114" sap2010:WorkflowViewState.IdRef="Assign_23">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_CurrentExecutionProcess]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">Clinical\PCS\PCS_Adding_CareItems_If_needed.xaml</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Clinical\PCS\PCS_Adding_CareItems_If_needed.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="639,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_35" UnSafe="False" WorkflowFileName="Clinical\PCS\PCS_Adding_CareItems_If_needed.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[in_ExpanseBrowserUrl]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_RegType">[in_RegType]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Facility">[in_Facility]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_CareItem3">Vital Signs/Height/Weight/Measurements +</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_CareItem1">Admission Health History +</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_CareItem2">Plan of Care Prioritized Problems +</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_CareItem4">Discharge Instructions +</InArgument>
+        <OutArgument x:TypeArguments="x:Int32" x:Key="out_totalCareItemsShown">[totalCareItemsShown]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <Assign DisplayName="Assign: Clinical\PCS\PCS_Select_CareItems.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="639,114" sap2010:WorkflowViewState.IdRef="Assign_24">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_CurrentExecutionProcess]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">Clinical\PCS\PCS_Select_CareItems.xaml</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Clinical\PCS\PCS_Select_CareItems.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="639,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_36" UnSafe="False" WorkflowFileName="Clinical\PCS\PCS_Select_CareItems.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_RegType">[in_RegType]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Facility">[in_Facility]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[in_ExpanseBrowserUrl]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_totalCareItemsShown">[totalCareItemsShown]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <Assign DisplayName="Assign: Clinical\PCS\PCS_Filling_out_Selected_CItems_SDC_Inpatient.xaml" sap:VirtualizedContainerService.HintSize="639,114" sap2010:WorkflowViewState.IdRef="Assign_11">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_CurrentExecutionProcess]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">["Clinical\PCS\PCS_Filling_out_Selected_CItems_SDC_Inpatient.xaml"]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="PCS\PCS_Filling_out_Selected_Care_Items.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="639,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_21" UnSafe="False" WorkflowFileName="Clinical\PCS\PCS_Filling_out_Selected_CItems_SDC_Inpatient.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Temp">36.6</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Pulse">60</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_RespiratoryRate">25</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_BloodPressure">120/70</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_SPO2">90</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_FiO2">21</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Height">1.85m</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Weight">90k</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_RegType">[registrationType]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_HeadCircumference">34.5 cm</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Facility">[facility]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ExpenseBrowserUrl">[in_ExpanseBrowserUrl]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_RegTypeExcelSheet">[in_RegTypeExcelSheet]</InArgument>
+        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="OutputDataHM">[OutputDataHM]</InOutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <Assign DisplayName="Assign: Clinical\PCS\Navigation\go_to_Chart_from_CareItems_page.xaml" sap:VirtualizedContainerService.HintSize="639,114" sap2010:WorkflowViewState.IdRef="Assign_12">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_CurrentExecutionProcess]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">Clinical\PCS\Navigation\go_to_Chart_from_CareItems_page.xaml</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="go_to_Chart_from_CareItems_page.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="639,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_23" UnSafe="False" WorkflowFileName="Clinical\PCS\Navigation\go_to_Chart_from_CareItems_page.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[in_ExpanseBrowserUrl]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <Assign DisplayName="Assign: Clinical\PCS\PCS_NUR_AddHomeMeds_01Inpatient.xaml" sap:VirtualizedContainerService.HintSize="639,114" sap2010:WorkflowViewState.IdRef="Assign_13">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_CurrentExecutionProcess]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">Clinical\PCS\PCS_NUR_AddHomeMeds_01Inpatient.xaml</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="PCS\PCS_NUR_AddHomeMeds_01Inpatient.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="639,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_29" UnSafe="False" WorkflowFileName="Clinical\PCS\PCS_NUR_AddHomeMeds_01Inpatient.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[in_ExpanseBrowserUrl]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <Assign DisplayName="Assign: Clinical\PCS\PCS_Nurse_Allergy_AddNKA.xaml" sap:VirtualizedContainerService.HintSize="639,114" sap2010:WorkflowViewState.IdRef="Assign_14">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_CurrentExecutionProcess]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">Clinical\PCS\PCS_Nurse_Allergy_AddNKA.xaml</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="PCS\PCS_Nurse_Allergy_AddNKA.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="639,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_18" UnSafe="False" WorkflowFileName="Clinical\PCS\PCS_Nurse_Allergy_AddNKA.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[in_ExpanseBrowserUrl]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <Assign DisplayName="Assign: Clinical\PCS\Navigation\go_to_Orders_from_Mar.xaml" sap:VirtualizedContainerService.HintSize="639,114" sap2010:WorkflowViewState.IdRef="Assign_15">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_CurrentExecutionProcess]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">["Clinical\PCS\Navigation\go_to_Orders_from_Mar.xaml"]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="PCS\Navigation\go_to_Orders_from_Mar.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="639,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_25" UnSafe="False" WorkflowFileName="Clinical\PCS\Navigation\go_to_Orders_from_Mar.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[in_ExpanseBrowserUrl]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <Assign DisplayName="Assign: Clinical\PCS\Enter_Blood_Culture_from_OrdersTab.xaml" sap:VirtualizedContainerService.HintSize="639,114" sap2010:WorkflowViewState.IdRef="Assign_16">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_CurrentExecutionProcess]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">["Clinical\PCS\Enter_Blood_Culture_from_OrdersTab.xaml"]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="PCS\Enter_Blood_Culture_from_OrdersTab.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="639,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_26" UnSafe="False" WorkflowFileName="Clinical\PCS\Enter_Blood_Culture_from_OrdersTab.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[in_ExpanseBrowserUrl]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseClinic">[in_ExpanseClinic]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <Assign DisplayName="Assign: Clinical\PCS\PCS_Adding_Problems.xaml" sap:VirtualizedContainerService.HintSize="639,114" sap2010:WorkflowViewState.IdRef="Assign_17">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_CurrentExecutionProcess]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">Clinical\PCS\PCS_Adding_Problems.xaml</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="PCS\PCS_Adding_Problems.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="639,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_24" UnSafe="False" WorkflowFileName="Clinical\PCS\PCS_Adding_Problems.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[in_ExpanseBrowserUrl]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="639,1765" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="603,1663" sap2010:WorkflowViewState.IdRef="Sequence_26">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign DisplayName="Assign: Clinical\PCS\PCS_Allergies_Validation.xaml" sap:VirtualizedContainerService.HintSize="569,114" sap2010:WorkflowViewState.IdRef="Assign_18">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[out_CurrentExecutionProcess]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">Clinical\PCS\PCS_Allergies_Validation.xaml</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Clinical\PCS\PCS_Allergies_Validation.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="569,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_32" UnSafe="False" WorkflowFileName="Clinical\PCS\PCS_Allergies_Validation.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="in_RegTypeExcelSheet">[in_RegTypeExcelSheet]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[in_ExpanseBrowserUrl]</InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_ExpanseClinic.ToUpper]" sap:VirtualizedContainerService.HintSize="569,236" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+            <Sequence x:Key="ORL" sap:VirtualizedContainerService.HintSize="470,287" sap2010:WorkflowViewState.IdRef="Sequence_17">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign DisplayName="Assign: Clinical\PCS\PCS_Vitals_Signs_Validation_ORL_NCFL.xaml" sap:VirtualizedContainerService.HintSize="436,114" sap2010:WorkflowViewState.IdRef="Assign_19">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_CurrentExecutionProcess]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">Clinical\PCS\PCS_Vitals_Signs_Validation_ORL_NCFL.xaml</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="PCS_Vitals_Signs_Validation_ORL_NCFL.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="436,136" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_33" UnSafe="False" WorkflowFileName="Clinical\PCS\PCS_Vitals_Signs_Validation_ORL_NCFL.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_RegTypeExcelSheet">[in_RegTypeExcelSheet]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[in_ExpanseBrowserUrl]</InArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
+            </Sequence>
+            <Sequence x:Key="NCFL" sap:VirtualizedContainerService.HintSize="470,287" sap2010:WorkflowViewState.IdRef="Sequence_18">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign DisplayName="Assign: Clinical\PCS\PCS_Vitals_Signs_Validation_ORL_NCFL.xaml" sap:VirtualizedContainerService.HintSize="436,114" sap2010:WorkflowViewState.IdRef="Assign_20">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_CurrentExecutionProcess]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">Clinical\PCS\PCS_Vitals_Signs_Validation_ORL_NCFL.xaml</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="PCS_Vitals_Signs_Validation_ORL_NCFL.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="436,136" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_34" UnSafe="False" WorkflowFileName="Clinical\PCS\PCS_Vitals_Signs_Validation_ORL_NCFL.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_RegTypeExcelSheet">[in_RegTypeExcelSheet]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[in_ExpanseBrowserUrl]</InArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
+            </Sequence>
+            <Sequence x:Key="NHA" sap:VirtualizedContainerService.HintSize="416,196" sap2010:WorkflowViewState.IdRef="Sequence_19">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="PCS_Vitals_Signs_Validation_NHA.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="382,136" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_30" UnSafe="False" WorkflowFileName="Clinical\PCS\PCS_Vitals_Signs_Validation_NHA.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_RegTypeExcelSheet">[in_RegTypeExcelSheet]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[in_ExpanseBrowserUrl]</InArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
+            </Sequence>
+            <x:Null x:Key="SAN" />
+          </Switch>
+          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="569,547" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+            <TryCatch.Try>
+              <Sequence sap:VirtualizedContainerService.HintSize="531,287" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_ExpanseClinic.ToUpper]" sap:VirtualizedContainerService.HintSize="497,227" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+                  <x:Null x:Key="ORL" />
+                  <Sequence x:Key="NCFL" sap:VirtualizedContainerService.HintSize="468,285" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign DisplayName="Assign: Clinical\PCS\PCS_Vitals_Signs_Validation_NHA.xaml" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_21">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[out_CurrentExecutionProcess]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">Clinical\PCS\PCS_Vitals_Signs_Validation_NHA.xaml</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Clinical\PCS\PCS_Problems_Validation_NCFL.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,136" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_38" UnSafe="False" WorkflowFileName="Clinical\PCS\PCS_Problems_Validation_NCFL.xaml">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_RegTypeExcelSheet">[in_RegTypeExcelSheet]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[in_ExpanseBrowserUrl]</InArgument>
+                      </ui:InvokeWorkflowFile.Arguments>
+                    </ui:InvokeWorkflowFile>
+                  </Sequence>
+                  <Sequence x:Key="NHA" sap:VirtualizedContainerService.HintSize="468,285" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign DisplayName="Assign: Clinical\PCS\PCS_Problems_Validation_NHA.xaml" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_25">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[out_CurrentExecutionProcess]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">Clinical\PCS\PCS_Problems_Validation_NHA.xaml</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Clinical\PCS\PCS_Problems_Validation_NHA.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,136" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_37" UnSafe="False" WorkflowFileName="Clinical\PCS\PCS_Problems_Validation_NHA.xaml">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_RegTypeExcelSheet">[in_RegTypeExcelSheet]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[in_ExpanseBrowserUrl]</InArgument>
+                      </ui:InvokeWorkflowFile.Arguments>
+                    </ui:InvokeWorkflowFile>
+                  </Sequence>
+                  <x:Null x:Key="SAN" />
+                </Switch>
+              </Sequence>
+            </TryCatch.Try>
+            <TryCatch.Catches>
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="535,22" sap2010:WorkflowViewState.IdRef="Catch`1_4">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ActivityAction x:TypeArguments="s:Exception">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                  </ActivityAction.Argument>
+                </ActivityAction>
+              </Catch>
+            </TryCatch.Catches>
+          </TryCatch>
+          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="569,561" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+            <TryCatch.Try>
+              <Sequence sap:VirtualizedContainerService.HintSize="468,310" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign DisplayName="Assign: Clinical\PCS\PCS_Home_Meds_Validation.xaml" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_22">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[out_CurrentExecutionProcess]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">Clinical\PCS\PCS_Home_Meds_Validation.xaml</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Clinical\PCS\PCS_Home_Meds_Validation.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,136" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_31" UnSafe="False" WorkflowFileName="Clinical\PCS\PCS_Home_Meds_Validation.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_RegTypeExcelSheet">[in_RegTypeExcelSheet]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_ExpanseBrowserUrl">[in_ExpanseBrowserUrl]</InArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+              </Sequence>
+            </TryCatch.Try>
+            <TryCatch.Catches>
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="472,22" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ActivityAction x:TypeArguments="s:Exception">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                  </ActivityAction.Argument>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Some input box wasn't captured in Home Meds part by activity.&quot;]" />
+                </ActivityAction>
+              </Catch>
+            </TryCatch.Catches>
+          </TryCatch>
+        </Sequence>
+      </ui:CommentOut.Body>
+    </ui:CommentOut>
+  </Sequence>
+</Activity>

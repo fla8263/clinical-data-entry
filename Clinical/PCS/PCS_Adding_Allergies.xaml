@@ -1,0 +1,337 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="PCS_Adding_Allergies" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Reaction" Type="InArgument(x:String)" />
+    <x:Property Name="in_Allergy" Type="InArgument(x:String)" />
+    <x:Property Name="in_Severity" Type="InArgument(x:String)" />
+    <x:Property Name="in_isNoKnownAllergy" Type="InArgument(x:Boolean)" />
+  </x:Members>
+  <this:PCS_Adding_Allergies.in_Reaction>
+    <InArgument x:TypeArguments="x:String" />
+  </this:PCS_Adding_Allergies.in_Reaction>
+  <this:PCS_Adding_Allergies.in_Allergy>
+    <InArgument x:TypeArguments="x:String" />
+  </this:PCS_Adding_Allergies.in_Allergy>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1204.6666666666667,4069.333333333334</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>PCS_Adding_Allergies_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="70">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.Testing.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="98">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="PCS_Adding_Allergies" sap:VirtualizedContainerService.HintSize="1475,3571" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Chart - MEDITECH" sap:VirtualizedContainerService.HintSize="1124,3548" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="37a49567-47cf-498f-9b50-d7e565cf7cba" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence sap:VirtualizedContainerService.HintSize="1090,3308" sap2010:WorkflowViewState.IdRef="Sequence_17">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If Condition="[in_isNoKnownAllergy = True]" sap:VirtualizedContainerService.HintSize="1056,3246" sap2010:WorkflowViewState.IdRef="If_5">
+              <If.Then>
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,240" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Unobtainable'" sap:VirtualizedContainerService.HintSize="382,180" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="37a49567-47cf-498f-9b50-d7e565cf7cba" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://ehr.nfl.hca.meditech.cloud/test/s0000045340452144/" DesignTimeRectangle="1448, 415, 77, 54" DesignTimeScaleFactor="1.5" FriendlyName="'NKA'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='2' parentname='popover' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' class='pn-i pn-i-flex a-flex s_214' parentname='popover' tag='DIV' aaname='' check:innerText='NKA' /&gt;" Guid="7e7caf3f-6e13-4aa9-b676-cda26d51c7e4" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFEAAAA6CAYAAADIvLWvAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAS/SURBVHhe7ZvPK31PGMf9ATYWyspKWVkqFpSFnSyUhbITC4USYkHJguyU7PxYKRY2IspGbJQsFBZIKeVX5Of2+fSab3M699w558655t7v4s5T7+515plzz7zu88wz57hTJt7+bB6iA/MQHVgixLe3N9nf35eFhQWZmJiQoaGhkhHjZdyMHw5JFgtxe3tbhoeHZWNjQ87Pz+Xl5UV+fn5KRoyXcTN+OMAjzrIg/v7+yuLioqyursrj46PxA0pNcIAHXOATtSyIOG5tbRlPVuqCC3yilgGRkIW46QRe/wk+0dQOIDJ5kvs+hZMFHziFi00AkSrEJGrq6JUpOMFLWwCRck41MnXyyhSc4KUtgMi6qNSWMfkKTvDSFkBkgWnq4GUWvLR5iHnKQ3QgD9GBPEQH8hAdyEN0IA/RgTxEB3IOcXJyUsrKypRqa2vl5OTE6Ie078rKSmwbr9G2sM7OzqS+vl7Ky8vVU5Xv72+jH8enpqaCa+vv71cPDky+aVVQiGh0dFQ+Pj4SffOFeHd3J21tbQrg8vKyfH19Gf3Q7e2ttLS0BNcF+IuLC6NvWhUM4tjYmLrQpGj8C0QAdnR0KJ+ZmZnYL0prZ2dHwe7s7FSi3/r6utE3rQoGkciYnZ1V7+OiMV+Iz8/P0tfXp9qnp6dzpuXn56eMjIwEnwU83vf09Mjr66uxTxoVDCIXS7okRWM+EAEGONoACdBwu0lXV1fS0NAQpHD4uk5PT4190qigEJnM5+fn1d+maEwLkf6kLsd7e3vl6ekpo0+cNjc3VR9dTBDvOba0tGTsk0YFhcjfl5eX0tjYaIzGNBD5Qqi+zGsUE+bEaB+TwsDCc6BO6a6uLusvI04Fh5gUjbYQOcfa2ppUVFQogNfX11n+cdKpSzqT1vq4TvGamprEZZiNCg4R6Wisrq6Wo6OjRN9oG697e3uqb2VlpRwcHGT5Jolzcx4KCwVGH39/f5eBgQHVNjc3l9EnrYoCMRyNg4ODQTW1gdja2qoiifcoTSpTdLq7u1U//rUZbddzZXt7uzw8PGS126ooEJEpGm0gIsDt7u4GMG2rMpWXuZhFNovtaPvNzY00NTVJVVWVHB4eZrXbqmgQTdFoAzEceTqtbUFSefG1EbeEXKPpPLlUNIgoGo02EHnVxxgkEalBJt2pUHGpvPjZKC5abVRUiEDg9yu0E43hu4iorwki4hx6qZP00OH4+FilKXPq/f19VruWvqfmXNwamnxyqagQEcuT5uZmFU11dXWpIaLwopvzkObhdqDqW85caUrFHh8fV768hiu4rYoOMRyNWmkhovD9MwWHR2K6jUpLxSW6bJZE+OBLkaHYmHySVHSISEfjXyAi/SgMv3AB0lBypbIWPvhyHpY9Jp8k/S8Qo9GYL0SkH8riS2RSUPTDV1I6KZW18NF98nlY6xxiKcpDdCAP0YE8RAfyEB3IQ3QgD9GBPEQH8hAdyAjR//DdXrE/fPdbMOwVuwXDbwayV+xmIG7A/ba03Erclob5DZK5BZ/YDZLa/FbdeFlt1cX8pvFswQEecLHaNK6NkCX3mUSpRqW2/GG8jJvxwyGawmGLhYgxeVKFKOesi1hglooYL+Nm/OEiYrJEiN5sTOQfKqfOkpqRx3sAAAAASUVORK5CYII=" InformativeScreenshot="c933604f57a457266cb289bc98c0234d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Chart - MEDITECH' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="1537, 415, 184, 54" FriendlyName="'Unobtainable'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='3' parentname='popover' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' class='pn-i pn-i-flex a-flex s_214' parentname='popover' tag='DIV' aaname='' check:innerText='Unobtainable' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="1022,2843" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="988,2783" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DelayAfter="1" DisplayName="PCS - Enter Allergy Type" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="954,286" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="37a49567-47cf-498f-9b50-d7e565cf7cba" Text="[in_Allergy]" Version="V3">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable BrowserURL="https://ehr.nfl.hca.meditech.cloud/test/s0000041164936176/" DesignTimeRectangle="161, 417, 410, 50" DesignTimeScaleFactor="1.5" ElementType="InputBox" FriendlyName="'INPUT x1CG_DK-i'" FullSelectorArgument="&lt;webctrl aria-role='combobox' parentname='popover' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='combobox' parentname='popover' tag='INPUT' type='text' class='ila-input navitem ila-styled sst-inactive s_222 s_223' aaname='' /&gt;" Guid="79c7393d-5dea-42aa-b34e-acff91f2878a" ImageBase64="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" InformativeScreenshot="8e0c3ed903d001e4f84e03dbad63da9d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Chart - MEDITECH' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="571, 417, 46, 50" FriendlyName="'Select'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' parentname='popover' tabindex='-1' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentname='popover' tabindex='-1' tag='DIV' class='ila-ipane ila-dvdr navitem link sst-inactive s_228 s_224 s_225' aaname='' check:text='Select' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADIAAAA2CAYAAACFrsqnAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAE3SURBVGhD7dpBioMwFIDhuaonEFzpMVx4AfeuXHkUb+BKUMTtG35GB6dlqLaJvIT3Q6BYAn7EpgvzJZEUDyRNU9E8iqKQsiyl6zoZx3G77ed+V4RJGluWRfq+l6ZpJMsyadt2++Zv6iHHpmmSuq6lqipZ13W7+lNQkD1WBcyxICHEyhwfs2AhPGb8ZvYNIFgIsQGwm1HQEHYztmYKGsLWzP8MBQ2h/b4NoiWDaMsg2jKItgyiLYNoSxVknuft0/WcQ4ZhkDzPJUmSS4M5zH03LytyFfMpgrxA6CzGBYK8QegVxhWCvELoP4xLBHmH0CPGNYJugdCO8YGg2yAEwAeCboX4zCDaMoi2DKItg2jLINoyiKaiefUWzcvQKF5PR3NgIIojHMEfqgn6mNPpg2cANI9zRwFFvgFUdl86wbd3FAAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NTypeInto.Target>
+                      <uix:NTypeInto.VerifyOptions>
+                        <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                          <uix:VerifyExecutionTypeIntoOptions.Retry>
+                            <InArgument x:TypeArguments="x:Boolean" />
+                          </uix:VerifyExecutionTypeIntoOptions.Retry>
+                          <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                            <InArgument x:TypeArguments="x:Double" />
+                          </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                        </uix:VerifyExecutionTypeIntoOptions>
+                      </uix:NTypeInto.VerifyOptions>
+                    </uix:NTypeInto>
+                    <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DelayBefore="1" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="954,247" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_4" ScopeIdentifier="37a49567-47cf-498f-9b50-d7e565cf7cba" Shortcuts="[d(hk)][k(enter)][u(hk)]" Version="V3">
+                      <uix:NKeyboardShortcuts.VerifyOptions>
+                        <uix:VerifyExecutionOptions DisplayName="Label 'Type'" Mode="Appears">
+                          <uix:VerifyExecutionOptions.Retry>
+                            <InArgument x:TypeArguments="x:Boolean" />
+                          </uix:VerifyExecutionOptions.Retry>
+                          <uix:VerifyExecutionOptions.Target>
+                            <uix:TargetAnchorable BrowserURL="https://ehr.nfl.hca.meditech.cloud/test/s0002633054842899/" DesignTimeRectangle="547, 465, 47, 24" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'Type'" FullSelectorArgument="&lt;webctrl aaname='Type' class='s_*' parentname='popover' tag='SPAN' innertext='Type' parentclass='flowcomp comp navcomp' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Type' class='s_*' parentname='popover' tag='SPAN' innertext='Type' parentclass='flowcomp comp navcomp' type='' check:text='Type' /&gt;" Guid="2b14e941-7d9a-46ff-af63-ef2cb638e1b3" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACQAAAAUCAYAAADlep81AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEfSURBVEhL7ZLBDYMwDEU7GVswA0zAAEzBIszBCozAjWOqV/VXxjhQkIo49EkIJXHs7+880s34C9rjL2iP+wqa5zm1bZuKosh+wzC8o39H1qGu61Lf9+/VdYSCpmlKdV0vHJGDXiRr9jkfxzE1TbNwWmeC+C3XQ0Ekrqrq9beQDOcEwhGgOBVTEfbLsvysuWsFsk/j5BGhIAJ9Z+D3/Vj9mjjiuRcV9w1BKIjE1gnBRRKQyIuzxQVxGj357Kj07ToUJRbqiDPfmRUriFNB716OlSASR+8HJJbOfHKKW8e4b98P8d4N9nzjK0G2qwg6tYWFHwlifFM+JsoTvqEcuXHm9s9wSBAW06VHbysa81G+FrQ1Ss4i+89wyKEruJmglJ4sLYjIXgc+yQAAAABJRU5ErkJggg==" InformativeScreenshot="1414369d35d7868c40206b2091087dcb.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Chart - MEDITECH' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target DesignTimeRectangle="580, 509, 83, 29" ElementType="Text" FriendlyName="'Allergy'" FullSelectorArgument="&lt;webctrl aaname='Allergy' parentname='popover' tag='DIV' innertext='Allergy' parentclass='iradio_item *' visibleinnertext='Allergy' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Allergy' parentname='popover' tag='DIV' innertext='Allergy' parentclass='iradio_item *' visibleinnertext='Allergy' type='' class='' check:text='Allergy' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADwAAAAXCAYAAABXlyyHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGbSURBVFhH7ZPBcYNADEXpiC6gFPdBLVTB2UW4CJ+5buYx+Y4QEjCODxj7zTCJxa6kt1qq8mF8hc/OV/jsPC18u91KXdfler1Ov+/3e2nbtvR9P/0+KqkwIlVVTRLIeE4lPI5juVwupWmamZTlVMKSGYZhEu+67vfNH6cSpmldZfu/Za+w4nwePOxhr7D7eLROeXXb7H5uHjHeaX80FPL5egthFVACiXmRPcLRXt+EPRBfQ+8kB+rPxtjHOtYL7yEWwl4kKgBbwllBxbUuOigRiQA5bT/RwdKXvSliIRwVIWanAlvC/r2FhnUQmXB2YOCFwceiNTATzopEJ7hXWN+ef9TMq4TtRKN+xUx4b5N27TMTtrxK2K4nFznJ7ZkJszhbSBIEEIEt4bWGLZkwRGKQxcmh4UT54CGswlmDElSiLWHgXVScuGJrwr4mKGckrFx2MJ6HsBJJIMLegD3CoLhOnsc2tCYMqqO99JBNeM+tml3pd0HSHj+EiEMLM30mxl+BTHZls8lbDi+89jlYNN3s0xBveaX/w4cJl/IDIO6ObmMNKq8AAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:VerifyExecutionOptions.Target>
+                          <uix:VerifyExecutionOptions.Timeout>
+                            <InArgument x:TypeArguments="x:Double" />
+                          </uix:VerifyExecutionOptions.Timeout>
+                        </uix:VerifyExecutionOptions>
+                      </uix:NKeyboardShortcuts.VerifyOptions>
+                    </uix:NKeyboardShortcuts>
+                    <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="954,1200" sap2010:WorkflowViewState.IdRef="IfElseIf_1">
+                      <ui:IfElseIf.ConditionBlocks>
+                        <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                          <ui:IfElseIfBlock BlockType="If" Condition="[in_Severity = &quot;Severe&quot;]">
+                            <ui:IfElseIfBlock.Then>
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,240" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Severe'" sap:VirtualizedContainerService.HintSize="382,180" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="37a49567-47cf-498f-9b50-d7e565cf7cba" Version="V3">
+                                  <uix:NClick.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://ehr.nfl.hca.meditech.cloud/test/s0000041164936176/" DesignTimeRectangle="884, 617, 15, 15" DesignTimeScaleFactor="1.5" ElementType="Icon" FriendlyName="'CIRCLE dotPath'" FullSelectorArgument="&lt;webctrl id='dotPath' idx='5' tag='circle' /&gt;" FuzzySelectorArgument="&lt;webctrl id='dotPath' type='' tag='circle' class='' aaname='' /&gt;" Guid="ab5cf887-c5da-4198-a97a-14265c66078a" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAABoSURBVDhP7dTBCQAhDATAtGpBgl/9B61QBNGVy6UBzf3OAXFR2OeScw7PCSGgtYZdtVZ476VDykop+nVmzglmBqWU9MmOxhga7UjvT9yyfbds31/Keu8a7SjGqNFOxjHnLAN36h1HxgJhIovuvQcWMAAAAABJRU5ErkJggg==" InformativeScreenshot="bedd5a28d1089be3108caffe78f6d174.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Chart - MEDITECH' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                          <uix:Target DesignTimeRectangle="914, 610, 84, 29" ElementType="Text" FriendlyName="'Severe'" FullSelectorArgument="&lt;webctrl aaname='Severe' parentname='popover' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Severe' parentname='popover' tag='DIV' type='' class='' check:innerText='Severe' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFgAAAAhCAYAAABduGw9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAVOSURBVGhD7ZjLK35PHMf9AzZ2VlaShWQhIiGKhZRCWbiVEgsLbJAUG0QpJQolxAKl+CopROSWSEiuud/vIpfPr/fHmcec85zzXOhsfp1XTR5zZubMvGc+lzkeZGEqlsAmYwlsMpbAJmMJbDKWwCZjCWwylsAmYwlsMoYCHxwcUE1NDcXExJCnpyd5eHjw34iICCopKaHx8XF6enpSWlsYYSfw+/s7NTU1kZeXF4vqqKDN3Nyc0tNCD5XAX19f1N3dzScV4tXW1tLx8TF9fn7y87e3N9rd3aWGhgYKCAhgkaenp/mZhT4qgU9OTig2NpaF6+zsZMGNeH195Tbz8/NKjYUeKoFnZ2f59AYGBtLm5qZSa/EXdAX29fWllZUVpfZ3IAC2trZSfHy8LUhGRkZSY2MjXV1dKa2+WVtbI39/fy74bcT+/j6FhYWxlcHaZODGJiYmKDMzk3x8fPh9fn5+VFhYSOvr63bW+PLyQrm5uTY3B4vs6+tTzVfr/i4uLqiuro7Xgedoh/Zwq0YBXyWwWAA6l5aW/jpLWFpaovDwcB5Hr+CZbCFYXEFBAT9rbm5Wau3p7+/nNvX19SrBrq+vKT8/X/UOuSCe9PT0qPrIAre3t1NSUpJdPyEw+o2MjPCGaduIkpKSQmdnZ9xeRiXwx8cHBzbRCYGsoqKCBz88POQg54y9vT0WELtbXV1Np6enPEGUo6MjKi4u5rEzMjLo/v5e6UU0OjrK9Vjozc2NUvsDNjsrK4u8vb1VmQs2p6ioiPumpaXR6uoqZ0IAfRAncKJhHbJVygKLvouLi7a+MgsLCzwGSltbm21+sJqtrS3uizFwKLX9VQIDvLiqqspmJtoC80B+DCHlEwHwP04X2uEkiuxDRixMK5QIsHjv2NiYUvsD2qIPRJYtS9Snp6fT7e2tUqumq6uL5ySffFnglpYW3ig9hHVhXv/+/bNbMzg/P6fExEQKCQnhLEvGTmABOsGHpqam2nyaXPBCCC1P7PLykn0S3AzcjREdHR08BhYukDcHFxlYkwC/y8vL+RnchAB9cBhQPzg4qNTas7GxwdYIQSEskAV2lGrClSHoJycn093dnVKrBvOApeuNZSiwlsfHRw4WuIQEBwfzYCiySGIy4pmzUllZqfT8RgQ77UlALh4VFWUX3GSRXClxcXG2AOuqwHimHcdRkfUALgss8/DwQDk5OTwg/j4/P3P9XwWWgx2sR2AU3P63AgPh1+RJC4HlOneB/4X7Eb5WBDe9FM5VkfRwV2C0RR93+bPAsm8SpvyXPFoEOxEERRDDydYGIvhm+GvMw1F6p4erAmMdWA/WhfW5i0pgJNpIa5ztFKI1ojYmJ5utHIyQl8rRXgbtsajl5WWl5gc8E8EOgaOsrIx/y8FNRpx4+G3ECCOQLvb29ir/uS6wsCC0Q9qpl8YBZEzDw8O0s7Oj1HyjElicSkRcZAjICxHcBPg9OTlJCQkJ3C46OppzWxksEovFcyTfU1NTtg1DHo0TkZ2dzaIYLUwEO5xcFL2bmwACiEsG3BMOCNwTNgqLxqnD7QuZkOzzXRUY4IYoMqm8vDxeg7gTYBxogvwd75cvUEAl8MDAgEufKVEgMpJsPZzd5FAcfeqUgx2KNrhpcXaTEwWHRuCOwHi3s5scSmhoKG1vbyu9vrHzwXgxPqbDPBGsZMHxAmQNmJCRqQhwsnA9lfNojIVTjbs78mxHCNN39n1CgNM6MzPDGxMUFGSbs7gYwbLki487AgtgGbiU4HAJXbA2fP8YGhpS3UwFvw5yFq5hCWwylsAmYwlsMpbAJmMJbCpE/wGHU7jy+IfHnAAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NClick.Target>
+                                </uix:NClick>
+                              </Sequence>
+                            </ui:IfElseIfBlock.Then>
+                          </ui:IfElseIfBlock>
+                          <ui:IfElseIfBlock BlockType="ElseIf" Condition="[in_Severity = &quot;Intermediate&quot;]">
+                            <ui:IfElseIfBlock.Then>
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,240" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Intermediate'" sap:VirtualizedContainerService.HintSize="382,180" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="37a49567-47cf-498f-9b50-d7e565cf7cba" Version="V3">
+                                  <uix:NClick.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://ehr.nh.hca.meditech.cloud/test/s0000824651011612/" DesignTimeRectangle="663, 617, 15, 15" DesignTimeScaleFactor="1.5" ElementType="Icon" FriendlyName="'CIRCLE dotPath'" FullSelectorArgument="&lt;webctrl id='dotPath' idx='4' tag='circle' /&gt;" FuzzySelectorArgument="&lt;webctrl id='dotPath' type='' tag='circle' class='' aaname='' /&gt;" Guid="e098e1bd-ae7f-4420-ab71-54a738bfa588" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAABxSURBVDhP7ZJLCsAgDAVzVRUPJ65ExMuInkMEX4lka2u77qxePgNZhJRSsNYi54w5J3bwLKW0dtkhYwxaazJ+ptYKdijGKK1zQgigu/N2sEOSX/OLN9AYQ+I5vXeQ917Kc5xzIK31eqNTSilg5+OTK1yHcO4iwaKE4QAAAABJRU5ErkJggg==" InformativeScreenshot="3ca879012321439a2c99bc26e7b9f51c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Chart - MEDITECH' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                          <uix:Target DesignTimeRectangle="693, 610, 157, 29" ElementType="Text" FriendlyName="'Intermediate'" FullSelectorArgument="&lt;webctrl aaname='Intermediate' parentname='popover' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Intermediate' parentname='popover' tag='DIV' type='' class='' check:innerText='Intermediate' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGwAAAAXCAYAAADug6rPAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAIjSURBVGhD7ZfBjQIxDEWnI7pgSqEPaqEKzhRBEZy5ZvUQf+Q1cSYRaNis8qQIJnH8bf8dpJ3SoCuGYZ0xDOuMYVhnDMM6YxhWwfF4TIfDId3v9+fO91gMu16vabfbpWmalkWhLdxutzTPczqdTs+d/4E37HK5PObDZwuaces9y8sbxrAZOsNvZRhWZhi2EZ/6SdzMMCtE8frJtHEyS2da1jz/s1ujwzP7Ojufz4/hKYcGyR3tsXJ/NGv6QC6bX8saZuuE6E6pdy1rHvH2jBl4mgyzAirSNiLTcsPSQG2BFGS1cjpCZyy+g/SIt3Vw18ZBjb7y+UHxvGYYMcoDismZ5nuD2lqa3zCLj5WIN2xtX3lLDUVnfpjg9Wr1fT9izbAcxHLHDjy6xzP7nFvY9/W8bZgVigYTFaSmFB/pQHRWY1iNfm7AotYw4niL7aq953sA4vf7/a+6NzPMN2KXhhTpQHSWazZnWE5XixzvGKZnOzflK90T5M/VpWXjv/qGeSIdKDVbY9ia/juGce5n1mqY7yFiE8OifU+kAy3Ner1a/WhwNYb5e3xnr3RP8GznWOKjhuWKFMT61xvY116kA9FZjWHQop+7Vxo8n3YOQF3+nurizKK5+bmzT6zdWwxTEYhoKXE0LJrxhaoo5bDN5zRskZEORGe1hsGaPvgYcniNXC0yVkv/L/rafP5SDpY39+UNG/xthmGdMQzrjGFYZwzDuiKlH6c5NgWDL9ZPAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NClick.Target>
+                                </uix:NClick>
+                              </Sequence>
+                            </ui:IfElseIfBlock.Then>
+                          </ui:IfElseIfBlock>
+                          <ui:IfElseIfBlock BlockType="ElseIf" Condition="[in_Severity = &quot;Mild&quot;]">
+                            <ui:IfElseIfBlock.Then>
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,240" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Mild'" sap:VirtualizedContainerService.HintSize="382,180" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="37a49567-47cf-498f-9b50-d7e565cf7cba" Version="V3">
+                                  <uix:NClick.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://ehr.nh.hca.meditech.cloud/test/s0000824651011612/" DesignTimeRectangle="540, 606, 36, 36" DesignTimeScaleFactor="1.5" ElementType="Icon" FriendlyName="'Radio Button'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;svg' idx='3' parentname='popover' tag='svg' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' class='injected-svg' parentname='popover' tag='svg' aaname='' check:text='Radio Button' /&gt;" Guid="ff3c5d1e-916f-41cd-aed6-5176d64f6945" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAIfSURBVEhL7ZXbyzFRFMa/fxXJ4YZEcaMcyw03wr8gUUgi59xIEVdIlLhwyvHCIdbXWu0332ubMfOm7+r91a6ZNet5nj2HvecP/Gd+Az+OpMDb7QatVgvi8TgEAgEwGAw08DiRSEC73Yb7/c66xXkbuFgswOl0gkKhEB0ejwdWqxVTCSMaWC6XQaPRkKHb7abzXq8Hh8OBBh6XSiVwuVzUo9VqoVarMfVrBAOLxSKZqNVqyGazoo8Mr2UyGepFDU5MiJeB8/mc7kylUsF4PGbV94xGI9Kgdrlcsup3uECcrcPhoJmm02lWlU4ymSSt1+t9+VS4wMFgQAIMlfrl/Qtq7HY7eQyHQ1Z9wAXi+8Lmer3OKvKpVCrkkcvlWOUBFxgMBgVnJ5V+v08eoVCIVR5wgSaTiZpPpxOryGe325EHej3DBRqNRmrebresIh/Uogd6PcMF+v1+au52u6win06nQx7o9QwXGIvFqBkX8k9JpVLkgXvvM1xgo9GgZovFAtfrlVWlcz6fwWw2k0ez2WTVB1zg5XIBm81GArxbuUSjUdJarVbyeoYLRCaTCe2LSqWStiup4FJCDWpnsxmrfudlIJLP52mmP9m8C4UCu8IjGIhUq1XQ6XRk8vV7wkV9PB5hv99zvye9Xk8aMUQDkfV6TRsxGooNn88Hm82GqYR5G/jFdDqlf2Q4HKYFjV9iJBKhuxZ6X6+QHPgpfgM/DMBfBixvrWy90AYAAAAASUVORK5CYII=" InformativeScreenshot="5ba2495a2b9e0085039024d816e05ba1.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Chart - MEDITECH' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                          <uix:Target DesignTimeRectangle="580, 610, 48, 29" ElementType="Text" FriendlyName="'Mild'" FullSelectorArgument="&lt;webctrl aaname='Mild' parentname='popover' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Mild' parentname='popover' tag='DIV' type='' class='' check:innerText='Mild' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACQAAAAXCAYAAABj7u2bAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAD3SURBVEhL7ZTLDYMwDECzEVvAKEzAAgzAFAzAEAzBEJy5unoUVy6ET1ApHPKkKCR2nEf4OHkYUWiPKLTHJUJd10mSJNK27TTjx5f3JdT3vWRZJs45bzEbr+t6mhUpy3KcJw6XCOV5LsMwTJE3LCT2d6GiKBaJyCGpMSs05+dCbMZd0xQWsbhpmoUQ10dOiLGesG2HhFSA4qCCulmoEDm2HvjyVoX0EalEmqZjr0VChGxdS5AQkMi4qqrPS35GiJ4x85ZgIR3b53yrEHBtfwG3C805I+TbGG4TAj4Om6N7Hf7s1zgrBEjpv4d84psn9ASi0B5RaBuRF0CYnlR4W2UVAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NClick.Target>
+                                </uix:NClick>
+                              </Sequence>
+                            </ui:IfElseIfBlock.Then>
+                          </ui:IfElseIfBlock>
+                        </sc:BindingList>
+                      </ui:IfElseIf.ConditionBlocks>
+                    </ui:IfElseIf>
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="PCS - Enter Allergy's Reaction" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="954,250" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="37a49567-47cf-498f-9b50-d7e565cf7cba" Text="[in_Reaction]" Version="V3">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable BrowserURL="https://ehr.nh.hca.meditech.cloud/test/s0000026760528832/" DesignTimeRectangle="529, 801, 562, 50" DesignTimeScaleFactor="1.5" ElementType="InputBox" FriendlyName="'INPUT x31s_Ja-i'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;input' parentname='popover' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ila-input navitem ila-styled s_193' parentname='popover' tag='INPUT' type='text' aaname='' /&gt;" Guid="12b80366-a7b5-4846-9d70-43b2ee5985d7" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAX8AAAAdCAYAAABCD2yCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAI1SURBVHhe7do7bkIxEIXhLJ2GigVQUbECKlbBDlgDJa2jk3CUwYydGyrI/J9kCRk/bnXG1/DRAADlEP4AUBDhDwAFEf4AUBDhDwAFEf4AUBDhDwAFEf4AUNC/DP/z+dzW63U7nU63HgBAtCj8FaKr1equKVwVsq/oeDy2zWbTLpfLrQcAEE3D/3q9tu12+xCk+qy+Vy0A+/3+67n1/ACAR9Pw1wl6FvCHw+HlTtcuWHp2AEBuGv46Qf/l+sRvBPF6qL9315rxezX1RfHOXiGuMbEIOeCzNeLcuBfXQADw49fwV3Au+eHUvwvEE3f/5qDQ3u12d28SDus4z2v164m/i8+kNbSu1o9zPcZFqS8yAFDVNPyzk3x2l54FuLg/BnXPe/RFIzupj/aJ9F3/jH5TIPwB4Ns0/M3hOSoCCtUsrB3sMfyzgqLmMbOgHu1jo7nec1Y0AKCSReHfU7g6sLPCEJuvfWLox2Kgzx4jo6CeFQUbzV3yBgIAlTwV/gpRh7gDdxbKMjq199c0fTGwJfuM5qo/2xsAqkrDXyGpv3GOxCBfciIfjcn6VQyyoF4S/qO5mhMLDABUl4a/r0myU7QCtu9XX3+dI+pXc8jHYHaYa57G2Cyos330HP6nTzbXe8+KBgBUM7z2ieEc2yhEHcyxxSDu19NnX8e4kHhMLAY97R/3cCEazXV/X5gAoLKn7vwBAO+N8AeAggh/ACiI8AeAggh/ACiI8AeAggh/ACiI8AeAclr7BIEYxn+Qn+SEAAAAAElFTkSuQmCC" InformativeScreenshot="37d49133f584849833018dee33c2ff4f.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Chart - MEDITECH' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive" WaitForReadyArgument="Complete">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="548, 768, 84, 24" ElementType="Text" FriendlyName="'Reaction'" FullSelectorArgument="&lt;webctrl aaname='Reaction' class='s_234' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span' parentname='popover' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Reaction' class='s_234' type='' parentname='popover' tag='SPAN' check:innerText='Reaction' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADwAAAAUCAYAAADRA14pAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAGWSURBVFhH7ZTNbYNQEIRTGV1QAy7AogBXwZ2rfXQdtEAJvvn4og950Lz1JpcIKcKMhODt/wwLX+XDcBDeOw7Ce8e/J/x4PMrpdCrTNL0sf8Mb4WEYStM01XW/31/ebTHPc+n7fiG5FSrCz+ezXC6XiiDKtm27DLM16EV/5tgKFWFIdV1XkctWiuefNoBcBHJ/XEfi3c9WxZr0pDe++AI8zmtrQ8ZxfKsjVIRJjgHRRnM/ZyI5iPe3BgE/U+d2u63b5QSiLdbC7tvHGZISSPkuWEU4FmQYyCkhI5cN6vCaxERBhay22zK/5nNBEFTIZlsJy6lVyNaBgu7XJZWzGlwSjGF8IAdDSRjBbS6cwGyssPd2cu4XVsJRLe4M6wWigg41/E1hfCIfkdV2W+anrkTIyPEc//or4cxJk/iNxD82NuIyhbH7lsQzOdfrdblDxgmpHjmAup7LDMyiftxFXiA3irQSxhkTAAlOkjhf10jIfefzuaopEh7jA8tGT2rGN4ZdMVH4jBxn7I7qp/UJOAjvHQfhfaOUb/bYdJm9TxZeAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NTypeInto.Target>
+                    </uix:NTypeInto>
+                    <uix:NCheckState DisplayName="Check App State 'Free Text'" sap:VirtualizedContainerService.HintSize="954,515" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="37a49567-47cf-498f-9b50-d7e565cf7cba" Timeout="7" Version="V3">
+                      <uix:NCheckState.IfExists>
+                        <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,266" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DelayBefore="1.5" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="416,204" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_6" ScopeIdentifier="37a49567-47cf-498f-9b50-d7e565cf7cba" Shortcuts="[d(hk)][k(enter)][u(hk)]" Version="V3" />
+                        </Sequence>
+                      </uix:NCheckState.IfExists>
+                      <uix:NCheckState.IfNotExists>
+                        <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,91" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Sequence>
+                      </uix:NCheckState.IfNotExists>
+                      <uix:NCheckState.Target>
+                        <uix:TargetAnchorable BrowserURL="https://ehrgcd.exp.hca.cloud/test/s0000759050810257/" CvTextArgument="Free Text" CvType="Text" DesignTimeRectangle="48, 810, 67, 16" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Free Text'" FullSelectorArgument="&lt;webctrl aaname='Free Text' parentname='popover' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Free Text' parentname='popover' tag='SPAN' type='' class='s_370 s-text wrap' check:innerText='Free Text' /&gt;" Guid="4c180b13-c7cc-48b4-a52c-40d3bef23877" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEcAAAAUCAYAAADfqiBGAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGPSURBVFhH7ZQ9jsJADIU52dwkUiQOkRZxCloqeg5AScUNqCg4Ai3etT0h8/PsAQlts1N8UjKJ4zfPL7O6PZ7UwXRzHLo5Dt0ch26OQzfH4Q1z7rQbA4VQM53Q+9/mTBPovbCm3RXVfcBpS2E80KVYf8McFfc3RrTQQX1by2W/prA5V+ttc9jVsKUjevYSm6QrNpGGyYTzDZVptL5fcD3QYCTF7Cc1RX/ZU6Bhf6/q0gQ1zZFiEDlljnwu+LjJm+QGaw0Ly94Hk6swBuX3K+7lOtXLerDhTXOkceosMwtBYuEGFgHQCK4xB7AA49/op/ea1GHklBRGwHqlYY5O2frHkVhopsAC9HvweTM5cYNJ4hi/X1JvmAANj/jmOP84w8KQ2HJtwY5wG1zr94tEYyY2EgzTqvfNceOOxeoBl0+I1zR98SDOBPIajnWGN3mzX/G8GjZO44xrjkTWirs0wpuSujTimcH1r9Wc/C+ySWNQuF8cRKFR3k2+o+ZpXamjeSD/Z7o5Dt0ch26OQzfH5Ek/AsH1EhYwQDIAAAAASUVORK5CYII=" InformativeScreenshot="904cba5a968af9e402c11b0ec2149f74.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Chart - MEDITECH' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                              <uix:Target CvTextArgument="Reaction" CvType="Text" DesignTimeRectangle="58, 750, 56, 16" FriendlyName="'Reaction'" FullSelectorArgument="&lt;webctrl aaname='Reaction ' class='text-content' parentname='popover' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Reaction ' class='text-content' parentname='popover' tag='SPAN' type='' check:innerText='Reaction' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADwAAAAUCAYAAADRA14pAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGUSURBVFhH7ZOxscJADER/ZW6ABtyAc1fhJiCmE/fgAhw6dnp/HsMye7L4EQ6+8c7cwJ2kXa0QP+XLcBo+Ok7DR8e/MDwMw+N8AhvD4ziWpmmq0/d9Wdf1mbEf0ECLHvbCxvD9fq8MLstS2rZ9vO8NtLquK9M0PV8+j8qwJhzNxZXSELINiDFO5ItbRP08z5s68jh/8Xtf6v96vZbL5VLxCJVhkXlCfGP6kOn+bkgCedTDA8jzO/U0yCex+F/1N7Sp1QaoN2nr7gMi5vfKcCQEiKmAk5nLGhXccMYvZNz+9k4bXR8IfwkNE8TeKsMEtQbZOkDoq+JHjUAeYxIkR8OLoMn4//U3TjYsuKUdzQGPg8owQRVoPZwAsThBB7nRkAtmDQkZt79lcb5rIMC1gLbCf7SX4SwIEb+oSBBgCE7KG0LUR0G4qFdD8Q5ut9uDg5hWX4BLA5S2+lO/GiBxNw/4Hof0MkwwWxkEfGWJx7VWE8rVgS8K0qDnxGGqjns2wKwWZObIjxtXrfQ34DR8dJyGj41SfgHvwVTs2jGVsQAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, CV" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NCheckState.Target>
+                    </uix:NCheckState>
+                    <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DelayAfter="2" DelayBefore="2" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="954,202" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_7" ScopeIdentifier="37a49567-47cf-498f-9b50-d7e565cf7cba" Shortcuts="[d(hk)][k(esc)][u(hk)]" Version="V3" />
+                  </Sequence>
+                </Sequence>
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAAuSURBVDhPY0g40PCfEkx9AwgBdPVYDUAXw4eHqwH4ALr60UCkRSCSigfagIb/AFw/yr9yPXeMAAAAAElFTkSuQmCC" InformativeScreenshot="9a67b3b3aad070b1b869c8fe1a9a991b.jpg" Selector="&lt;html app='chrome.exe' title='Chart - MEDITECH' /&gt;" Title="Chart - MEDITECH" Url="https://ehr.nfl.hca.meditech.cloud/test/*/" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
