@@ -1,0 +1,881 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Workflow" this:Workflow.in_ExpanseURL="https://ehr.nh.hca.meditech.cloud/test/" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_ExpanseURL" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>990,6272</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Workflow_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="39">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="100">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Workflow" sap:VirtualizedContainerService.HintSize="671,6207" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="[NAppCloseMode.Never]" DisplayName="Use Browser Chrome: New Incognito Tab" sap:VirtualizedContainerService.HintSize="609,6096" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" IsIncognito="True" OpenMode="Always" ScopeGuid="05756cd0-bc77-4fad-a6c0-cda873b832f1" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="575,5879" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Default="HCANH TEST" Name="HCIS" />
+              <Variable x:TypeArguments="x:Boolean" Name="verifyLaunchNewSession" />
+              <Variable x:TypeArguments="x:String" Name="userName" />
+              <Variable x:TypeArguments="ss:SecureString" Name="password" />
+              <Variable x:TypeArguments="x:Boolean" Name="verifyIdleSesson" />
+              <Variable x:TypeArguments="x:Boolean" Name="verifyChartActive" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:GetRobotCredential AssetName="mtxLogin4" CacheStrategy="None" DisplayName="Get Credential" FolderPath="QACOE" sap:VirtualizedContainerService.HintSize="513,168" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[password]" Username="[userName]">
+              <ui:GetRobotCredential.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:GetRobotCredential.TimeoutMS>
+            </ui:GetRobotCredential>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="513,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[userName]" />
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Sign in'" EmptyFieldMode="None" sap:VirtualizedContainerService.HintSize="513,218" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="05756cd0-bc77-4fad-a6c0-cda873b832f1" Text="[userName +&quot;@hca.corpad.net[k(enter)]&quot;]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://login.microsoftonline.com/335a6d75-c3eb-4b1a-ac08-d49338816ca0/saml2?SAMLRequest=fZHLboMwEEV%2fBXnPIxgItUIkmrRKpFSNAu2im8qYIVgCO%2fWYqp9fQlo13WQ5j6O5c%2b8Ced%2bdWD7YVh3gYwC0zlffKWTTICODUUxzlMgU7wGZFazIn3Ys9AJ2MtpqoTtyhdwmOCIYK7UiznadkXeI6zpp0pBGURPFvOEJUGhEzNO0qSIhiPMKBsf9jIz4CCEOsFVoubJjKwipG0RuOC9nKaOUzcI34qzHH6TidqJaa0%2fIfL%2fTR6m8XgqjUTdWq04q8ITufUpjntTz2BUUKjeqZtzlIkjdOrqjNE1nieCBf%2f4sJE7%2bK3%2blFQ49mALMpxTwctj9nYLWeKr1WsG9HmppQbSe6PRQ%2b3ZU5nOBxNn%2fOHcvVS3V8bZp1WUJ2aYs9%2b7%2buSiJ86iNgCm1jFgzAFkuzhrZZJBZbla5Vz4U5cK%2f7l6q%2f2kvvwE%3d&amp;RelayState=https%3a%2f%2fehr.nh.hca.meditech.cloud%2ftest%2f&amp;sso_reload=true" DesignTimeRectangle="794, 487, 348, 36" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT i0116'" FullSelectorArgument="&lt;webctrl id='i0116' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='i0116' tag='INPUT' type='email' class='form-control ltr_override input ext-input text-box ext-text-box' aaname='' /&gt;" Guid="cd7cf262-727d-4240-80e7-09b2155df234" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAWAAAAAoCAYAAADAHSD5AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAASBSURBVHhe7ZwxUiQ5EEX3tByEE4CNi4mJh4eFiYXFATgAFk5PPGJ/b5IrVdfM7IYYeC9CUSVlSplSR/6u7ib46yAiIktQgEVEFqEAi4gsQgEWEVmEAiwisggFWERkEQqwiMgiFGARkUUowCIii1CARUQWoQCLiCxCARYRWYQCLCKyCAVYRGQRHwT4+fn5cHZ2dmwPDw9/W/aTNbgG7q+vrw9vb2/Hfo2TdireaF5dN9Bn/Ffy/6rkTOrrIiJr+SDA9/f3h9fX1/d7rpeXlz9VsClyhLHO474LcBfOxOvjsGVjrR4veSjA/5Azqef0XzJ6TUVkm82vIG5vb9/bXhA8irALdy/OWbGOhHM01kGgr66uDi8vL+/9PXO+GzkTBVjk83BSgPeKGOIXEfxVAYZTvuSUrx9qfvjlzQJf5mCr/n0vebKOfRbn/Pz8KO4jsOET/+QB3VZjJE8+eXBNHPKk//T0dJxHnuQbtmJC1o49MTinTs6BeHVO96UfW7XXs6L1XERkzFSAKXAEtRb9jBQ7BZlirsXLPfYIT+9XelyKOWtFmJiXmBHVOi+2KhJcq5AmzyrKj4+P73OxIVihxu1ECBMHH9aBHhPYT99D9yFeFzLGqggTo++l5sC6fX49j0rm1zx6PObVPn4XFxdHf+yzMxKRMR8EOIVIof5MMVGsKfYuBtCLc6tYa2Fjv7m5+dd9qOJMXNbkii/3VYAyRq5Qcz4FMWdvRqyRNSs9XmCNfFIY5QnMqWIH3PdzrdQ88OnzE2s0P2vXXEd59rk9Jj74isg+Np+AeSJKgaVIEWdaCrwXXvxqsXafrWKtYoc9okufOVyh2oArfcZp+FZBqWMjeyf77/utjPYaZrbEZnyWB33GsYc6LyCAyY+WdfbOD6Nc61jua6y0vHng12OKyDab3wFXMRyRoh4VJm1WnFvFWsWDVp+AGY9IcCUG125LvwpbHev+HXzqx/HZOdDPU2JnZquxR3lCPYNQ50UQc75Qn0a5Vhts7TnrVVsdG9k72HrOIrLNbwnwiFGx9uKcFetobhUT8slTKWP4ReyriEVstsaY30UK4ldzmJ3DKE6Y2Vgjwjzzoc849lDnjc6PvWQd7JxjzXd0tmFkq2Nb+wyjnERkm6MAU3D1h6c9RTdiVMy9OEfFGnHt8baEY8Yo9z6WeHXd/AhXxTnzyIFcej5c69My/qd+hOtr9z3T728qdR7r9R/Aqn9y7PPxSd7Y8hqMzvjUPqH+EIg9ZyQi+zgKcMQgT5RdAPYyKmbuU+zp1zi0reKlyCn+CFDl7u7ugyjASNhGY1k3OWT97IEx7AhNnoBn+8satBqj2+oeRjkBfcZ5Q8y8en6AT12TVtepe6DlT8ySd2Kw5mhPo7EaM3FD9tLHRWTO5lcQnw0KuwrAVy32Ko4i8nX5owT4u6AAi3wPFOBPiAIs8j1QgEVEFqEAi4gsQgEWEVmEAiwisggFWERkEQqwiMgiFGARkUUowCIii1CARUQWcRTg/j8WbDabzfb/tOATsIjIIhRgEZElHA4/AIYYUrMwKOHuAAAAAElFTkSuQmCC" InformativeScreenshot="4a93e6eeb2b593148d7d4bab7d4742b1.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Sign in to your account' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="792, 447, 352, 28" ElementType="Text" FriendlyName="'Sign in'" FullSelectorArgument="&lt;webctrl aria-role='heading' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='heading' tag='DIV' type='' class='' aaname='Sign in' check:innerText='Sign in' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAWQAAAAgCAYAAAAlpQLuAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARmSURBVHhe7d3NKzVRHAfw5//wB1hYyMpGUpISpSSyEUq2ioiSl7xGLFiQSPKy8ZYoskEhWUgSErEgL0kKef09fU9z7jMz7lzz3Gduz9T9furU7ZyZO3f1veee85u5v4SIiHyBgUxE5BMMZCIin2AgExH5BAOZiMgnGMhERD7BQCYi8gkGMhGRT/xzIJ+dnUl2drYkJibK5uam0esvHx8f0t/fL7GxsVJTUyNPT0/GCBGRfwQN5MfHR5mdnZWysjIVtDExMaqlp6dLeXm5nJ6eGkeKTE9PB8a7u7uNXn+5v7+XgoIC9RnT0tLk5OTEGCEi8o9vgbyzs6NCS4dssLa9vW0cLXJ+fi6FhYWSmpoqW1tbRq+/YIY8OjoqCQkJ0tDQwBkyEfmSJZAx883MzFShi5/31dXVsrKyIhsbG6rhdUtLi+zu7hpnEBGRVyyBjFmkngVPTU3J19eXMUJERJFmCWSsAQdbliAiosizBPLAwEAgkMfGxlzNkBHc+hxs8NlhvXZkZERycnLUMdgkbG9vl7u7u8AXgH2jzbxRiPfHsb29vZKcnKz68vLyZG1tTT4/P40zQnt5eZGqqip1Ljb3sMmneX0tIqJwWQL56OhIUlJSVBBhDbmzs9MSXsGECuSbmxspLi4OjJsb+lGxgdehAnl+fj7oe+DzoRLEDbeB7MW1iIjCZQlkzIgXFxctpW5xcXHS09Mj19fXxlFWToH8+voqjY2NgbH6+npVs4wwRDWGLkNDCxXIqIzQ52L2OjExoT4TxkpKSuTh4cE4y5nbQPbiWkRE4bIEsra/v69K2XRQoSGYJicnVdCaOQWyebaNkEMoml1dXUlubq4aDxXIlZWVljK19/d3aW5uVmNJSUlycHBgjDhzG8heXIuIKFxBAxkQRuvr69+Cua6uzhJaToE8Nzen+vBzH8fYYTbe1dWljgkVyEtLS0bvH+bxYO9t5zaQvbgWEVG4HANZw2YWNrUyMjICwWTe8HMKZKcNOzO3m3p2kQpkL65FRBSuHwNZOz4+VsGJYCotLVW3VwMDmYjIG64D2SnUnAJZl9A5rb2+vb2ptWUcw0AmIrIF8vLysmM1xd/OkFdXVwP9qNLAmrQZQlpv+jGQiYhsgYwlBFRT1NbWWp5hgRs7zGvIg4ODP64h397eSlFRkerHxh5qmi8vL1U5GYIfT46Lj49X4wxkIqIggazDx6m1tbW5qrIA1BvrO97sra+vTzo6OtRrBjIRkS2QEVS4Iw130GEGq4MoKytLhefh4eG3W4hDBTJcXFyotWJ9swluRV5YWFD1zPoLID8/X82cNQYyEUUj15t6XjNv6tlDkogoGv23QMbmIWbGCOSKigp5fn42RoiIotN/CWRUXAwNDQWWAsbHx40RIqLoFdFAHh4eVhUaKJnDkgQa1qGbmppU5QXCGM+zwHMtiIiiXUQD+aeqDfxb9d7ennE0EVF0i2gg47/3WltbVZWGDmHUOeOBRTMzM5byOSKi6CbyG8tSQZNxAnudAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Username'" EmptyFieldMode="None" sap:VirtualizedContainerService.HintSize="513,218" sap2010:WorkflowViewState.IdRef="NTypeInto_2" InteractionMode="HardwareEvents" ScopeIdentifier="05756cd0-bc77-4fad-a6c0-cda873b832f1" Text="[userName]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="890, 157, 222, 32" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'Username'" FullSelectorArgument="&lt;ctrl name='Sign in' role='dialog' /&gt;&lt;ctrl name='Username' role='editable text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Sign in' role='dialog' /&gt;&lt;ctrl name='Username' role='editable text' automationid='' /&gt;" Guid="57c99fc6-98b6-41a1-bbb4-9df981a5829f" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAOIAAAAkCAYAAACUoeZ+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEPSURBVHhe7d0xSgNRGIVRl6Jgo5BCC221CPbqFoxxF060ciMmRUDELYlZgt2TN5BEcUrHucUpTvPzXvnVd+fgcFSAYbUhHp+el0mzLM3ze3l6+wR6VlurzdX2NiHePb52Pgb6VdvbhDhbrNrj+PKm7O7tAz0bX03a5mbz1TbEdZ1dH4B+rLsTIgxIiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBDgV4h1CKMejNDA/7i4nrbN/RihMcsGw5h+n2WrY4m3Dy+lmX90Pgb+VjtUer8sRydn2xCBIY3KF3S2l5DtkynYAAAAAElFTkSuQmCC" InformativeScreenshot="508b9111f6ebfcbf294b4e7147604cca.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='https://ap.idf.medcity.net/IdentityFederationPortal/Home/FormLog*' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="824, 163, 54, 20" ElementType="Text" FriendlyName="'Username'" FullSelectorArgument="&lt;ctrl name='Sign in' role='dialog' /&gt;&lt;ctrl name='Username' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Sign in' role='dialog' /&gt;&lt;ctrl name='Username' role='text' automationid='' check:text='Username' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADoAAAAYCAYAAACr3+4VAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE9SURBVFhH7ZNRCoMwDIZ3nQm7oQi7iQx2BxG8wBC8gAz2NoSdIdMmrX+Cg/q42ocf1vonzZdkp3NxoSMog6amDJqaMmhqAtA7PaaBavh4Lq7UPF/UVHj3n8qgrIOClu2L3tOH1d/BI3ezHrfVO7bdnFO8VUfjs6M65IAG3oYQr+5tzPy7dHWKN9Qg3pDDcuwCjZn46uGmgF8KGdurO7vvWKjXAu3vTUzdI8TylrwtDSm3coh2gMrkMKGL8V30Yj9PlAt0ssWos96K8IaJ0TmhNrURJocIQO10ftxJl7ljW81hxYMypF955dsDurUdIACV1YAAt16mMywPyEUqIFE8KKygxO2e6OLD//aGFCgHw/jVtPSahgnY9ZXC4kEFTuLHflh9saDL2ayvbb4BTVcZNDVl0NSUQVPTQUAv9AV+U4fkvc58EAAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Password'" EmptyFieldMode="None" sap:VirtualizedContainerService.HintSize="513,218" sap2010:WorkflowViewState.IdRef="NTypeInto_3" InteractionMode="HardwareEvents" IsPassword="True" ScopeIdentifier="05756cd0-bc77-4fad-a6c0-cda873b832f1" SecureText="[password]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="890, 201, 222, 32" DesignTimeScaleFactor="1" ElementType="InputBoxPassword" FriendlyName="'Password'" FullSelectorArgument="&lt;ctrl name='Sign in' role='dialog' /&gt;&lt;ctrl name='Password' role='editable text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Sign in' role='dialog' /&gt;&lt;ctrl name='Password' role='editable text' automationid='' /&gt;" Guid="d5adca52-bf0b-422a-b9fd-827eee667ee3" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAOIAAAAkCAYAAACUoeZ+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADfSURBVHhe7d0xasNAFEXRLMUBmxCBMTgMKJYLg/e/pjG/cSMlnaRXnOJUoykv0+l9fA/nDuxLiBDgHeLpa+g/beztd+r3xxNYSTVWrVVzsxDr4HJt/fB5BFZWrVVzsxDbOC1eANbRxts8xHoylz4G1lHNCRF2JkQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIsBiiX+7Dtqq5WYhGaGA7f47QmGWDbfw7ywbsR4iwu3N/ASflUL89tr6oAAAAAElFTkSuQmCC" InformativeScreenshot="9ab6cfb7f0cdd29bda8823037d9db778.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='https://ap.idf.medcity.net/IdentityFederationPortal/Home/FormLog*' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="824, 207, 50, 20" ElementType="Text" FriendlyName="'Password'" FullSelectorArgument="&lt;ctrl name='Sign in' role='dialog' /&gt;&lt;ctrl name='Password' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Sign in' role='dialog' /&gt;&lt;ctrl name='Password' role='text' automationid='' check:text='Password' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADYAAAAYCAYAAACx4w6bAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFjSURBVFhH7ZTRicMwDIZvnR50w1DoJqWQHYqhC5hAFgiFvpVCZ1AlR7IlNxdIuYc4+OGHRLLk/7Oc/Ox+97BFVbDSVMFKUwUrTQrsCJfbCx5P0R0uB7t4tTr38OhaE8vAFMzhCsOzh1PMr1iLwD7eV6xvwRp3V1dUTZEaSvx2hWYqRpOXHOrUvWBwR96jBR9ztB/XkZRRqvGObpDU6rXo0S0BI4PKkIggU/N8olMxNB8Pg0CwXh9CMDQaTcD2AOhZewnvEYQh58HkFEj6+yJzKsdNwgbZd/hXzJ/xGUEG1+I+Y54OKcTN5Fhq0rE+5Min7Z8OKMVmrqKIoLJJmiYMbYxlMa5p8MpQnxFIG1wCRr3/Ayz7O4aJZE2ma3WMjPfgOzYfTOOVjH1o7fxVTGA2J7VfTIxh+Br6zn4XEh83moqlHrkZbTZOWaSM5mB2LXqe/3lsSxWsNFWw0lTBStNGwfbwBp127Plq+njxAAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="513,179" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_3" Shortcuts="[d(hk)][k(enter)][u(hk)]" Version="V3" />
+            <ui:UiElementExists DisplayName="Element Exists 'DIV'" Exists="[verifyLaunchNewSession]" sap:VirtualizedContainerService.HintSize="513,107" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
+              <ui:UiElementExists.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="64d16890-44f6-461d-b90e-65ed41c9a9dd" InformativeScreenshot="b706077a5188b14d7ca1b93d9369b908" Selector="&lt;webctrl aria-label='terminate MEDITECH - New Hampshire TEST session' tag='BUTTON' /&gt;" TimeoutMS="5000">
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:UiElementExists.Target>
+            </ui:UiElementExists>
+            <ui:UiElementExists DisplayName="Element Exists 'DIV'" Exists="[verifyIdleSesson]" sap:VirtualizedContainerService.HintSize="513,107" sap2010:WorkflowViewState.IdRef="UiElementExists_4">
+              <ui:UiElementExists.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="64d16890-44f6-461d-b90e-65ed41c9a9dd" InformativeScreenshot="bb877a8ebe7f5fd4332431664b58e886" Selector="&lt;webctrl aria-label='terminate Home session' tag='BUTTON' /&gt;" TimeoutMS="5000">
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:UiElementExists.Target>
+            </ui:UiElementExists>
+            <ui:UiElementExists DisplayName="Element Exists 'DIV'" Exists="[verifyIdleSesson]" sap:VirtualizedContainerService.HintSize="513,107" sap2010:WorkflowViewState.IdRef="UiElementExists_5">
+              <ui:UiElementExists.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="64d16890-44f6-461d-b90e-65ed41c9a9dd" InformativeScreenshot="98cdb05baa1648a2207469a36c0ec501" Selector="&lt;webctrl aria-label='terminate Chart session' tag='BUTTON' /&gt;" TimeoutMS="5000">
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:UiElementExists.Target>
+            </ui:UiElementExists>
+            <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="513,1383" sap2010:WorkflowViewState.IdRef="IfElseIf_3">
+              <ui:IfElseIf.ConditionBlocks>
+                <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                  <ui:IfElseIfBlock BlockType="If" Condition="[verifyLaunchNewSession Or verifyChartActive or verifyIdleSesson]">
+                    <ui:IfElseIfBlock.Then>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="462,846" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Sequence sap:VirtualizedContainerService.HintSize="400,735" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uix:NClick ClickType="Single" DelayBefore="2" DisplayName="Click 'Reset'" sap:VirtualizedContainerService.HintSize="338,157" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="05756cd0-bc77-4fad-a6c0-cda873b832f1" Version="V3">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="https://ehr.nh.hca.meditech.cloud/test/" DesignTimeRectangle="1291, 517, 23, 23" DesignTimeScaleFactor="1" FriendlyName="'DIV'" FullSelectorArgument="&lt;webctrl class='reset-icon' parentid='hidden-section' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='reset-icon' parentid='hidden-section' tag='DIV' type='' aaname='' /&gt;" Guid="ca11ec04-f9fb-4b04-a5b3-717a9e191ea5" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABsAAAAbCAYAAACN1PRVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE3SURBVEhL7ZTLTsJAFIZ5Ru6wqi9A2elWXoIQ5ZIYwkOAuoNIKAZ1QyE6gmkLBAJP8MuUVLkcpkMYWLH4NvNPzpee/J3AaLbAubjIlHCQjFWfyHNZpGTOZIZuNodWKETmsvjKrE+G9+sbtIJBF+qOLELZoP6Ctqb9iU4jm87RfyjDCIc3RDvEYujoOsxiCfb3z+6cLfbKeuUKjEiElhC0k0l81cQFEq+x0cSrdrUxdD137LG76o/bzCpfFkgkFMo4FhtIFaS3XDvP+RfabEje8ZVx3Orn7nyr732heZ8ncymZB3t8Js89+Eq5rJPSyfwgmR+2NVqtOxolc6UyXhguMxIJMlcq+19jisyVypQWRISy6u/DcSbqfmp3gCRHP1fU0HWMeBxv6TTMQvGIh/hEXGRKOKNsgV/8dEuhqeIniAAAAABJRU5ErkJggg==" InformativeScreenshot="66e703646830723b4ba464bfd773b1d0.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='MEDITECH' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="1063, 521, 212, 15" ElementType="Text" FriendlyName="'Reset'" FullSelectorArgument="&lt;webctrl class='reset-label' parentid='hidden-section' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='reset-label' parentid='hidden-section' tag='DIV' type='' aaname='Reset' check:innerText='Reset' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANgAAAATCAYAAADyD8OaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFNSURBVHhe7dgxjsJADEDRXBBxHgpOAieBKyAKBAU01NsgcQJDZsiMZ+JFW6wb6xev2AyEJl92dvh5PAWADwIDHBEY4IjAAEcEhlCuq0EOg2G1Nz/vjcAQSgqsj+m8leM7stNOXXNg/TaBIRQzsC/X/xOBIbw/B/aZanmFXMjlrD6/W6v1sjt77OVUzupUvG8W9TvqdwgMoZiBzVbEHEn5OwW1lms5U1GNZ8ut3NPZTS7LQY6bWz5L962fZYIhvPSQT5NEKVGMmmhGOZwc3GdCGVMwBzWFmI2/N92bwBBe/5Dn1a2NolnnlBphuwaW+zWr4/ycwBCe9ZCna3pizSbYF3q9NCaYRmAIz3rIp4nUT6jyDjaLSP9jQ7+Tde9g3X0JDOHZgdW1sI9qWvNqNG/dKtic/bY+6u+p6UhggCMCAxwRGOCIwABHBAa4ecoL5mvHAGZwdjQAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <uix:NClick ClickType="Single" DisplayName="Click 'Terminate'" sap:VirtualizedContainerService.HintSize="338,193" sap2010:WorkflowViewState.IdRef="NClick_9" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="05756cd0-bc77-4fad-a6c0-cda873b832f1" Version="V3">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="https://ehr.nh.hca.meditech.cloud/test/" DesignTimeRectangle="824, 747, 128, 34" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Terminate'" FullSelectorArgument="&lt;webctrl parentid='displayArea' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='displayArea' tag='BUTTON' type='' class='wpl-dialog-button wpl-dialog-3' aaname='Terminate' check:innerText='Terminate' /&gt;" Guid="72cb0d5e-220c-434f-be1c-49c5b7f5565b" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIQAAAAmCAYAAAAFkDNCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMoSURBVHhe7ZrNatwwEID9Wi00lNC0KQ0UFvIAhb5BoQ+w7KtsXqK0hRKcyx5a2lNuIYc9h+S0ODvV6McrjUa1vUj2lswHQ2JbGsmaL7INqTabDUhIuBAhJIJohVitVhJPOFghhKeJCCEEiBBCgAghBIgQQoAIIQRkFWJ7+QPg5sYe7YHqq3MIk5FNiO33b9AcH0Hz/mw/KVQf7Is5MJcwDXmEeLiH5t0baF48MzFUCieD6396onMK45Nvh/j1E5rXx8OloDKoHJhrL26XMKsqqP4ZC6ht8/KsYXlewexibY/zUc9nsLy1BxnJJgQyWIqcMnBcLZQAZRZuUgreV1YhkN5SlJYBESEGk10IpFOKMWRAkgtXw8J/jJwv1ea+Y30xg2q+1Nu9vj6vzTnVrsafbV+TW19jc5FHhp6PemTpny5HBYsrc7mFefS5NsFYKvzHUT33++wnTBEhkKQUY8mAsEJYGVSRHWYhd+8WbtH9xW4L0fbzpKLn2mNOCHXdk4aO7WTwJTFje/fB3FeUx44VydZBMSGQSIqztybGkAFhFs4sLn2xNIV0hePaREVRREVQ6HNtwTkhiKBEAD0O2bEiSWgeRiIknEs/igqBbP/8DqXwZVDXihIVwBTI3x0cevHsea4oSUlIu24hiIyJYiJmTJXPRkoIbm4abrwOiguBbL9+gebo+U4G9TueK05KCG+RgzgEIeyxm5M+37FDUHHCODQh6DuDC/qiWYKUEMwO4TOlEOw230uIYYVPUVYIKsOrlybGkiISIrHgpHDTCUHaW8zYaSG4+0S4+XVRTgjua0K9M0TvFCWlYBcq/sqgxeYWkrZBuHZZdgi/jb2OQoR5GNGZfq1EPSkjREIGx2hSJP5yWina6C70WEK4Pru54fz5z1l93RPbSLGLoTIg+YWgMpyesF8To+4UQm/yCtFTBoeWQrURKQ6HfEIMlMEhUhwW2YR4/PxpsAwOKgXmEqYh3w5xdwePHz8MlsHhpMAcmEuYhnxCIA/3sL2+tgfD0X3lP6UmJa8Qwn+PCCEEiBBCgAghBIgQQkBSCImnG5EQEhIYIoSEFxv4C7dewnUahprLAAAAAElFTkSuQmCC" InformativeScreenshot="d9bcba56b758da8d641990ced7a0cd96.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='MEDITECH' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="968, 747, 128, 34" ElementType="Button" FriendlyName="'Return'" FullSelectorArgument="&lt;webctrl aaname='Return' parentid='displayArea' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Return' parentid='displayArea' tag='BUTTON' type='' class='wpl-dialog-button wpl-dialog-3' check:innerText='Return' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIQAAAAmCAYAAAAFkDNCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAI3SURBVHhe7ZdBS8MwGIb7Az1IYXjwKuhBD94FYRT8CV68drC7v2G77C7qZOKGA8GzW0Fj2iRrviSdzda1lb2PvGzLkij9Hr7EIEkShiAqEAIhWQkxGo2QPY5TCLCfQAhAgBCAACEAAUIAAoQABAgBCBACEFojxMviTb4DTdK4EMufhN199NnR84UcqZFpzMIgYEFBoqGc58WARZ2YzeWn/0ajQjx8jdnp5IodPJ40KoSr8PNeyKUIWTyVAyUZdLlMEMIP1RVSEVTaJgRXgsUdXtzuQH4uB4TwRO8K7RbCXVzROcSRQo8VKdDqO9ldhhF/H/GDRMP4vdme3Thfn0qo1mWv+b5Ff2tV1CaEqytUHW88O4R1jMj1YS9XxpKorBDGPmId3Svb29yrYmoT4ub91lnEKuPNGiHsOwS/LJpF44h5eZE2F8KYk60z7jBrBa6G2oT45j/9z3t2+HTmLGYV8UY+YL0l5zGK4SpQSrZHPr6xEMbRVGbdLqhNCMVkMWPnr9dWMTe9Q+h7eON6wFkh7E6gxt2BEFvh6hatEYIjWrhLFEeHMIAQW6B3izYJwUskb/xaQYrmGoVzC+E6fiCEE9UtjseXcsSP3QjBkd+t/S+Dl8u8aFpCyH3yOWINhPiD2ZI8jtLsTAiOOjr0gqsxFeuuoUTiWe0rO4JIKpSQAkLsgK2EABYQAhAgBCD8eyFAtUAIQIAQgAAhAAFCAAKEAAQIAQgQAhAKhUD2N5YQCJIGQiBaEvYLoS6yvlfuB48AAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NClick.Target>
+                            <uix:NClick.VerifyOptions>
+                              <uix:VerifyExecutionOptions DisplayName="Element 'Launch New Session'" Mode="Appears">
+                                <uix:VerifyExecutionOptions.Retry>
+                                  <InArgument x:TypeArguments="x:Boolean" />
+                                </uix:VerifyExecutionOptions.Retry>
+                                <uix:VerifyExecutionOptions.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://ehr.nh.hca.meditech.cloud/test/" DesignTimeRectangle="632, 347, 24, 24" DesignTimeScaleFactor="1" FriendlyName="'DIV'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;nav&amp;gt;section&amp;gt;a&amp;gt;div' parentid='hidden-section' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='hidden-section' tag='DIV' class='launchpoint-icon default' aaname='' /&gt;" Guid="f66f59ca-2c7f-4187-9cff-808a562d44cd" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF1SURBVEhL7ZbLSgMxGIV9IhcteKlFF15aBRErCi58A0VfQChoN7YLRReCVjcFL29RV/oYSgvdeJmNjLr47RkMJOlpTItmIX5woEzmnANpksmABOa/MCF6jeTy7lrWa5uSq8xJujgsIztZWTgoJM8whnd8cBbGH29yWj+TsdKEDG6nnMI7J/WqxO/xl5vTtbD53JTC4TINdwkeeLtBC1tRS6bLszTQR/Aig9FRiGlcPV6jQb0IGWx6OwqrN+c0oB/h/7cxCl/aKy1TGqdmXQo2pgtZyNQxCi9ur6jRloKN2UKmjlG4UduiJlsKNmYL+1THKJyp+K1MBRuzhUwdoxAnCDP5wrzI1DEKR3ez1OQL8zoL5/cXqcmWgo3Zck5p8EUTfFsE3/gAxxEz96NvjzaAA3fpaIUG9CJ8prwOb3D/+CCTezka5KOpcj7JYNBC0HhqhPsAKzAluDYEuWLo4IKE5a0uUaniUCL8xjOM/cgl6jf464Uin2M5W2Zha1luAAAAAElFTkSuQmCC" InformativeScreenshot="2eee086f7a9d191c3bc89bfc602ad99c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='MEDITECH' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                                    <uix:TargetAnchorable.Anchors>
+                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                        <uix:Target DesignTimeRectangle="680, 350, 164, 19" ElementType="Text" FriendlyName="'Launch New Session'" FullSelectorArgument="&lt;webctrl class='launchpoint-label' parentid='hidden-section' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='launchpoint-label' parentid='hidden-section' tag='DIV' type='' aaname='Launch New Session' check:innerText='Launch New Session' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKgAAAAXCAYAAACf1wQUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANYSURBVGhD7VZRbsMgDN1VerQcJtpZoh2lyjkm9RIsGBuwsRuaNSur/CQ+QsB+fn6QfASHY2C4QR1Dww3qGBpuUMfQcIM6hsbbGPT2NYXLZQ4rPjveA8ygqclTWL5x4h/htwZdPy/b/jiUGN9LmLZ38xWfX4Y1zMCRj+nrhu//GNcZ8p+pixsUAQadJjBi0/ARDIocLp+iQjTJS0zqBu3Hcwy6hFWL83KD3sIyJX66DdewvOoWPRmPGxRPDR+dDYW9PD4Z40Y3BA71RlBy07piUPEZlDeOgcyD9tf7rHoEZ64Dmorl752T2DOoBvk7oPRV66XGja2p4hi6lN+lNO59kfja9oI5ZFCZMCWpglsNtQwaydXio3D1/sRNxIx5UFB6r/Ho+fwVgyo6aPUoHKUOdUwAxuGNSEZqtBIgnfbWAZS6m5oU/sAl89UPRYyT9zS6KHu0HmQddvZueM4nXhqvIY6wDCpIUdNKUfK5ReIuTyAWffd2SuA88PahfU09Fp80n9eJeoEj/udaa2wgJzEajc2a0zxx1nWvYPWwhlxj1dLpD62HxwyKCUyxrOIeNGgWuaOJdw16rxEIyYNp0dsIzJeNy/aVd5Crvvk7+BVgTVGfauxqv6HJG/c2RibQgbiju8hlml5yMjhq/nvYoEBiC85uD2hYh0j/yKCMg6wH6zVHbjrmh+cYD2uA/YlrbZpjQJ7EHbmqvOKoaqReliE01mLVXIUuei8jEkf94Bb83qAYmJkz4i0NWulxFfV08CFAjBg37snxU33zNfFrdHoQyWhYu6X9LlDzRsOCpIdtNNOgkpPBUfPfIYM2xUuDYrG6kXn8LoNa8Sok7s81aOYh/xs7+GRAzXOYt/j1+pQvxu0x+pbPvGVljfWt/SB2D56ILf1g7ZfzpxlUKx6TcYMqxgCScR2P32dQ4iaKirlxzTkG3ZB589wqnw1xns9hLVJXitvBrcRo8wFvOY+xtQuC5uI+NRbxidpKbtJYjdEUvXEN49LsS9D8pxg0FdwOan4RC0Ykg4LwhGJdNBKsO2ZQADW1GpTzNINSjCpXBgrNOfVyMGo0UXiwYdYm9IdRaa9oyWPp+ZgGhtHo0NBoDspRgzoco8EN6hgablDH0HCDOoaGG9QxMEL4AbKfX3Jpt0mPAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                                      </scg:List>
+                                    </uix:TargetAnchorable.Anchors>
+                                  </uix:TargetAnchorable>
+                                </uix:VerifyExecutionOptions.Target>
+                                <uix:VerifyExecutionOptions.Timeout>
+                                  <InArgument x:TypeArguments="x:Double" />
+                                </uix:VerifyExecutionOptions.Timeout>
+                              </uix:VerifyExecutionOptions>
+                            </uix:NClick.VerifyOptions>
+                          </uix:NClick>
+                          <uix:NClick ClickType="Single" DelayBefore="2" DisplayName="Click 'DIV'" sap:VirtualizedContainerService.HintSize="337.6,193.6" sap2010:WorkflowViewState.IdRef="NClick_10" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="05756cd0-bc77-4fad-a6c0-cda873b832f1" Version="V3">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="https://ehr.nh.hca.meditech.cloud/test/" DesignTimeRectangle="632, 364, 24, 24" DesignTimeScaleFactor="1" FriendlyName="'DIV'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;nav&amp;gt;section&amp;gt;a&amp;gt;div' parentid='hidden-section' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='hidden-section' tag='DIV' class='launchpoint-icon default' aaname='' /&gt;" Guid="6b7e5b73-876d-4803-bdb5-fee3d9a83c87" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAF8SURBVEhL7Za9SgNBFIV9IosURg0KRlETwQims9ZKH0EQTWMCJrHwtwr6FrHSWlCw0YhFiMTCv2L7G8/C4MzkOE6CTiFe+CDs3XMOTGZm78BTFElI/gNj7p/bcnxxKsu1VZkqZSSxkZTkZkrmygvxM/TwDtPaOAOb769SqR/IaGFcBtcTTvBOub4vzbcX6qX4MvD6sSHz1UVq7gIaaJknoIE37QdJF2epoQ/QwoN5dwViGfN7S9SoF+DBlrcrsHp2SA36Af+/7W8ENj522khhjIp1VLGeDrzgqWcYgUfnJ1Roo4r1bOCpZxiBK7U1KrJRxXo2OKd6hhE4WfLbmapYzwaeeoYRiBuEiXyLaeGpZxiBw1spKvItpnUGZndyVGSjivVsnEsafNMEPxbBDz7AdcTE/fDt1QZw4eZ289SgF/CZ8rq8wWXrVia2p6mRD+niTOzBvGkguGrdhfsAK7AkGBuCjBg6GJCwvT+HqKEY/MYz9H5kiPoN/npgJB0nDRQ/xIBA0gAAAABJRU5ErkJggg==" InformativeScreenshot="d5290ec7ccc8b5b4161a4d9aa00eb84d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='MEDITECH' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive" WaitForReadyArgument="Complete">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="608, 315, 720, 37" ElementType="Button" FriendlyName="'New Hampshire TEST'" FullSelectorArgument="&lt;webctrl parentid='hidden-section' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='hidden-section' tag='BUTTON' type='' class='formless sub-header click-target' aaname='New Hampshire TEST' check:innerText='New Hampshire TEST' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NClick.Target>
+                            <uix:NClick.VerifyOptions>
+                              <uix:VerifyExecutionOptions DisplayName="Input 'MEDITECH Signon'" Mode="Appears">
+                                <uix:VerifyExecutionOptions.Retry>
+                                  <InArgument x:TypeArguments="x:Boolean" />
+                                </uix:VerifyExecutionOptions.Retry>
+                                <uix:VerifyExecutionOptions.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://ehr.nh.hca.meditech.cloud/test/s0002007158492283/" DesignTimeRectangle="535, 597, 933, 18" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;input' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='canvasEditControl fTs-p43b0-l0' tag='INPUT' type='text' aaname='' /&gt;" Guid="3099cb73-54ea-42ab-9d9a-404b1eb1707f" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAA6kAAAAWCAYAAAAiq9qOAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACqSURBVHhe7dcxFYRAEECx9f/oUECHALxNOSfjfpEiInJmZgEAAKDgXPezAAAAUHC+fRcAAAAKJBUAAIAMSQUAACBDUgEAAMiQVAAAADIkFQAAgAxJBQAAIENSAQAAyJBUAAAAMiQVAACADEkFAAAgQ1IBAADIkFQAAAAyJBUAAIAMSQUAACBDUgEAAMiQVAAAADIkFQAAgIxz3c8CAABAwZmZBQAAgP+b/QFTF3RuIjvWYAAAAABJRU5ErkJggg==" InformativeScreenshot="225695369ecd5a5a7125834987f16868.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='MEDITECH' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                                    <uix:TargetAnchorable.Anchors>
+                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                                        <uix:Target DesignTimeRectangle="94, 128, 162, 19" FriendlyName="'MEDITECH Signon'" FullSelectorArgument="&lt;webctrl parentid='systemMenu' tag='B' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='systemMenu' tag='B' type='' class='' aaname='MEDITECH Signon' check:innerText='MEDITECH Signon' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKYAAAAXCAYAAACBHjSnAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALLSURBVGhD7ZmNkbMgEIavpvR5acVJG0kPpgcb4EBB3oXdRb+I4UvYmXfmgsD+PajJ/VwuF9PV1Zo6mF1NqoPZ1aQ6mF1NqoPZ1aQ6mB+jwYwm2GgGds7/IwLm9TH5xJxN5v5LJ9PkrT2HeO33blfoNt6WudRPanxRtTVu3+HpP5TMx6zH4IyLI8l/NZyrA4J+p8eVXBN14706CzX9IjCZwqUFksCc7uaK6xKJzcH9cW8QAhibkqrcpL2AkNpgbCHmNecjwbyaO7gl+WZ+P0sqmLSwtEizHQ1m4ZrTW8AsHhjrrwKYpB+sX9uT55eBOU3L32vzPXhhfLYKYJYaez6Yyl2L1XFgYq7Fw0PiTP1iTM4mMz5jHGmPZ3O9TZ6QbAy4JljW/zS2JB6GFxHM8eEdeviWa/a98wFbVgFTh+98MMt7UR0HJs6dTa2rBCbEs64XDlsKGen9YljzOB6/j3Bjqb81vvQg+H2dZDBvYTPnwCfnEpMea9zJQYOiop8SmOn1GmBytvolee0FU7cSmKW96HoeTKletNd+XAKFGxehKh0ErKE0roIZP4fH91yILWCqJ7s9MFVAXgIzn7/ZLwhzzkxtvtz4tNfz+B4wgQOax544/hFMtsgng5nCdzqYG/aiOh5MKmyms/DI5Josx/IqmHIeGIcWmzZeBBNAYE5KHTD1xp4PJgVB9hlUG0wnLiauyfXAfPMdk1FtMMWEF50PppWU8yrrb835ODAH+805/yeHEzZUvyvFetG9XgZTmov5q68Z2nhrYBYBeBOYVjifzbsKmGEirSe/h9BktqY4F+q4B0yrGEeEnhtrB0zBwp7oJ7cySKnlse4DkzduHe6LhnOPA1P2Zy07/HKT897g75gA0E4ws2vBNse2Ecyu71F88uSHpwV1MD9e7q5L3y/xLrflNeYd6mB+vKTXgQTWxtTB7GpSHcyuBnUxf0gx9jK17/xvAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                                        <uix:Target DesignTimeRectangle="443, 597, 58, 16" FriendlyName="'chrome.exe MEDITECH'" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADoAAAAQCAYAAABHjGx4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAERSURBVEhL7ZS9DYQwDEZvNiZgAwZgAJZgCToGoaZjBkrKlD59Jxn5vgskQJAQR/EkSGwnL38v55z8A4+opW1bKYpCxnH86avrWqqqkmmavtoRi5wsy2ZsjWEYJM/zuQ/faNN87lcwnsZs4RTRrus+k0Iex7IQ2njyyEM+6th25JVl6Z1HiOSiuhMsqfR9vyqKOqjH8kdJLroW6+NyovaeMFaUxUOwKNDxtixYiKQ7umc3fKLAt7hHxJMfXf4PsSTK6APHj1ksl7uja+hDx69xDMlFj766GKNpmvnfcilRgHgcM5ZFLB89nyjG4vG0fcu1sJwiCnRiS4+J7o722QVALdS0uWDplMQQJXoHHtF74eQNd3onLT8fT4YAAAAASUVORK5CYII=" SearchSteps="Image" TargetType="ImageBased" />
+                                      </scg:List>
+                                    </uix:TargetAnchorable.Anchors>
+                                  </uix:TargetAnchorable>
+                                </uix:VerifyExecutionOptions.Target>
+                                <uix:VerifyExecutionOptions.Timeout>
+                                  <InArgument x:TypeArguments="x:Double" />
+                                </uix:VerifyExecutionOptions.Timeout>
+                              </uix:VerifyExecutionOptions>
+                            </uix:NClick.VerifyOptions>
+                          </uix:NClick>
+                        </Sequence>
+                      </Sequence>
+                    </ui:IfElseIfBlock.Then>
+                  </ui:IfElseIfBlock>
+                  <ui:IfElseIfBlock BlockType="Else">
+                    <ui:IfElseIfBlock.Then>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="400,305.6" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NClick ClickType="Single" DisplayName="Click 'Launch New Session'" sap:VirtualizedContainerService.HintSize="337.6,193.6" sap2010:WorkflowViewState.IdRef="NClick_14" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="05756cd0-bc77-4fad-a6c0-cda873b832f1" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://ehr.nh.hca.meditech.cloud/test/" DesignTimeRectangle="680, 350, 164, 19" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Launch New Session'" FullSelectorArgument="&lt;webctrl class='launchpoint-label' parentid='hidden-section' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='launchpoint-label' parentid='hidden-section' tag='DIV' type='' aaname='Launch New Session' check:innerText='Launch New Session' /&gt;" Guid="c62576a9-981c-4acd-82a1-a91e21945f69" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKgAAAAXCAYAAACf1wQUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANYSURBVGhD7VZRbsMgDN1VerQcJtpZoh2lyjkm9RIsGBuwsRuaNSur/CQ+QsB+fn6QfASHY2C4QR1Dww3qGBpuUMfQcIM6hsbbGPT2NYXLZQ4rPjveA8ygqclTWL5x4h/htwZdPy/b/jiUGN9LmLZ38xWfX4Y1zMCRj+nrhu//GNcZ8p+pixsUAQadJjBi0/ARDIocLp+iQjTJS0zqBu3Hcwy6hFWL83KD3sIyJX66DdewvOoWPRmPGxRPDR+dDYW9PD4Z40Y3BA71RlBy07piUPEZlDeOgcyD9tf7rHoEZ64Dmorl752T2DOoBvk7oPRV66XGja2p4hi6lN+lNO59kfja9oI5ZFCZMCWpglsNtQwaydXio3D1/sRNxIx5UFB6r/Ho+fwVgyo6aPUoHKUOdUwAxuGNSEZqtBIgnfbWAZS6m5oU/sAl89UPRYyT9zS6KHu0HmQddvZueM4nXhqvIY6wDCpIUdNKUfK5ReIuTyAWffd2SuA88PahfU09Fp80n9eJeoEj/udaa2wgJzEajc2a0zxx1nWvYPWwhlxj1dLpD62HxwyKCUyxrOIeNGgWuaOJdw16rxEIyYNp0dsIzJeNy/aVd5Crvvk7+BVgTVGfauxqv6HJG/c2RibQgbiju8hlml5yMjhq/nvYoEBiC85uD2hYh0j/yKCMg6wH6zVHbjrmh+cYD2uA/YlrbZpjQJ7EHbmqvOKoaqReliE01mLVXIUuei8jEkf94Bb83qAYmJkz4i0NWulxFfV08CFAjBg37snxU33zNfFrdHoQyWhYu6X9LlDzRsOCpIdtNNOgkpPBUfPfIYM2xUuDYrG6kXn8LoNa8Sok7s81aOYh/xs7+GRAzXOYt/j1+pQvxu0x+pbPvGVljfWt/SB2D56ILf1g7ZfzpxlUKx6TcYMqxgCScR2P32dQ4iaKirlxzTkG3ZB589wqnw1xns9hLVJXitvBrcRo8wFvOY+xtQuC5uI+NRbxidpKbtJYjdEUvXEN49LsS9D8pxg0FdwOan4RC0Ykg4LwhGJdNBKsO2ZQADW1GpTzNINSjCpXBgrNOfVyMGo0UXiwYdYm9IdRaa9oyWPp+ZgGhtHo0NBoDspRgzoco8EN6hgablDH0HCDOoaGG9QxMEL4AbKfX3Jpt0mPAAAAAElFTkSuQmCC" InformativeScreenshot="abe12c9f039464cac2742f56e1cc110b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='MEDITECH' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target DesignTimeRectangle="818, 179, 300, 61" ElementType="Icon" FriendlyName="'IMG'" FullSelectorArgument="&lt;webctrl tag='IMG' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='IMG' type='' class='scale-image' aaname='' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NClick.Target>
+                          <uix:NClick.VerifyOptions>
+                            <uix:VerifyExecutionOptions DisplayName="Input 'MEDITECH Signon'" Mode="Appears">
+                              <uix:VerifyExecutionOptions.Retry>
+                                <InArgument x:TypeArguments="x:Boolean" />
+                              </uix:VerifyExecutionOptions.Retry>
+                              <uix:VerifyExecutionOptions.Target>
+                                <uix:TargetAnchorable BrowserURL="https://ehr.nh.hca.meditech.cloud/test/s0002007158492283/" DesignTimeRectangle="535, 597, 933, 18" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;input' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='canvasEditControl fTs-p43b0-l0' tag='INPUT' type='text' aaname='' /&gt;" Guid="3099cb73-54ea-42ab-9d9a-404b1eb1707f" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAA6kAAAAWCAYAAAAiq9qOAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACqSURBVHhe7dcxFYRAEECx9f/oUECHALxNOSfjfpEiInJmZgEAAKDgXPezAAAAUHC+fRcAAAAKJBUAAIAMSQUAACBDUgEAAMiQVAAAADIkFQAAgAxJBQAAIENSAQAAyJBUAAAAMiQVAACADEkFAAAgQ1IBAADIkFQAAAAyJBUAAIAMSQUAACBDUgEAAMiQVAAAADIkFQAAgIxz3c8CAABAwZmZBQAAgP+b/QFTF3RuIjvWYAAAAABJRU5ErkJggg==" InformativeScreenshot="225695369ecd5a5a7125834987f16868.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='MEDITECH' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                                  <uix:TargetAnchorable.Anchors>
+                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                                      <uix:Target DesignTimeRectangle="94, 128, 162, 19" FriendlyName="'MEDITECH Signon'" FullSelectorArgument="&lt;webctrl parentid='systemMenu' tag='B' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='systemMenu' tag='B' type='' class='' aaname='MEDITECH Signon' check:innerText='MEDITECH Signon' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKYAAAAXCAYAAACBHjSnAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALLSURBVGhD7ZmNkbMgEIavpvR5acVJG0kPpgcb4EBB3oXdRb+I4UvYmXfmgsD+PajJ/VwuF9PV1Zo6mF1NqoPZ1aQ6mF1NqoPZ1aQ6mB+jwYwm2GgGds7/IwLm9TH5xJxN5v5LJ9PkrT2HeO33blfoNt6WudRPanxRtTVu3+HpP5TMx6zH4IyLI8l/NZyrA4J+p8eVXBN14706CzX9IjCZwqUFksCc7uaK6xKJzcH9cW8QAhibkqrcpL2AkNpgbCHmNecjwbyaO7gl+WZ+P0sqmLSwtEizHQ1m4ZrTW8AsHhjrrwKYpB+sX9uT55eBOU3L32vzPXhhfLYKYJYaez6Yyl2L1XFgYq7Fw0PiTP1iTM4mMz5jHGmPZ3O9TZ6QbAy4JljW/zS2JB6GFxHM8eEdeviWa/a98wFbVgFTh+98MMt7UR0HJs6dTa2rBCbEs64XDlsKGen9YljzOB6/j3Bjqb81vvQg+H2dZDBvYTPnwCfnEpMea9zJQYOiop8SmOn1GmBytvolee0FU7cSmKW96HoeTKletNd+XAKFGxehKh0ErKE0roIZP4fH91yILWCqJ7s9MFVAXgIzn7/ZLwhzzkxtvtz4tNfz+B4wgQOax544/hFMtsgng5nCdzqYG/aiOh5MKmyms/DI5Josx/IqmHIeGIcWmzZeBBNAYE5KHTD1xp4PJgVB9hlUG0wnLiauyfXAfPMdk1FtMMWEF50PppWU8yrrb835ODAH+805/yeHEzZUvyvFetG9XgZTmov5q68Z2nhrYBYBeBOYVjifzbsKmGEirSe/h9BktqY4F+q4B0yrGEeEnhtrB0zBwp7oJ7cySKnlse4DkzduHe6LhnOPA1P2Zy07/HKT897g75gA0E4ws2vBNse2Ecyu71F88uSHpwV1MD9e7q5L3y/xLrflNeYd6mB+vKTXgQTWxtTB7GpSHcyuBnUxf0gx9jK17/xvAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                                      <uix:Target DesignTimeRectangle="443, 597, 58, 16" FriendlyName="'chrome.exe MEDITECH'" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADoAAAAQCAYAAABHjGx4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAERSURBVEhL7ZS9DYQwDEZvNiZgAwZgAJZgCToGoaZjBkrKlD59Jxn5vgskQJAQR/EkSGwnL38v55z8A4+opW1bKYpCxnH86avrWqqqkmmavtoRi5wsy2ZsjWEYJM/zuQ/faNN87lcwnsZs4RTRrus+k0Iex7IQ2njyyEM+6th25JVl6Z1HiOSiuhMsqfR9vyqKOqjH8kdJLroW6+NyovaeMFaUxUOwKNDxtixYiKQ7umc3fKLAt7hHxJMfXf4PsSTK6APHj1ksl7uja+hDx69xDMlFj766GKNpmvnfcilRgHgcM5ZFLB89nyjG4vG0fcu1sJwiCnRiS4+J7o722QVALdS0uWDplMQQJXoHHtF74eQNd3onLT8fT4YAAAAASUVORK5CYII=" SearchSteps="Image" TargetType="ImageBased" />
+                                    </scg:List>
+                                  </uix:TargetAnchorable.Anchors>
+                                </uix:TargetAnchorable>
+                              </uix:VerifyExecutionOptions.Target>
+                              <uix:VerifyExecutionOptions.Timeout>
+                                <InArgument x:TypeArguments="x:Double" />
+                              </uix:VerifyExecutionOptions.Timeout>
+                            </uix:VerifyExecutionOptions>
+                          </uix:NClick.VerifyOptions>
+                        </uix:NClick>
+                      </Sequence>
+                    </ui:IfElseIfBlock.Then>
+                  </ui:IfElseIfBlock>
+                </sc:BindingList>
+              </ui:IfElseIf.ConditionBlocks>
+            </ui:IfElseIf>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'chrome.exe MEDITECH'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="512.8,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="05756cd0-bc77-4fad-a6c0-cda873b832f1" Text="[HCIS + &quot;[k(enter)]&quot;]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://ehr.nh.hca.meditech.cloud/test/s0001933527225687/" DesignTimeRectangle="535, 596, 933, 18" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;input' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='canvasEditControl fTs-p5fa0-l0' tag='INPUT' type='text' aaname='' /&gt;" Guid="6867cfcc-7d0c-46d2-9afd-87a2252d13ad" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAA6kAAAAWCAYAAAAiq9qOAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACqSURBVHhe7dcxFYRAEECx9f/oUECHALxNOSfjfpEiInJmZgEAAKDgXPezAAAAUHC+fRcAAAAKJBUAAIAMSQUAACBDUgEAAMiQVAAAADIkFQAAgAxJBQAAIENSAQAAyJBUAAAAMiQVAACADEkFAAAgQ1IBAADIkFQAAAAyJBUAAIAMSQUAACBDUgEAAMiQVAAAADIkFQAAgIxz3c8CAABAwZmZBQAAgP+b/QFTF3RuIjvWYAAAAABJRU5ErkJggg==" InformativeScreenshot="4228b8fe6fc06b41d1050ad305df0d2c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='MEDITECH' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="436, 594, 73, 19" FriendlyName="'chrome.exe MEDITECH'" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEkAAAATCAYAAADcZiBNAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAElSURBVFhH7ZXNDYQgEEa3NiuwAwqwAJuwCW8W4tmbNXj0yJHNt8kY9ltEXJBkXQ4vUZgZ5MnPQ2ttCn6KpACKpACKpACiJQ3DYJRSZlmWj76u60zbtmZd17d2xCKnqqoNu8Y8z6au660Pz2iTfO4XMJ7EpCS7pHEcXxNCHseyDLTxxJGHfNSx25HXNI3zO2LJKklWAAsSpmnySkId1GNxV5NVki/Wxa0k2ecCY0tiaUewJCDjnZEdS7aV9M0qcEkCrh9zpbSs243fj9iTxMhlwAd/Kn7qTPIhlwLfeinIKin2dsMYfd9v7za3kQQQj63BohDL28UlCWPxeNJ+ZiufIbskIJPaO3hlVUifLQ+1UNPOBXurMwXRkv6BIimAIimAIukQbZ4lsCFiYMTqxQAAAABJRU5ErkJggg==" SearchSteps="Image" TargetType="ImageBased" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" ScopeId="{x:Null}" ApiKey="f2dLBlXq+oAebvNEBnRoj39tAHm0xOgnGq7X9D1s9taTF1p386E96HXAbWaczxblznuDY2F7wdOvLTuAIyVxww==" CvMethod="ElementDetection, OCR" DesignTimeCacheId="d12faecc-34c7-4045-97eb-09d7b4ca858e" DisplayName="CV Screen Scope 'DIV'" sap:VirtualizedContainerService.HintSize="512.8,1247.2" sap2010:WorkflowViewState.IdRef="CVScope_1" SendOnPremData="False" Server="https://hcarpaprod.medcity.net/public/mlskills/754a660c-d3da-42a6-90c9-130b47795004/754a660c-d3da-42a6-90c9-130b47795004/computervision-cv" Version="V5">
+              <p:CVScope.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="CVSessionData" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:Boolean" Name="verifyClientSettings" />
+                    </Sequence.Variables>
+                    <p:CvElementExistsWithDescriptor DelayScreenshotAfterScroll="{x:Null}" Descriptor="[&quot;Target: Text 'Desktop' (90,248,63,15)&quot; +&#xA;&quot;Anchor: Text 'Generic Devices' (81,230,119,11)&quot;]" DesignTimeCacheId="d12faecc-34c7-4045-97eb-09d7b4ca858e" DesignTimeScaleFactor="1" DisplayName="CV Element Exists - Text" sap:VirtualizedContainerService.HintSize="450.4,137.6" sap2010:WorkflowViewState.IdRef="CvElementExistsWithDescriptor_2" InformativeScreenshot="8c94ba01ef69c5f72230968a43add4f5" NumberOfScrolls="2" Result="[verifyClientSettings]" ScrollDirection="None" Version="V5">
+                      <p:CvElementExistsWithDescriptor.DesignTimeDescriptor>
+                        <uc:CvDescriptor Id="6d4c1f75-943c-452b-a266-62f0900778a6">
+                          <uc:CvDescriptor.Anchors>
+                            <x:Array Type="uc:CvElementDescriptor">
+                              <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="81, 230, 119, 11" ElementType="Text" Text="Generic Devices" />
+                            </x:Array>
+                          </uc:CvDescriptor.Anchors>
+                          <uc:CvDescriptor.Target>
+                            <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="90, 248, 63, 15" ElementType="Text" Text="Desktop" />
+                          </uc:CvDescriptor.Target>
+                        </uc:CvDescriptor>
+                      </p:CvElementExistsWithDescriptor.DesignTimeDescriptor>
+                    </p:CvElementExistsWithDescriptor>
+                    <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="450.4,708" sap2010:WorkflowViewState.IdRef="IfElseIf_1">
+                      <ui:IfElseIf.ConditionBlocks>
+                        <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                          <ui:IfElseIfBlock BlockType="If" Condition="[verifyClientSettings]">
+                            <ui:IfElseIfBlock.Then>
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="400,512.8" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <p:CvClickWithDescriptor DelayBefore="{x:Null}" DelayMS="{x:Null}" DelayScreenshotAfterScroll="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" Descriptor="[&quot;Target: Text 'Desktop' (90,248,63,15)&quot;]" DesignTimeCacheId="d12faecc-34c7-4045-97eb-09d7b4ca858e" DesignTimeScaleFactor="1" DisplayName="CV Click - Text" sap:VirtualizedContainerService.HintSize="337.6,182.4" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_2" InformativeScreenshot="0db00abe5fc64fa07c828abed2acee58" KeyModifiers="None" MouseButton="BTN_LEFT" NumberOfScrolls="2" ScrollDirection="None" Version="V5">
+                                  <p:CvClickWithDescriptor.CursorPosition>
+                                    <ui:CursorPosition Position="Center">
+                                      <ui:CursorPosition.OffsetX>
+                                        <InArgument x:TypeArguments="x:Int32" />
+                                      </ui:CursorPosition.OffsetX>
+                                      <ui:CursorPosition.OffsetY>
+                                        <InArgument x:TypeArguments="x:Int32" />
+                                      </ui:CursorPosition.OffsetY>
+                                    </ui:CursorPosition>
+                                  </p:CvClickWithDescriptor.CursorPosition>
+                                  <p:CvClickWithDescriptor.DesignTimeDescriptor>
+                                    <uc:CvDescriptor Id="bd94c438-305a-4ce0-8952-d22a9384a7ca">
+                                      <uc:CvDescriptor.Target>
+                                        <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="90, 248, 63, 15" ElementType="Text" Text="Desktop" />
+                                      </uc:CvDescriptor.Target>
+                                    </uc:CvDescriptor>
+                                  </p:CvClickWithDescriptor.DesignTimeDescriptor>
+                                  <p:CvClickWithDescriptor.Target>
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="09368a3d-aa4b-4f83-b609-f6c135775747">
+                                      <ui:Target.TimeoutMS>
+                                        <InArgument x:TypeArguments="x:Int32" />
+                                      </ui:Target.TimeoutMS>
+                                      <ui:Target.WaitForReady>
+                                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                                      </ui:Target.WaitForReady>
+                                    </ui:Target>
+                                  </p:CvClickWithDescriptor.Target>
+                                </p:CvClickWithDescriptor>
+                                <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="337.6,178.4" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_2" Shortcuts="[d(hk)][k(f12)][u(hk)]" Version="V3" />
+                              </Sequence>
+                            </ui:IfElseIfBlock.Then>
+                          </ui:IfElseIfBlock>
+                        </sc:BindingList>
+                      </ui:IfElseIf.ConditionBlocks>
+                    </ui:IfElseIf>
+                  </Sequence>
+                </ActivityAction>
+              </p:CVScope.Body>
+              <p:CVScope.DesignTimeCache>
+                <uc:CVCache CvUiElements="{x:Null}" OcrTexts="{x:Null}" DataSent="False" />
+              </p:CVScope.DesignTimeCache>
+              <p:CVScope.DesignTimeCacheContainer>
+                <uc:CvCacheContainer>
+                  <uc:CvCacheContainer.Caches>
+                    <scg:List x:TypeArguments="uc:CVCache" Capacity="1">
+                      <uc:CVCache DataSent="False" DisplayName="Screen CV Click - 'Desktop' (Main)" Id="d12faecc-34c7-4045-97eb-09d7b4ca858e" InformativeScreenshot="043932e097481db0f84cdcf3b071a705" LogicalPosition="2447, 337" OcrText="Please enter your Client/Device name. A lookup to the Client Dictionary is available.&#xA;If your device is not defined in the client dictionary, please select one of the devices below.&#xA;| Generic Devices |&#xA;|© Desktop |&#xA;|O Laptop |&#xA;|O Phone |&#xA;| © Tablet |&#xA;|© Other |&#xA;* Client | |&#xA;Location | |" Position="2447, 337">
+                        <uc:CVCache.CvAnchorRelations>
+                          <scg:List x:TypeArguments="uc:AnchorRelationInfo" Capacity="0" />
+                        </uc:CVCache.CvAnchorRelations>
+                        <uc:CVCache.CvTables>
+                          <x:Array Type="uc:CvTableInfo">
+                            <uc:CvTableInfo>
+                              <uc:CvTableInfo.Columns>
+                                <x:Array Type="x:Int32">
+                                  <x:Int32>60</x:Int32>
+                                  <x:Int32>216</x:Int32>
+                                </x:Array>
+                              </uc:CvTableInfo.Columns>
+                              <uc:CvTableInfo.Rows>
+                                <x:Array Type="x:Int32">
+                                  <x:Int32>225</x:Int32>
+                                  <x:Int32>245</x:Int32>
+                                  <x:Int32>263</x:Int32>
+                                  <x:Int32>281</x:Int32>
+                                  <x:Int32>301</x:Int32>
+                                  <x:Int32>320</x:Int32>
+                                </x:Array>
+                              </uc:CvTableInfo.Rows>
+                            </uc:CvTableInfo>
+                          </x:Array>
+                        </uc:CVCache.CvTables>
+                        <uc:CVCache.CvUiElements>
+                          <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="32">
+                            <uc:CvElementInfo Category="RadioButton" Region="67, 266, 17, 18" />
+                            <uc:CvElementInfo Category="RadioButton" Region="67, 246, 18, 18" />
+                            <uc:CvElementInfo Category="RadioButton" Region="67, 285, 18, 18" />
+                            <uc:CvElementInfo Category="RadioButton" Region="67, 304, 18, 17" />
+                            <uc:CvElementInfo Category="InputBox" Region="153, 370, 419, 22" />
+                            <uc:CvElementInfo Category="RadioButton" Region="67, 323, 17, 18" />
+                            <uc:CvElementInfo Category="InputBox" Region="157, 393, 414, 21" />
+                            <uc:CvElementInfo Category="Cell" Region="60, 225, 156, 20" />
+                            <uc:CvElementInfo Category="Cell" Region="60, 245, 156, 18" />
+                            <uc:CvElementInfo Category="Cell" Region="60, 263, 156, 18" />
+                            <uc:CvElementInfo Category="Cell" Region="60, 281, 156, 20" />
+                            <uc:CvElementInfo Category="Cell" Region="60, 301, 156, 19" />
+                            <uc:CvElementInfo Category="CloseButton" Confidence="Runtime" Region="62, 371, 13, 13" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="40, 138, 759, 70" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="90, 303, 128, 19" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="88, 285, 126, 19" />
+                            <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="61, 370, 14, 14" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="76, 323, 143, 20" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="89, 265, 129, 20" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="69, 226, 149, 20" />
+                          </scg:List>
+                        </uc:CVCache.CvUiElements>
+                        <uc:CVCache.OcrTexts>
+                          <scg:List x:TypeArguments="uc:OcrTextInfo" Capacity="57">
+                            <uc:OcrTextInfo Region="91, 145, 48, 12" Text="Please" />
+                            <uc:OcrTextInfo Region="144, 147, 40, 10" Text="enter" />
+                            <uc:OcrTextInfo Region="189, 149, 36, 11" Text="your" />
+                            <uc:OcrTextInfo Region="228, 145, 104, 14" Text="Client/Device" />
+                            <uc:OcrTextInfo Region="334, 149, 45, 8" Text="name." />
+                            <uc:OcrTextInfo Region="390, 146, 11, 11" Text="A" />
+                            <uc:OcrTextInfo Region="407, 145, 54, 15" Text="lookup" />
+                            <uc:OcrTextInfo Region="462, 147, 14, 10" Text="to" />
+                            <uc:OcrTextInfo Region="482, 145, 24, 12" Text="the" />
+                            <uc:OcrTextInfo Region="512, 145, 48, 12" Text="Client" />
+                            <uc:OcrTextInfo Region="561, 146, 80, 14" Text="Dictionary" />
+                            <uc:OcrTextInfo Region="642, 146, 12, 11" Text="is" />
+                            <uc:OcrTextInfo Region="659, 145, 70, 12" Text="available." />
+                            <uc:OcrTextInfo Region="91, 181, 12, 12" Text="If" />
+                            <uc:OcrTextInfo Region="107, 185, 36, 11" Text="your" />
+                            <uc:OcrTextInfo Region="147, 181, 48, 12" Text="device" />
+                            <uc:OcrTextInfo Region="200, 182, 12, 11" Text="is" />
+                            <uc:OcrTextInfo Region="218, 183, 24, 10" Text="not" />
+                            <uc:OcrTextInfo Region="247, 181, 56, 12" Text="defined" />
+                            <uc:OcrTextInfo Region="308, 185, 12, 8" Text="in" />
+                            <uc:OcrTextInfo Region="326, 181, 24, 12" Text="the" />
+                            <uc:OcrTextInfo Region="356, 181, 42, 12" Text="client" />
+                            <uc:OcrTextInfo Region="402, 181, 77, 15" Text="dictionary," />
+                            <uc:OcrTextInfo Region="486, 181, 48, 15" Text="please" />
+                            <uc:OcrTextInfo Region="538, 181, 48, 12" Text="select" />
+                            <uc:OcrTextInfo Region="588, 185, 27, 8" Text="one" />
+                            <uc:OcrTextInfo Region="620, 181, 16, 12" Text="of" />
+                            <uc:OcrTextInfo Region="640, 181, 24, 12" Text="the" />
+                            <uc:OcrTextInfo Region="670, 181, 56, 12" Text="devices" />
+                            <uc:OcrTextInfo Region="731, 181, 48, 12" Text="below." />
+                            <uc:OcrTextInfo Region="64, 228, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="81, 230, 56, 11" Text="Generic" />
+                            <uc:OcrTextInfo Region="144, 230, 56, 11" Text="Devices" />
+                            <uc:OcrTextInfo Region="216, 228, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="64, 247, 20, 18" Text="|©" />
+                            <uc:OcrTextInfo Region="90, 248, 63, 15" Text="Desktop" />
+                            <uc:OcrTextInfo Region="216, 247, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="64, 266, 20, 18" Text="|O" />
+                            <uc:OcrTextInfo Region="90, 268, 54, 14" Text="Laptop" />
+                            <uc:OcrTextInfo Region="216, 266, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="64, 285, 20, 18" Text="|O" />
+                            <uc:OcrTextInfo Region="90, 286, 45, 12" Text="Phone" />
+                            <uc:OcrTextInfo Region="216, 285, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="64, 304, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="68, 300, 5, 26" Text="©" />
+                            <uc:OcrTextInfo Region="89, 305, 48, 12" Text="Tablet" />
+                            <uc:OcrTextInfo Region="216, 304, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="64, 323, 20, 18" Text="|©" />
+                            <uc:OcrTextInfo Region="90, 324, 45, 12" Text="Other" />
+                            <uc:OcrTextInfo Region="216, 323, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="65, 373, 8, 7" Text="*" />
+                            <uc:OcrTextInfo Region="80, 373, 42, 12" Text="Client" />
+                            <uc:OcrTextInfo Region="149, 372, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="574, 372, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="80, 395, 64, 11" Text="Location" />
+                            <uc:OcrTextInfo Region="149, 393, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="574, 393, 1, 18" Text="|" />
+                          </scg:List>
+                        </uc:CVCache.OcrTexts>
+                      </uc:CVCache>
+                    </scg:List>
+                  </uc:CvCacheContainer.Caches>
+                </uc:CvCacheContainer>
+              </p:CVScope.DesignTimeCacheContainer>
+              <p:CVScope.OCREngine>
+                <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                  <ActivityFunc.Argument>
+                    <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                  </ActivityFunc.Argument>
+                  <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" PredictionId="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="True" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="GoogleOCR_1" Image="[Image]" />
+                </ActivityFunc>
+              </p:CVScope.OCREngine>
+              <p:CVScope.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1159cdad-4aa7-435c-b11b-94fad08d9419" InformativeScreenshot="25a11d0598a4ef8761a0ca18264ba66a" Selector="&lt;webctrl class='overlayEle' idx='3' parentid='displayArea' tag='DIV' /&gt;" WaitForReady="INTERACTIVE">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                </ui:Target>
+              </p:CVScope.Target>
+              <p:CVScope.UseLocalServer>
+                <InArgument x:TypeArguments="x:Boolean" />
+              </p:CVScope.UseLocalServer>
+            </p:CVScope>
+            <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" ScopeId="{x:Null}" ApiKey="f2dLBlXq+oAebvNEBnRoj39tAHm0xOgnGq7X9D1s9taTF1p386E96HXAbWaczxblznuDY2F7wdOvLTuAIyVxww==" CvMethod="ElementDetection, OCR" DesignTimeCacheId="61f016fe-7884-4889-844d-01d28b83cfd4" DisplayName="CV Screen Scope 'DIV'" sap:VirtualizedContainerService.HintSize="512.8,1022.4" sap2010:WorkflowViewState.IdRef="CVScope_2" SendOnPremData="False" Server="https://hcarpaprod.medcity.net/public/mlskills/754a660c-d3da-42a6-90c9-130b47795004/754a660c-d3da-42a6-90c9-130b47795004/computervision-cv" Version="V5">
+              <p:CVScope.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="CVSessionData" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:Boolean" Name="verifyMainMenuExists" />
+                    </Sequence.Variables>
+                    <p:CvElementExistsWithDescriptor DelayScreenshotAfterScroll="{x:Null}" DelayBefore="2" Descriptor="[&quot;Target: Text 'Clinical' (16,298,56,12)&quot;]" DesignTimeCacheId="61f016fe-7884-4889-844d-01d28b83cfd4" DesignTimeScaleFactor="1" DisplayName="CV Element Exists - Text" sap:VirtualizedContainerService.HintSize="477.6,137.6" sap2010:WorkflowViewState.IdRef="CvElementExistsWithDescriptor_5" InformativeScreenshot="f6a187594d1c2011e2fb54d5f1d9d406" NumberOfScrolls="2" Result="[verifyMainMenuExists]" ScrollDirection="None" Version="V5">
+                      <p:CvElementExistsWithDescriptor.DesignTimeDescriptor>
+                        <uc:CvDescriptor Id="93f4dcd1-1bdc-4dec-bf1f-243e793d1f29">
+                          <uc:CvDescriptor.Target>
+                            <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="16, 298, 56, 12" ElementType="Text" Text="Clinical" />
+                          </uc:CvDescriptor.Target>
+                        </uc:CvDescriptor>
+                      </p:CvElementExistsWithDescriptor.DesignTimeDescriptor>
+                    </p:CvElementExistsWithDescriptor>
+                    <If Condition="[verifyMainMenuExists]" sap:VirtualizedContainerService.HintSize="477.6,483.2" sap2010:WorkflowViewState.IdRef="If_3">
+                      <If.Then>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Login Successful&quot;]" />
+                      </If.Then>
+                      <If.Else>
+                        <Sequence sap:VirtualizedContainerService.HintSize="400,204.8" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="337.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[&quot;Login Failed: Main menu not found&quot;]" />
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                  </Sequence>
+                </ActivityAction>
+              </p:CVScope.Body>
+              <p:CVScope.DesignTimeCache>
+                <uc:CVCache CvUiElements="{x:Null}" OcrTexts="{x:Null}" DataSent="False" />
+              </p:CVScope.DesignTimeCache>
+              <p:CVScope.DesignTimeCacheContainer>
+                <uc:CvCacheContainer>
+                  <uc:CvCacheContainer.Caches>
+                    <scg:List x:TypeArguments="uc:CVCache" Capacity="2">
+                      <uc:CVCache DataSent="False" DisplayName="Screen CV Element Exists - 'Cl " Id="61f016fe-7884-4889-844d-01d28b83cfd4" InformativeScreenshot="97cfb03f66955a7daf92e92c6f17baf4" LogicalPosition="1921, 218" OcrText="| MPI Conversion »&#xA;| Clinical »&#xA;| Administrative »&#xA;| Ancillary |&#xA;| Financial |&#xA;| Ambulatory »&#xA;| Info Systems »&#xA;| Emulate Person |&#xA;| Applications Parameter Lists »&#xA;| Change Your Own User PIN |&#xA;| HCA EBCD Reports »&#xA;| HCA Corporate Reports »&#xA;| Ambulatory »" Position="1921, 218">
+                        <uc:CVCache.CvAnchorRelations>
+                          <scg:List x:TypeArguments="uc:AnchorRelationInfo" Capacity="0" />
+                        </uc:CVCache.CvAnchorRelations>
+                        <uc:CVCache.CvUiElements>
+                          <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="64">
+                            <uc:CvElementInfo Category="ArrowButton" Region="268, 279, 12, 16" />
+                            <uc:CvElementInfo Category="ArrowButton" Region="267, 489, 12, 17" />
+                            <uc:CvElementInfo Category="ArrowButton" Region="268, 374, 12, 16" />
+                            <uc:CvElementInfo Category="InputBox" Region="12, 372, 266, 19" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="20, 410, 260, 19" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="10, 448, 269, 18" />
+                            <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="8, 448, 273, 20" />
+                            <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="268, 509, 12, 16" />
+                            <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="10, 372, 269, 20" />
+                            <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="13, 429, 266, 20" />
+                            <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="5, 294, 273, 19" />
+                            <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="9, 332, 279, 19" />
+                            <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="10, 466, 264, 19" />
+                            <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="9, 426, 263, 19" />
+                            <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="8, 313, 271, 19" />
+                            <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="7, 408, 275, 18" />
+                            <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="261, 275, 16, 19" />
+                            <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="9, 486, 269, 19" />
+                            <uc:CvElementInfo Category="InputBox" Region="11, 506, 270, 20" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="10, 315, 271, 19" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="14, 353, 265, 19" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="13, 296, 268, 19" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="11, 391, 270, 19" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="13, 334, 266, 19" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="14, 429, 267, 19" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="9, 469, 271, 19" />
+                            <uc:CvElementInfo Category="ArrowButton" Region="267, 336, 12, 17" />
+                            <uc:CvElementInfo Category="ArrowButton" Region="267, 317, 13, 17" />
+                            <uc:CvElementInfo Category="ArrowButton" Region="267, 508, 13, 17" />
+                            <uc:CvElementInfo Category="ArrowButton" Region="268, 393, 12, 16" />
+                            <uc:CvElementInfo Category="ArrowButton" Region="267, 355, 12, 16" />
+                            <uc:CvElementInfo Category="ArrowButton" Region="267, 430, 13, 17" />
+                            <uc:CvElementInfo Category="ArrowButton" Region="267, 470, 12, 17" />
+                            <uc:CvElementInfo Category="ArrowButton" Region="268, 298, 12, 16" />
+                          </scg:List>
+                        </uc:CVCache.CvUiElements>
+                        <uc:CVCache.OcrTexts>
+                          <scg:List x:TypeArguments="uc:OcrTextInfo" Capacity="52">
+                            <uc:OcrTextInfo Region="9, 278, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="16, 280, 27, 11" Text="MPI" />
+                            <uc:OcrTextInfo Region="49, 280, 90, 11" Text="Conversion" />
+                            <uc:OcrTextInfo Region="272, 278, 8, 18" Text="»" />
+                            <uc:OcrTextInfo Region="9, 297, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="16, 298, 56, 12" Text="Clinical" />
+                            <uc:OcrTextInfo Region="272, 297, 8, 18" Text="»" />
+                            <uc:OcrTextInfo Region="9, 316, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="15, 317, 112, 12" Text="Administrative" />
+                            <uc:OcrTextInfo Region="272, 316, 8, 18" Text="»" />
+                            <uc:OcrTextInfo Region="9, 335, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="15, 325, 72, 32" Text="Ancillary" />
+                            <uc:OcrTextInfo Region="272, 335, 8, 18" Text="|" />
+                            <uc:OcrTextInfo Region="9, 354, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="16, 355, 72, 12" Text="Financial" />
+                            <uc:OcrTextInfo Region="272, 354, 8, 18" Text="|" />
+                            <uc:OcrTextInfo Region="9, 373, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="15, 369, 90, 26" Text="Ambulatory" />
+                            <uc:OcrTextInfo Region="272, 373, 8, 18" Text="»" />
+                            <uc:OcrTextInfo Region="9, 392, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="16, 393, 32, 12" Text="Info" />
+                            <uc:OcrTextInfo Region="51, 394, 63, 14" Text="Systems" />
+                            <uc:OcrTextInfo Region="272, 392, 8, 18" Text="»" />
+                            <uc:OcrTextInfo Region="9, 411, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="16, 412, 63, 12" Text="Emulate" />
+                            <uc:OcrTextInfo Region="83, 413, 48, 11" Text="Person" />
+                            <uc:OcrTextInfo Region="279, 411, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="9, 430, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="15, 430, 96, 18" Text="Applications" />
+                            <uc:OcrTextInfo Region="112, 432, 81, 11" Text="Parameter" />
+                            <uc:OcrTextInfo Region="195, 432, 35, 11" Text="Lists" />
+                            <uc:OcrTextInfo Region="272, 430, 8, 18" Text="»" />
+                            <uc:OcrTextInfo Region="9, 449, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="16, 450, 60, 15" Text="Change" />
+                            <uc:OcrTextInfo Region="77, 451, 36, 11" Text="Your" />
+                            <uc:OcrTextInfo Region="116, 451, 33, 11" Text="Own" />
+                            <uc:OcrTextInfo Region="156, 451, 36, 11" Text="User" />
+                            <uc:OcrTextInfo Region="195, 451, 24, 11" Text="PIN" />
+                            <uc:OcrTextInfo Region="279, 449, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="9, 470, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="16, 472, 33, 11" Text="HCA" />
+                            <uc:OcrTextInfo Region="54, 472, 40, 11" Text="EBCD" />
+                            <uc:OcrTextInfo Region="101, 472, 56, 14" Text="Reports" />
+                            <uc:OcrTextInfo Region="272, 470, 8, 18" Text="»" />
+                            <uc:OcrTextInfo Region="9, 489, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="16, 491, 33, 11" Text="HCA" />
+                            <uc:OcrTextInfo Region="53, 491, 81, 14" Text="Corporate" />
+                            <uc:OcrTextInfo Region="133, 491, 56, 14" Text="Reports" />
+                            <uc:OcrTextInfo Region="272, 489, 8, 18" Text="»" />
+                            <uc:OcrTextInfo Region="9, 508, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="15, 504, 90, 26" Text="Ambulatory" />
+                            <uc:OcrTextInfo Region="272, 508, 8, 18" Text="»" />
+                          </scg:List>
+                        </uc:CVCache.OcrTexts>
+                      </uc:CVCache>
+                      <uc:CVCache DataSent="False" Dirty="Cv" DisplayName="Main Screen" Id="4b33ceb1-d9c0-4034-8023-438c884ea84b" InformativeScreenshot="79127c3fd3f95b50025b8f413a8e1095" LogicalPosition="1, 247" OcrText="| MPI Conversion »&#xA;| Clinical »&#xA;| Administrative »&#xA;| Ancillary |&#xA;| Financial |&#xA;| Ambulatory »&#xA;| Info Systems »&#xA;| Emulate Person |&#xA;| Applications Parameter Lists »&#xA;| Change Your Own User PIN |&#xA;| HCA EBCD Reports »&#xA;| HCA Corporate Reports »&#xA;| Ambulatory »" Position="1, 247">
+                        <uc:CVCache.CvAnchorRelations>
+                          <scg:List x:TypeArguments="uc:AnchorRelationInfo" Capacity="0" />
+                        </uc:CVCache.CvAnchorRelations>
+                        <uc:CVCache.CvTables>
+                          <x:Array Type="uc:CvTableInfo">
+                            <uc:CvTableInfo>
+                              <uc:CvTableInfo.Columns>
+                                <x:Array Type="x:Int32">
+                                  <x:Int32>9</x:Int32>
+                                  <x:Int32>277</x:Int32>
+                                </x:Array>
+                              </uc:CvTableInfo.Columns>
+                              <uc:CvTableInfo.Rows>
+                                <x:Array Type="x:Int32">
+                                  <x:Int32>250</x:Int32>
+                                  <x:Int32>268</x:Int32>
+                                  <x:Int32>287</x:Int32>
+                                  <x:Int32>306</x:Int32>
+                                  <x:Int32>325</x:Int32>
+                                  <x:Int32>344</x:Int32>
+                                  <x:Int32>363</x:Int32>
+                                  <x:Int32>382</x:Int32>
+                                  <x:Int32>400</x:Int32>
+                                  <x:Int32>419</x:Int32>
+                                  <x:Int32>439</x:Int32>
+                                  <x:Int32>459</x:Int32>
+                                  <x:Int32>478</x:Int32>
+                                  <x:Int32>500</x:Int32>
+                                </x:Array>
+                              </uc:CvTableInfo.Rows>
+                            </uc:CvTableInfo>
+                          </x:Array>
+                        </uc:CVCache.CvTables>
+                        <uc:CVCache.CvUiElements>
+                          <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="64">
+                            <uc:CvElementInfo Category="ArrowButton" Region="266, 327, 12, 17" />
+                            <uc:CvElementInfo Category="ArrowButton" Region="266, 365, 12, 16" />
+                            <uc:CvElementInfo Category="ArrowButton" Region="266, 443, 13, 18" />
+                            <uc:CvElementInfo Category="ArrowButton" Region="267, 250, 12, 17" />
+                            <uc:CvElementInfo Category="InputBox" Region="14, 442, 262, 19" />
+                            <uc:CvElementInfo Category="Cell" Region="9, 325, 268, 19" />
+                            <uc:CvElementInfo Category="Cell" Region="9, 287, 268, 19" />
+                            <uc:CvElementInfo Category="Cell" Region="9, 306, 268, 19" />
+                            <uc:CvElementInfo Category="Cell" Region="9, 344, 268, 19" />
+                            <uc:CvElementInfo Category="Cell" Region="9, 400, 268, 19" />
+                            <uc:CvElementInfo Category="Cell" Region="9, 268, 268, 19" />
+                            <uc:CvElementInfo Category="Cell" Region="9, 363, 268, 19" />
+                            <uc:CvElementInfo Category="Cell" Region="9, 382, 268, 18" />
+                            <uc:CvElementInfo Category="Cell" Region="9, 250, 268, 18" />
+                            <uc:CvElementInfo Category="Cell" Region="9, 419, 268, 20" />
+                            <uc:CvElementInfo Category="Cell" Region="9, 439, 268, 20" />
+                            <uc:CvElementInfo Category="Cell" Region="9, 478, 268, 22" />
+                            <uc:CvElementInfo Category="Cell" Region="9, 459, 268, 19" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="20, 248, 252, 20" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="9, 421, 269, 20" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="11, 326, 265, 20" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="8, 383, 270, 19" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="11, 364, 264, 19" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="444, 0, 1339, 750" />
+                            <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="267, 251, 11, 15" />
+                            <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="268, 463, 11, 16" />
+                            <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="267, 290, 11, 16" />
+                            <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="267, 271, 11, 16" />
+                            <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="268, 347, 11, 15" />
+                            <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="266, 482, 12, 16" />
+                            <uc:CvElementInfo Category="InputBox" Region="7, 480, 273, 20" />
+                            <uc:CvElementInfo Category="InputBox" Region="15, 268, 267, 20" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="9, 287, 271, 19" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="16, 306, 261, 20" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="8, 403, 270, 19" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="13, 461, 268, 20" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="8, 345, 273, 18" />
+                            <uc:CvElementInfo Category="ArrowButton" Region="267, 270, 12, 17" />
+                            <uc:CvElementInfo Category="ArrowButton" Region="266, 463, 12, 17" />
+                            <uc:CvElementInfo Category="ArrowButton" Region="266, 289, 13, 17" />
+                            <uc:CvElementInfo Category="ArrowButton" Region="266, 346, 12, 17" />
+                            <uc:CvElementInfo Category="ArrowButton" Region="266, 308, 12, 17" />
+                            <uc:CvElementInfo Category="ArrowButton" Region="266, 403, 13, 17" />
+                            <uc:CvElementInfo Category="ArrowButton" Region="265, 481, 14, 18" />
+                          </scg:List>
+                        </uc:CVCache.CvUiElements>
+                        <uc:CVCache.OcrTexts>
+                          <scg:List x:TypeArguments="uc:OcrTextInfo" Capacity="52">
+                            <uc:OcrTextInfo Region="9, 251, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="16, 253, 27, 11" Text="MPI" />
+                            <uc:OcrTextInfo Region="49, 253, 90, 11" Text="Conversion" />
+                            <uc:OcrTextInfo Region="272, 251, 8, 18" Text="»" />
+                            <uc:OcrTextInfo Region="9, 270, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="16, 271, 56, 12" Text="Clinical" />
+                            <uc:OcrTextInfo Region="272, 270, 8, 18" Text="»" />
+                            <uc:OcrTextInfo Region="9, 289, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="15, 290, 112, 12" Text="Administrative" />
+                            <uc:OcrTextInfo Region="272, 289, 8, 18" Text="»" />
+                            <uc:OcrTextInfo Region="9, 308, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="15, 298, 72, 32" Text="Ancillary" />
+                            <uc:OcrTextInfo Region="272, 308, 8, 18" Text="|" />
+                            <uc:OcrTextInfo Region="9, 327, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="16, 328, 72, 12" Text="Financial" />
+                            <uc:OcrTextInfo Region="272, 327, 8, 18" Text="|" />
+                            <uc:OcrTextInfo Region="9, 346, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="15, 342, 90, 26" Text="Ambulatory" />
+                            <uc:OcrTextInfo Region="272, 346, 8, 18" Text="»" />
+                            <uc:OcrTextInfo Region="9, 365, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="16, 366, 32, 12" Text="Info" />
+                            <uc:OcrTextInfo Region="51, 367, 63, 14" Text="Systems" />
+                            <uc:OcrTextInfo Region="272, 365, 8, 18" Text="»" />
+                            <uc:OcrTextInfo Region="9, 384, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="16, 385, 63, 12" Text="Emulate" />
+                            <uc:OcrTextInfo Region="83, 386, 48, 11" Text="Person" />
+                            <uc:OcrTextInfo Region="279, 384, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="9, 403, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="15, 403, 96, 18" Text="Applications" />
+                            <uc:OcrTextInfo Region="112, 405, 81, 11" Text="Parameter" />
+                            <uc:OcrTextInfo Region="195, 405, 35, 11" Text="Lists" />
+                            <uc:OcrTextInfo Region="272, 403, 8, 18" Text="»" />
+                            <uc:OcrTextInfo Region="9, 422, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="16, 423, 60, 15" Text="Change" />
+                            <uc:OcrTextInfo Region="77, 424, 36, 11" Text="Your" />
+                            <uc:OcrTextInfo Region="116, 424, 33, 11" Text="Own" />
+                            <uc:OcrTextInfo Region="156, 424, 36, 11" Text="User" />
+                            <uc:OcrTextInfo Region="195, 424, 24, 11" Text="PIN" />
+                            <uc:OcrTextInfo Region="279, 422, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="9, 443, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="16, 445, 33, 11" Text="HCA" />
+                            <uc:OcrTextInfo Region="54, 445, 40, 11" Text="EBCD" />
+                            <uc:OcrTextInfo Region="101, 445, 56, 14" Text="Reports" />
+                            <uc:OcrTextInfo Region="272, 443, 8, 18" Text="»" />
+                            <uc:OcrTextInfo Region="9, 462, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="16, 464, 33, 11" Text="HCA" />
+                            <uc:OcrTextInfo Region="53, 464, 81, 14" Text="Corporate" />
+                            <uc:OcrTextInfo Region="133, 464, 56, 14" Text="Reports" />
+                            <uc:OcrTextInfo Region="272, 462, 8, 18" Text="»" />
+                            <uc:OcrTextInfo Region="9, 481, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="15, 477, 90, 26" Text="Ambulatory" />
+                            <uc:OcrTextInfo Region="272, 481, 8, 18" Text="»" />
+                          </scg:List>
+                        </uc:CVCache.OcrTexts>
+                      </uc:CVCache>
+                    </scg:List>
+                  </uc:CvCacheContainer.Caches>
+                </uc:CvCacheContainer>
+              </p:CVScope.DesignTimeCacheContainer>
+              <p:CVScope.OCREngine>
+                <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                  <ActivityFunc.Argument>
+                    <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                  </ActivityFunc.Argument>
+                  <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" PredictionId="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="True" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="GoogleOCR_2" Image="[Image]" />
+                </ActivityFunc>
+              </p:CVScope.OCREngine>
+              <p:CVScope.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0fd37b47-77c7-4e44-8ed7-2a1e0ef95b46" InformativeScreenshot="d41eccbd9d178dfe06294552c86db23b" Selector="&lt;webctrl class='overlayEle' parentid='displayArea' tag='DIV' /&gt;" WaitForReady="INTERACTIVE">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                </ui:Target>
+              </p:CVScope.Target>
+              <p:CVScope.UseLocalServer>
+                <InArgument x:TypeArguments="x:Boolean" />
+              </p:CVScope.UseLocalServer>
+            </p:CVScope>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="1912, 18, 1936, 1056" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="2f0945503147ea8ab37864e403f195db.png" Selector="&lt;html app='chrome.exe' url='https://ehr.nh.hca.meditech.cloud/test/' /&gt;" Url="[in_ExpanseURL]" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

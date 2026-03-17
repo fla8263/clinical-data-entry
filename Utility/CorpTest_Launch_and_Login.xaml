@@ -1,0 +1,768 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Workflow" this:Workflow.in_ExpanseURL="https://ehr.corptst.hca.meditech.cloud/test/" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_ExpanseURL" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1053,5163</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Workflow_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="39">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="100">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Workflow" sap:VirtualizedContainerService.HintSize="1012,5098" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="[NAppCloseMode.Never]" DisplayName="Use Browser Chrome: Sign in to your account" sap:VirtualizedContainerService.HintSize="950,4987" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" IsIncognito="True" OpenMode="Always" ScopeGuid="05756cd0-bc77-4fad-a6c0-cda873b832f1" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="916,4770" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Default="HCANH TEST" Name="HCIS" />
+              <Variable x:TypeArguments="x:Boolean" Name="verifyLaunchNewSession" />
+              <Variable x:TypeArguments="x:String" Name="userName" />
+              <Variable x:TypeArguments="ss:SecureString" Name="password" />
+              <Variable x:TypeArguments="x:Boolean" Name="verifyIdleSesson" />
+              <Variable x:TypeArguments="x:Boolean" Name="verifyChartActive" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:GetRobotCredential AssetName="mtxLogin1" CacheStrategy="None" DisplayName="Get Credential" FolderPath="QACOE" sap:VirtualizedContainerService.HintSize="854,168" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[password]" Username="[userName]">
+              <ui:GetRobotCredential.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:GetRobotCredential.TimeoutMS>
+            </ui:GetRobotCredential>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DelayBefore="2" DisplayName="Type Into 'Sign in'" EmptyFieldMode="None" sap:VirtualizedContainerService.HintSize="854,218" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="05756cd0-bc77-4fad-a6c0-cda873b832f1" Text="[userName+&quot;@hca.corpad.net[k(enter)]&quot;]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://login.microsoftonline.com/335a6d75-c3eb-4b1a-ac08-d49338816ca0/saml2?SAMLRequest=fVJdT%2bMwEPwrkd%2fznbrBaivl6J2oxN1VNHcPvCDX3hJLsV28GwT%2fnjQFAQ%2fwOp7ZmZ31AqXtj6IZqHM38DAAUvRke4dieliyITjhJRoUTlpAQUrsmt%2fXokgycQyevPI9%2byD5XiERIZDxjkWb9ZLdFRfzrMireSUPvKrlYa8lh5wXM5hrXqiaRf8h4MhfslE%2bihAH2Dgk6WiEsqKMMx4XZZtzUdYi57csWo87GCdpUnVERxRp2vt74xJrVPDoD%2bRdbxwkytu0LGeS6%2fksViXs42qfy1iqrI51dVGWdZ1zJbP0tFnBouYt%2fqV3OFgIOwiPRsG%2fm%2bt3K%2bjCODgcCSnplEwsaEOgukT1ftApjfFSqZBF29f6fhinjbv%2fvrn9mYTiqm238fbvrmXRLx8UTKdbMgoDsNXiFFRMLYXV1WWTtD937SL9iC7OF%2f8zOmzWW98b9XwaZCV9HSBP8gkxOj5MVAFWmr7ROgAiS1dni8%2f%2faPUC&amp;RelayState=https%3a%2f%2fehr.corptst.hca.meditech.cloud%2ftest%2f&amp;sso_reload=true" DesignTimeRectangle="794, 487, 348, 36" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT i0116'" FullSelectorArgument="&lt;webctrl id='i0116' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='i0116' tag='INPUT' type='email' class='form-control ltr_override input ext-input text-box ext-text-box' aaname='' /&gt;" Guid="3df96bd8-fe69-4956-a8d9-d5f94edf8d90" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAWAAAAAoCAYAAADAHSD5AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAASMSURBVHhe7Zo9TmQ7EIXnrYMFshE2ADEpISHSC8ggIiMiYgEsgIign05rTs/pmrK750eYB98nWffaVXaV3arTl9t82wAAwBIQYACARSDAAACLQIABABaBAAMALAIBBgBYBAIMALAIBBgAYBEIMADAInYCfHJy8v0OAADeAwQYAGARCDAAwCIQYACARSDAAACL2BPg5+fnzenp6a49PDx8tx6P19DV6P7q6mrz9va262cct0Pxunm5rlFf47+T/2fFZ5KfCwCsZU+A7+/vN6+vr9u+rhcXF79UsC5yCWPO030V4CqcjlfHxcymtWo854EA/8Bnkuf0N+k+UwCYM30FcXNzs23HIsFTEVbhrsU5KtZOOLuxigT68vJy8/Lysu0fM+er4TNBgAE+DgcF+FgRk/hZBH9XgMUhX+Xk1w+Zn/z8ZSFfzZEt/ete/GRt+yjO2dnZTtw7ZJOP/Z2HqLaM4Tzv7u62V8dRnuo/PT3t5ilP5WtmMYXXtt0xdE4Vn4Pi5Zzqq75tac+zUqu5AEDPUIBV4BLULPoRLnYVpIs5i1f3slt4aj+pcVXMXsvCpHmOaVHNebalSOiaQuo8U5QfHx+3c2XT6xiTcSsWQseRj9YRNabQfuoeqo/iVSHTWIqwYtS9ZA5at87P80g8P/Oo8TQv+/I7Pz/f+cs+OiMA6NkTYBeiCvVXiknF6mKvYiBqcc6KNQtb9uvr65/uTYqz4mpNXeWr+xQgjylXkTkfQjFHX0Zaw2smNZ7RGv5LoctTaE6KndB9Pdck85BPne9Y3Xyvnbl2eda5NaZ85AsAxzF9AtYTkQvMRSpxVnOB18KzXxZr9ZkVa4qd7BZd9TVHV5E2oav6GleTbwpKjnX2ivdf95t0ezUjm2NrfJSH+hqX3eQ8IwF0fmpe59j5pss1x3yfsdz85SG/GhMA5kzfAacYdriou8JUGxXnrFhTPNTyCVjjFgldFUPXanM/hS3Hqn9FPvnn+Ogc1PdTYmVky9hdniLPwOQ8C6LPV+TTqK5pE7M9e7205Vhnr8hWcwaAOX8kwB1dsdbiHBVrNzfFRPn4qVRj8rPYp4hZbGZjml9FStgvcxidQxfHjGxaw8I88lFf47KbnNedn/bidWTXOWa+3dmazpZjs32aLicAmLMnwPnD0zFF19EVcy3OrlgtrjXeTDhGdLnXMcfLdf0jXIqz5ykH5VLz0TWfluV/6Ee4unbds/r1SyXnab36A1j6O8c6Xz7OWzZ/Bt0ZH9qnyB8CZfcZAcBx7AmwCtJPlFUAjqUrZt272N3POGqz4lWRq/gtQMnt7e2eKIhO2Loxr+scvL73oDHZJTR+Ah7tz2uoZYxqyz3MBFjj+tcxz8vzE/LJNdVyndyDmv/FzHk7htbs9tSNZUzHNd5LHQeAMdNXEB8NFXYKwGct9hRHAPi8/K8E+KuAAAN8DRDgDwgCDPA1QIABABaxE2AAAHhfEGAAgEUgwAAAi0CAAQAWgQADACwCAQYAWAQCDACwCAQYAGAROwH+5/RfGo1Go71DMzwBAwAsAgEGAFjCZvMfucEP56AY9d8AAAAASUVORK5CYII=" InformativeScreenshot="db835fe795e63428f9da254de9ce5445.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Sign in to your account' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="792, 447, 352, 28" ElementType="Text" FriendlyName="'Sign in'" FullSelectorArgument="&lt;webctrl aria-role='heading' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='heading' tag='DIV' type='' class='' aaname='Sign in' check:innerText='Sign in' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAWQAAAAgCAYAAAAlpQLuAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARaSURBVHhe7d3NK3RRHAfw5/+wt1HKxoosxEJkIcRCpNhakJeFkLxEUWyQRMICERZkg7wkpUQkSRYSIgoRfk/f0zn3uXfMnWeeee48z635furWdM69c2f1nTPn/M6dH0JERL7AQCYi8gkGMhGRTzCQiYh8goFMROQTDGQiIp9gIBMR+QQDmYjIJ/46kM/PzyU3N1eSk5Nla2tLt/rL5+enDAwMSHx8vNTX18vz87PuISLyj6CB/PT0JHNzc1JZWamCNi4uTh2ZmZlSVVWlQtiYmZmx+nt6enSrv9zf30txcbH6jBkZGXJ2dqZ7iIj841sg7+3tqdAyIRvs2N3d1WeLXFxcSElJiaSnp8vOzo5u9ReMkMfGxiQpKUmampo4QiYiX3IEMka+2dnZKnTx876urk5WV1dlc3NTHXjd1tYm+/v7+goiIvKKI5AxijSj4Onpad1KRET/giOQMQccbFqCiIiizxHIg4ODViCPj4/r1tAQ3OYaLPAFwnzt6Oio5OXlqXOwSNjZ2Sl3d3fWF0DgQpt9oRDvj3P7+vokNTVVtRUUFMj6+rp8fX3pK0J7fX2V2tpadS0W97DIZ3h9LyKiSDkC+eTkRNLS0lQQYQ65q6vLEV7BhArkm5sbKSsrs/rtB9pRsYHXoQJ5YWEh6Hvg86ESJBzhBrIX9yIiipQjkGFpaclR6paQkCC9vb1yfX2tz3ByC+S3tzdpbm62+lDdgEVDhOH29rYUFRVZfaEC2VRG4FqMXicnJ9VnQl95ebk8PDzoq9yFG8he3IuIKFLfAhkODw9VKZsJKhwIpqmpKRW0dm6BbB9tI+QQinZXV1eSn5+v+kMFck1NjaNM7ePjQ1pbW1VfSkqKHB0d6R534QayF/ciIopU0EAGhNHGxsa3YG5sbHSEllsgz8/Pqzb83Mc5wXR3d6tzQgXy8vKybv3F3u/23nbhBrIX9yIiipRrIBtYzMKiVlZWlhVM9gU/t0B2W7CzC3dRL1C0AtmLexERReq3gWycnp6q4EQwVVRUyOPjo2pnIBMReSPsQHYLNbdANiV0bnOv7+/vam4Z5zCQiYgCAnllZcW1muJPR8hra2tWO6o0MCdth5A2i34MZCKigEDGFAKqKRoaGhzPsMDGDvsc8tDQkL7CPZBvb2+ltLRUtZuaZlRWoJwMwY8nxyUmJqp+BjIRUZBANuHjdnR0dIRVZQGoNzY73gKP/v5+tWMPrxnIREQBgYygwo407KDDCNYEUU5OjgrP4+Pjb1uIQwUyXF5eqrlis9kEW5EXFxdVPbP5AigsLFQjZ4OBTESxKOxFPa/ZF/UCQ5KIKBb9t0DG4iFGxgjk6upqeXl50T1ERLHpvwQyKi6Gh4etqYCJiQndQ0QUu6IayCMjI6pCAyVzmJLAgXnolpYWVXmBMMbzLFB9QUQU66IayL+r2sC/VR8cHOiziYhiW1QDGf+9197erqo0TAijzhkPLJqdnXWUzxERxTaRn0INP/vTA26FAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DelayBefore="2" DisplayName="Type Into 'Username'" EmptyFieldMode="None" sap:VirtualizedContainerService.HintSize="854,218" sap2010:WorkflowViewState.IdRef="NTypeInto_2" InteractionMode="HardwareEvents" ScopeIdentifier="05756cd0-bc77-4fad-a6c0-cda873b832f1" Text="[userName + &quot;[k(tab)]&quot;]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="890, 157, 222, 32" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'Username'" FullSelectorArgument="&lt;ctrl name='Sign in' role='dialog' /&gt;&lt;ctrl name='Username' role='editable text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Sign in' role='dialog' /&gt;&lt;ctrl name='Username' role='editable text' automationid='' /&gt;" Guid="57c99fc6-98b6-41a1-bbb4-9df981a5829f" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAOIAAAAkCAYAAACUoeZ+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEPSURBVHhe7d0xSgNRGIVRl6Jgo5BCC221CPbqFoxxF060ciMmRUDELYlZgt2TN5BEcUrHucUpTvPzXvnVd+fgcFSAYbUhHp+el0mzLM3ze3l6+wR6VlurzdX2NiHePb52Pgb6VdvbhDhbrNrj+PKm7O7tAz0bX03a5mbz1TbEdZ1dH4B+rLsTIgxIiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBBAiBDgV4h1CKMejNDA/7i4nrbN/RihMcsGw5h+n2WrY4m3Dy+lmX90Pgb+VjtUer8sRydn2xCBIY3KF3S2l5DtkynYAAAAAElFTkSuQmCC" InformativeScreenshot="508b9111f6ebfcbf294b4e7147604cca.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='https://ap.idf.medcity.net/IdentityFederationPortal/Home/FormLog*' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="824, 163, 54, 20" ElementType="Text" FriendlyName="'Username'" FullSelectorArgument="&lt;ctrl name='Sign in' role='dialog' /&gt;&lt;ctrl name='Username' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Sign in' role='dialog' /&gt;&lt;ctrl name='Username' role='text' automationid='' check:text='Username' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADoAAAAYCAYAAACr3+4VAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE9SURBVFhH7ZNRCoMwDIZ3nQm7oQi7iQx2BxG8wBC8gAz2NoSdIdMmrX+Cg/q42ocf1vonzZdkp3NxoSMog6amDJqaMmhqAtA7PaaBavh4Lq7UPF/UVHj3n8qgrIOClu2L3tOH1d/BI3ezHrfVO7bdnFO8VUfjs6M65IAG3oYQr+5tzPy7dHWKN9Qg3pDDcuwCjZn46uGmgF8KGdurO7vvWKjXAu3vTUzdI8TylrwtDSm3coh2gMrkMKGL8V30Yj9PlAt0ssWos96K8IaJ0TmhNrURJocIQO10ftxJl7ljW81hxYMypF955dsDurUdIACV1YAAt16mMywPyEUqIFE8KKygxO2e6OLD//aGFCgHw/jVtPSahgnY9ZXC4kEFTuLHflh9saDL2ayvbb4BTVcZNDVl0NSUQVPTQUAv9AV+U4fkvc58EAAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Password'" EmptyFieldMode="None" sap:VirtualizedContainerService.HintSize="854,218" sap2010:WorkflowViewState.IdRef="NTypeInto_3" InteractionMode="HardwareEvents" IsPassword="True" ScopeIdentifier="05756cd0-bc77-4fad-a6c0-cda873b832f1" SecureText="[password]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="890, 201, 222, 32" DesignTimeScaleFactor="1" ElementType="InputBoxPassword" FriendlyName="'Password'" FullSelectorArgument="&lt;ctrl name='Sign in' role='dialog' /&gt;&lt;ctrl name='Password' role='editable text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Sign in' role='dialog' /&gt;&lt;ctrl name='Password' role='editable text' automationid='' /&gt;" Guid="d5adca52-bf0b-422a-b9fd-827eee667ee3" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAOIAAAAkCAYAAACUoeZ+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADfSURBVHhe7d0xasNAFEXRLMUBmxCBMTgMKJYLg/e/pjG/cSMlnaRXnOJUoykv0+l9fA/nDuxLiBDgHeLpa+g/beztd+r3xxNYSTVWrVVzsxDr4HJt/fB5BFZWrVVzsxDbOC1eANbRxts8xHoylz4G1lHNCRF2JkQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIIEQIsBiiX+7Dtqq5WYhGaGA7f47QmGWDbfw7ywbsR4iwu3N/ASflUL89tr6oAAAAAElFTkSuQmCC" InformativeScreenshot="9ab6cfb7f0cdd29bda8823037d9db778.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='https://ap.idf.medcity.net/IdentityFederationPortal/Home/FormLog*' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="824, 207, 50, 20" ElementType="Text" FriendlyName="'Password'" FullSelectorArgument="&lt;ctrl name='Sign in' role='dialog' /&gt;&lt;ctrl name='Password' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Sign in' role='dialog' /&gt;&lt;ctrl name='Password' role='text' automationid='' check:text='Password' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADYAAAAYCAYAAACx4w6bAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFjSURBVFhH7ZTRicMwDIZvnR50w1DoJqWQHYqhC5hAFgiFvpVCZ1AlR7IlNxdIuYc4+OGHRLLk/7Oc/Ox+97BFVbDSVMFKUwUrTQrsCJfbCx5P0R0uB7t4tTr38OhaE8vAFMzhCsOzh1PMr1iLwD7eV6xvwRp3V1dUTZEaSvx2hWYqRpOXHOrUvWBwR96jBR9ztB/XkZRRqvGObpDU6rXo0S0BI4PKkIggU/N8olMxNB8Pg0CwXh9CMDQaTcD2AOhZewnvEYQh58HkFEj6+yJzKsdNwgbZd/hXzJ/xGUEG1+I+Y54OKcTN5Fhq0rE+5Min7Z8OKMVmrqKIoLJJmiYMbYxlMa5p8MpQnxFIG1wCRr3/Ayz7O4aJZE2ma3WMjPfgOzYfTOOVjH1o7fxVTGA2J7VfTIxh+Br6zn4XEh83moqlHrkZbTZOWaSM5mB2LXqe/3lsSxWsNFWw0lTBStNGwfbwBp127Plq+njxAAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="854,179" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_3" Shortcuts="[d(hk)][k(enter)][u(hk)]" Version="V3" />
+            <uix:NCheckState DisplayName="Check App State 'Reset'" sap:VirtualizedContainerService.HintSize="854,722" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="05756cd0-bc77-4fad-a6c0-cda873b832f1" Timeout="5" Version="V3">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="400,505" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ClickType="Single" DelayBefore="2" DisplayName="Click 'Reset'" sap:VirtualizedContainerService.HintSize="338,157" sap2010:WorkflowViewState.IdRef="NClick_16" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="05756cd0-bc77-4fad-a6c0-cda873b832f1" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://ehr.nh.hca.meditech.cloud/test/" DesignTimeRectangle="1291, 517, 23, 23" DesignTimeScaleFactor="1" FriendlyName="'DIV'" FullSelectorArgument="&lt;webctrl class='reset-icon' parentid='hidden-section' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='reset-icon' parentid='hidden-section' tag='DIV' type='' aaname='' /&gt;" Guid="ca11ec04-f9fb-4b04-a5b3-717a9e191ea5" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABsAAAAbCAYAAACN1PRVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE3SURBVEhL7ZTLTsJAFIZ5Ru6wqi9A2elWXoIQ5ZIYwkOAuoNIKAZ1QyE6gmkLBAJP8MuUVLkcpkMYWLH4NvNPzpee/J3AaLbAubjIlHCQjFWfyHNZpGTOZIZuNodWKETmsvjKrE+G9+sbtIJBF+qOLELZoP6Ctqb9iU4jm87RfyjDCIc3RDvEYujoOsxiCfb3z+6cLfbKeuUKjEiElhC0k0l81cQFEq+x0cSrdrUxdD137LG76o/bzCpfFkgkFMo4FhtIFaS3XDvP+RfabEje8ZVx3Orn7nyr732heZ8ncymZB3t8Js89+Eq5rJPSyfwgmR+2NVqtOxolc6UyXhguMxIJMlcq+19jisyVypQWRISy6u/DcSbqfmp3gCRHP1fU0HWMeBxv6TTMQvGIh/hEXGRKOKNsgV/8dEuhqeIniAAAAABJRU5ErkJggg==" InformativeScreenshot="66e703646830723b4ba464bfd773b1d0.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='MEDITECH' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="1063, 521, 212, 15" ElementType="Text" FriendlyName="'Reset'" FullSelectorArgument="&lt;webctrl class='reset-label' parentid='hidden-section' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='reset-label' parentid='hidden-section' tag='DIV' type='' aaname='Reset' check:innerText='Reset' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANgAAAATCAYAAADyD8OaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFNSURBVHhe7dgxjsJADEDRXBBxHgpOAieBKyAKBAU01NsgcQJDZsiMZ+JFW6wb6xev2AyEJl92dvh5PAWADwIDHBEY4IjAAEcEhlCuq0EOg2G1Nz/vjcAQSgqsj+m8leM7stNOXXNg/TaBIRQzsC/X/xOBIbw/B/aZanmFXMjlrD6/W6v1sjt77OVUzupUvG8W9TvqdwgMoZiBzVbEHEn5OwW1lms5U1GNZ8ut3NPZTS7LQY6bWz5L962fZYIhvPSQT5NEKVGMmmhGOZwc3GdCGVMwBzWFmI2/N92bwBBe/5Dn1a2NolnnlBphuwaW+zWr4/ycwBCe9ZCna3pizSbYF3q9NCaYRmAIz3rIp4nUT6jyDjaLSP9jQ7+Tde9g3X0JDOHZgdW1sI9qWvNqNG/dKtic/bY+6u+p6UhggCMCAxwRGOCIwABHBAa4ecoL5mvHAGZwdjQAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NClick ClickType="Single" DisplayName="Click 'Terminate'" sap:VirtualizedContainerService.HintSize="338,193" sap2010:WorkflowViewState.IdRef="NClick_17" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="05756cd0-bc77-4fad-a6c0-cda873b832f1" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://ehr.nh.hca.meditech.cloud/test/" DesignTimeRectangle="824, 747, 128, 34" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Terminate'" FullSelectorArgument="&lt;webctrl parentid='displayArea' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='displayArea' tag='BUTTON' type='' class='wpl-dialog-button wpl-dialog-3' aaname='Terminate' check:innerText='Terminate' /&gt;" Guid="72cb0d5e-220c-434f-be1c-49c5b7f5565b" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIQAAAAmCAYAAAAFkDNCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMoSURBVHhe7ZrNatwwEID9Wi00lNC0KQ0UFvIAhb5BoQ+w7KtsXqK0hRKcyx5a2lNuIYc9h+S0ODvV6McrjUa1vUj2lswHQ2JbGsmaL7INqTabDUhIuBAhJIJohVitVhJPOFghhKeJCCEEiBBCgAghBIgQQoAIIQRkFWJ7+QPg5sYe7YHqq3MIk5FNiO33b9AcH0Hz/mw/KVQf7Is5MJcwDXmEeLiH5t0baF48MzFUCieD6396onMK45Nvh/j1E5rXx8OloDKoHJhrL26XMKsqqP4ZC6ht8/KsYXlewexibY/zUc9nsLy1BxnJJgQyWIqcMnBcLZQAZRZuUgreV1YhkN5SlJYBESEGk10IpFOKMWRAkgtXw8J/jJwv1ea+Y30xg2q+1Nu9vj6vzTnVrsafbV+TW19jc5FHhp6PemTpny5HBYsrc7mFefS5NsFYKvzHUT33++wnTBEhkKQUY8mAsEJYGVSRHWYhd+8WbtH9xW4L0fbzpKLn2mNOCHXdk4aO7WTwJTFje/fB3FeUx44VydZBMSGQSIqztybGkAFhFs4sLn2xNIV0hePaREVRREVQ6HNtwTkhiKBEAD0O2bEiSWgeRiIknEs/igqBbP/8DqXwZVDXihIVwBTI3x0cevHsea4oSUlIu24hiIyJYiJmTJXPRkoIbm4abrwOiguBbL9+gebo+U4G9TueK05KCG+RgzgEIeyxm5M+37FDUHHCODQh6DuDC/qiWYKUEMwO4TOlEOw230uIYYVPUVYIKsOrlybGkiISIrHgpHDTCUHaW8zYaSG4+0S4+XVRTgjua0K9M0TvFCWlYBcq/sqgxeYWkrZBuHZZdgi/jb2OQoR5GNGZfq1EPSkjREIGx2hSJP5yWina6C70WEK4Pru54fz5z1l93RPbSLGLoTIg+YWgMpyesF8To+4UQm/yCtFTBoeWQrURKQ6HfEIMlMEhUhwW2YR4/PxpsAwOKgXmEqYh3w5xdwePHz8MlsHhpMAcmEuYhnxCIA/3sL2+tgfD0X3lP6UmJa8Qwn+PCCEEiBBCgAghBIgQQkBSCImnG5EQEhIYIoSEFxv4C7dewnUahprLAAAAAElFTkSuQmCC" InformativeScreenshot="d9bcba56b758da8d641990ced7a0cd96.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='MEDITECH' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="968, 747, 128, 34" ElementType="Button" FriendlyName="'Return'" FullSelectorArgument="&lt;webctrl aaname='Return' parentid='displayArea' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Return' parentid='displayArea' tag='BUTTON' type='' class='wpl-dialog-button wpl-dialog-3' check:innerText='Return' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIQAAAAmCAYAAAAFkDNCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAI3SURBVHhe7ZdBS8MwGIb7Az1IYXjwKuhBD94FYRT8CV68drC7v2G77C7qZOKGA8GzW0Fj2iRrviSdzda1lb2PvGzLkij9Hr7EIEkShiAqEAIhWQkxGo2QPY5TCLCfQAhAgBCAACEAAUIAAoQABAgBCBACEFojxMviTb4DTdK4EMufhN199NnR84UcqZFpzMIgYEFBoqGc58WARZ2YzeWn/0ajQjx8jdnp5IodPJ40KoSr8PNeyKUIWTyVAyUZdLlMEMIP1RVSEVTaJgRXgsUdXtzuQH4uB4TwRO8K7RbCXVzROcSRQo8VKdDqO9ldhhF/H/GDRMP4vdme3Thfn0qo1mWv+b5Ff2tV1CaEqytUHW88O4R1jMj1YS9XxpKorBDGPmId3Svb29yrYmoT4ub91lnEKuPNGiHsOwS/LJpF44h5eZE2F8KYk60z7jBrBa6G2oT45j/9z3t2+HTmLGYV8UY+YL0l5zGK4SpQSrZHPr6xEMbRVGbdLqhNCMVkMWPnr9dWMTe9Q+h7eON6wFkh7E6gxt2BEFvh6hatEYIjWrhLFEeHMIAQW6B3izYJwUskb/xaQYrmGoVzC+E6fiCEE9UtjseXcsSP3QjBkd+t/S+Dl8u8aFpCyH3yOWINhPiD2ZI8jtLsTAiOOjr0gqsxFeuuoUTiWe0rO4JIKpSQAkLsgK2EABYQAhAgBCD8eyFAtUAIQIAQgAAhAAFCAAKEAAQIAQgQAhAKhUD2N5YQCJIGQiBaEvYLoS6yvlfuB48AAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                    <uix:NClick.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="Element 'Launch New Session'" Mode="Appears">
+                        <uix:VerifyExecutionOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionOptions.Retry>
+                        <uix:VerifyExecutionOptions.Target>
+                          <uix:TargetAnchorable BrowserURL="https://ehr.nh.hca.meditech.cloud/test/" DesignTimeRectangle="632, 347, 24, 24" DesignTimeScaleFactor="1" FriendlyName="'DIV'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;nav&amp;gt;section&amp;gt;a&amp;gt;div' parentid='hidden-section' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='hidden-section' tag='DIV' class='launchpoint-icon default' aaname='' /&gt;" Guid="f66f59ca-2c7f-4187-9cff-808a562d44cd" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF1SURBVEhL7ZbLSgMxGIV9IhcteKlFF15aBRErCi58A0VfQChoN7YLRReCVjcFL29RV/oYSgvdeJmNjLr47RkMJOlpTItmIX5woEzmnANpksmABOa/MCF6jeTy7lrWa5uSq8xJujgsIztZWTgoJM8whnd8cBbGH29yWj+TsdKEDG6nnMI7J/WqxO/xl5vTtbD53JTC4TINdwkeeLtBC1tRS6bLszTQR/Aig9FRiGlcPV6jQb0IGWx6OwqrN+c0oB/h/7cxCl/aKy1TGqdmXQo2pgtZyNQxCi9ur6jRloKN2UKmjlG4UduiJlsKNmYL+1THKJyp+K1MBRuzhUwdoxAnCDP5wrzI1DEKR3ez1OQL8zoL5/cXqcmWgo3Zck5p8EUTfFsE3/gAxxEz96NvjzaAA3fpaIUG9CJ8prwOb3D/+CCTezka5KOpcj7JYNBC0HhqhPsAKzAluDYEuWLo4IKE5a0uUaniUCL8xjOM/cgl6jf464Uin2M5W2Zha1luAAAAAElFTkSuQmCC" InformativeScreenshot="2eee086f7a9d191c3bc89bfc602ad99c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='MEDITECH' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                            <uix:TargetAnchorable.Anchors>
+                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                <uix:Target DesignTimeRectangle="680, 350, 164, 19" ElementType="Text" FriendlyName="'Launch New Session'" FullSelectorArgument="&lt;webctrl class='launchpoint-label' parentid='hidden-section' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='launchpoint-label' parentid='hidden-section' tag='DIV' type='' aaname='Launch New Session' check:innerText='Launch New Session' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKgAAAAXCAYAAACf1wQUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANYSURBVGhD7VZRbsMgDN1VerQcJtpZoh2lyjkm9RIsGBuwsRuaNSur/CQ+QsB+fn6QfASHY2C4QR1Dww3qGBpuUMfQcIM6hsbbGPT2NYXLZQ4rPjveA8ygqclTWL5x4h/htwZdPy/b/jiUGN9LmLZ38xWfX4Y1zMCRj+nrhu//GNcZ8p+pixsUAQadJjBi0/ARDIocLp+iQjTJS0zqBu3Hcwy6hFWL83KD3sIyJX66DdewvOoWPRmPGxRPDR+dDYW9PD4Z40Y3BA71RlBy07piUPEZlDeOgcyD9tf7rHoEZ64Dmorl752T2DOoBvk7oPRV66XGja2p4hi6lN+lNO59kfja9oI5ZFCZMCWpglsNtQwaydXio3D1/sRNxIx5UFB6r/Ho+fwVgyo6aPUoHKUOdUwAxuGNSEZqtBIgnfbWAZS6m5oU/sAl89UPRYyT9zS6KHu0HmQddvZueM4nXhqvIY6wDCpIUdNKUfK5ReIuTyAWffd2SuA88PahfU09Fp80n9eJeoEj/udaa2wgJzEajc2a0zxx1nWvYPWwhlxj1dLpD62HxwyKCUyxrOIeNGgWuaOJdw16rxEIyYNp0dsIzJeNy/aVd5Crvvk7+BVgTVGfauxqv6HJG/c2RibQgbiju8hlml5yMjhq/nvYoEBiC85uD2hYh0j/yKCMg6wH6zVHbjrmh+cYD2uA/YlrbZpjQJ7EHbmqvOKoaqReliE01mLVXIUuei8jEkf94Bb83qAYmJkz4i0NWulxFfV08CFAjBg37snxU33zNfFrdHoQyWhYu6X9LlDzRsOCpIdtNNOgkpPBUfPfIYM2xUuDYrG6kXn8LoNa8Sok7s81aOYh/xs7+GRAzXOYt/j1+pQvxu0x+pbPvGVljfWt/SB2D56ILf1g7ZfzpxlUKx6TcYMqxgCScR2P32dQ4iaKirlxzTkG3ZB589wqnw1xns9hLVJXitvBrcRo8wFvOY+xtQuC5uI+NRbxidpKbtJYjdEUvXEN49LsS9D8pxg0FdwOan4RC0Ykg4LwhGJdNBKsO2ZQADW1GpTzNINSjCpXBgrNOfVyMGo0UXiwYdYm9IdRaa9oyWPp+ZgGhtHo0NBoDspRgzoco8EN6hgablDH0HCDOoaGG9QxMEL4AbKfX3Jpt0mPAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                              </scg:List>
+                            </uix:TargetAnchorable.Anchors>
+                          </uix:TargetAnchorable>
+                        </uix:VerifyExecutionOptions.Target>
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NClick.VerifyOptions>
+                  </uix:NClick>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="400,105" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="https://ehr.corptst.hca.meditech.cloud/test/" DesignTimeRectangle="1291, 509, 23, 23" DesignTimeScaleFactor="1" FriendlyName="'DIV'" FullSelectorArgument="&lt;webctrl class='reset-icon' parentid='hidden-section' tag='DIV' parentclass='session-reset formless' /&gt;" FuzzySelectorArgument="&lt;webctrl class='reset-icon' parentid='hidden-section' tag='DIV' parentclass='session-reset formless' type='' aaname='' /&gt;" Guid="4cabb942-ff17-4849-acab-f71d42955204" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABsAAAAbCAYAAACN1PRVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE3SURBVEhL7ZTLTsJAFIZ5Ru6wqi9A2elWXoIQ5ZIYwkOAuoNIKAZ1QyE6gmkLBAJP8MuUVLkcpkMYWLH4NvNPzpee/J3AaLbAubjIlHCQjFWfyHNZpGTOZIZuNodWKETmsvjKrE+G9+sbtIJBF+qOLELZoP6Ctqb9iU4jm87RfyjDCIc3RDvEYujoOsxiCfb3z+6cLfbKeuUKjEiElhC0k0l81cQFEq+x0cSrdrUxdD137LG76o/bzCpfFkgkFMo4FhtIFaS3XDvP+RfabEje8ZVx3Orn7nyr732heZ8ncymZB3t8Js89+Eq5rJPSyfwgmR+2NVqtOxolc6UyXhguMxIJMlcq+19jisyVypQWRISy6u/DcSbqfmp3gCRHP1fU0HWMeBxv6TTMQvGIh/hEXGRKOKNsgV/8dEuhqeIniAAAAABJRU5ErkJggg==" InformativeScreenshot="ce50d970c95ac23d278e7f7a1cfa5445.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='MEDITECH' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Visible">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="1063, 513, 212, 15" ElementType="Text" FriendlyName="'Reset'" FullSelectorArgument="&lt;webctrl class='reset-label' parentid='hidden-section' tag='DIV' aaname='Reset' innertext='Reset' parentclass='session-reset formless' /&gt;" FuzzySelectorArgument="&lt;webctrl class='reset-label' parentid='hidden-section' tag='DIV' aaname='Reset' innertext='Reset' parentclass='session-reset formless' type='' check:text='Reset' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANgAAAATCAYAAADyD8OaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIGSURBVHhe7Zg7bsJAEIb3BpwMcQxqJBoKGopwCMglSAdXiCgQFCBFtOFlwwkmjJe1x+M1iqJY+PEXn5Bn7HWzH/OvzflyobpwCYKIIAwpDK90vd5ou/uiQ3AD4CWY0/lMdUGK5iSDYOCVmOPpRHUgTzIIBl6JORyPVDbexmOazT68Pa5zX9a0aBAMlIVSCjZ9f6dWq5WRjK+5zn1ZZ/Ikg2DNYjsw9Gk8DBbe+4vGfB8OVEakZHwt5XL35EkGwZpLJJiWaT2l5V2y1VzUCsD37tIKxjjJRqNRRi6JlgyCNRevYE/q/0nlBGP6/T6Z+78P//r6DAQDjl8L9phqNkK2abMW98+HIl6qXrCgVdxLpuJ+0k6eEe8ptWAuFna73VRc9KEFYyBY8/AKlomIVpL4OhJqSNu4J6TiXmdK+6i3o03H0HKys71o3eTeSk0wfebSZzKNFExOMQjWLKJN7iaJIJaCSUnDWHGscI8J5ZmCVignooXf59aujGC+DxrMM8kgGGD0JrfRLS1FKs4JEgnTMTBeLxUds/3KCNbr9XI/aHCd+7oOwQDj2+RRTU6szAR7goyXngkmqYxgfwGCAca3yd1E0hMqPoNlJJIfNuSZTJ3B1LoQDNQev2BJLNRSuZiXSHNHRcFULy8+yufEdIRgABQIBAOgQCAYAAUCwQAoEAgGQGHc6AeZIlSb353wPwAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NCheckState.Target>
+            </uix:NCheckState>
+            <uix:NClick ClickType="Single" DelayBefore="2" DisplayName="Click 'Launch New Session'" sap:VirtualizedContainerService.HintSize="854,157" sap2010:WorkflowViewState.IdRef="NClick_15" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="05756cd0-bc77-4fad-a6c0-cda873b832f1" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://ehr.corptst.hca.meditech.cloud/test/" DesignTimeRectangle="608, 466, 720, 49" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Launch New Session'" FullSelectorArgument="&lt;webctrl aria-label='launch new HCA Corporate Testing PP36 session' aria-role='link' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='launch new HCA Corporate Testing PP36 session' aria-role='link' tag='A' type='' class='launchpoint-button click-target' aaname='Launch New Session' check:innerText='Launch New Session' /&gt;" Guid="6e1bd972-0c65-4523-ab97-525e488e8bd9" ImageBase64="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" InformativeScreenshot="d39ee1c886152bde5ee3a5df95f8d355.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='MEDITECH' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="608, 429, 720, 37" ElementType="Button" FriendlyName="'HCA Corporate'" FullSelectorArgument="&lt;webctrl aaname='HCA Corporate Testing PP*' parentid='hidden-section' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='HCA Corporate Testing PP*' parentid='hidden-section' tag='BUTTON' type='' class='formless sub-header click-target' check:innerText='HCA Corporate Testing PP*' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <ui:CommentOut sap2010:Annotation.AnnotationText="This step is only needed if a user has access to more than one HCIS. The ADT test users only have access to one HCIS in CorpTest&#xA;" DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="854,154" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="400,329" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'chrome.exe MEDITECH'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="338,218" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="05756cd0-bc77-4fad-a6c0-cda873b832f1" Text="[HCIS + &quot;[k(enter)]&quot;]" Version="V3">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="https://ehr.nh.hca.meditech.cloud/test/s0001933527225687/" DesignTimeRectangle="535, 596, 933, 18" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;input' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='canvasEditControl fTs-p5fa0-l0' tag='INPUT' type='text' aaname='' /&gt;" Guid="6867cfcc-7d0c-46d2-9afd-87a2252d13ad" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAA6kAAAAWCAYAAAAiq9qOAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACqSURBVHhe7dcxFYRAEECx9f/oUECHALxNOSfjfpEiInJmZgEAAKDgXPezAAAAUHC+fRcAAAAKJBUAAIAMSQUAACBDUgEAAMiQVAAAADIkFQAAgAxJBQAAIENSAQAAyJBUAAAAMiQVAACADEkFAAAgQ1IBAADIkFQAAAAyJBUAAIAMSQUAACBDUgEAAMiQVAAAADIkFQAAgIxz3c8CAABAwZmZBQAAgP+b/QFTF3RuIjvWYAAAAABJRU5ErkJggg==" InformativeScreenshot="4228b8fe6fc06b41d1050ad305df0d2c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='MEDITECH' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="436, 594, 73, 19" FriendlyName="'chrome.exe MEDITECH'" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEkAAAATCAYAAADcZiBNAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAElSURBVFhH7ZXNDYQgEEa3NiuwAwqwAJuwCW8W4tmbNXj0yJHNt8kY9ltEXJBkXQ4vUZgZ5MnPQ2ttCn6KpACKpACKpACiJQ3DYJRSZlmWj76u60zbtmZd17d2xCKnqqoNu8Y8z6au660Pz2iTfO4XMJ7EpCS7pHEcXxNCHseyDLTxxJGHfNSx25HXNI3zO2LJKklWAAsSpmnySkId1GNxV5NVki/Wxa0k2ecCY0tiaUewJCDjnZEdS7aV9M0qcEkCrh9zpbSs243fj9iTxMhlwAd/Kn7qTPIhlwLfeinIKin2dsMYfd9v7za3kQQQj63BohDL28UlCWPxeNJ+ZiufIbskIJPaO3hlVUifLQ+1UNPOBXurMwXRkv6BIimAIimAIukQbZ4lsCFiYMTqxQAAAABJRU5ErkJggg==" SearchSteps="Image" TargetType="ImageBased" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                  </uix:NTypeInto>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" ScopeId="{x:Null}" ApiKey="f2dLBlXq+oAebvNEBnRoj39tAHm0xOgnGq7X9D1s9taTF1p386E96HXAbWaczxblznuDY2F7wdOvLTuAIyVxww==" CvMethod="ElementDetection, OCR" DesignTimeCacheId="93809de3-e856-42e1-942d-97224d407f9f" DisplayName="CV Screen Scope 'DIV'" sap:VirtualizedContainerService.HintSize="854,1244" sap2010:WorkflowViewState.IdRef="CVScope_1" SendOnPremData="False" Server="https://hcarpaprod.medcity.net/public/mlskills/754a660c-d3da-42a6-90c9-130b47795004/754a660c-d3da-42a6-90c9-130b47795004/computervision-cv" Version="V5">
+              <p:CVScope.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="CVSessionData" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:Boolean" Name="verifyClientSettings" />
+                    </Sequence.Variables>
+                    <p:CvElementExistsWithDescriptor DelayScreenshotAfterScroll="{x:Null}" Descriptor="[&quot;Target: Text 'Desktop' (90,248,63,15)&quot; +&#xA;&quot;Anchor: Text 'Generic Devices' (81,230,119,11)&quot;]" DesignTimeCacheId="d12faecc-34c7-4045-97eb-09d7b4ca858e" DesignTimeScaleFactor="1" DisplayName="CV Element Exists - Text" sap:VirtualizedContainerService.HintSize="451,137" sap2010:WorkflowViewState.IdRef="CvElementExistsWithDescriptor_2" InformativeScreenshot="8c94ba01ef69c5f72230968a43add4f5" NumberOfScrolls="2" Result="[verifyClientSettings]" ScrollDirection="None" Version="V5">
+                      <p:CvElementExistsWithDescriptor.DesignTimeDescriptor>
+                        <uc:CvDescriptor Id="6d4c1f75-943c-452b-a266-62f0900778a6">
+                          <uc:CvDescriptor.Anchors>
+                            <x:Array Type="uc:CvElementDescriptor">
+                              <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="81, 230, 119, 11" ElementType="Text" Text="Generic Devices" />
+                            </x:Array>
+                          </uc:CvDescriptor.Anchors>
+                          <uc:CvDescriptor.Target>
+                            <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="90, 248, 63, 15" ElementType="Text" Text="Desktop" />
+                          </uc:CvDescriptor.Target>
+                        </uc:CvDescriptor>
+                      </p:CvElementExistsWithDescriptor.DesignTimeDescriptor>
+                    </p:CvElementExistsWithDescriptor>
+                    <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="451,706" sap2010:WorkflowViewState.IdRef="IfElseIf_1">
+                      <ui:IfElseIf.ConditionBlocks>
+                        <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                          <ui:IfElseIfBlock BlockType="If" Condition="[verifyClientSettings]">
+                            <ui:IfElseIfBlock.Then>
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="400,511" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <p:CvClickWithDescriptor DelayBefore="{x:Null}" DelayMS="{x:Null}" DelayScreenshotAfterScroll="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" Descriptor="[&quot;Target: Text 'Desktop' (90,248,63,15)&quot;]" DesignTimeCacheId="d12faecc-34c7-4045-97eb-09d7b4ca858e" DesignTimeScaleFactor="1" DisplayName="CV Click - Text" sap:VirtualizedContainerService.HintSize="338,181" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_2" InformativeScreenshot="0db00abe5fc64fa07c828abed2acee58" KeyModifiers="None" MouseButton="BTN_LEFT" NumberOfScrolls="2" ScrollDirection="None" Version="V5">
+                                  <p:CvClickWithDescriptor.CursorPosition>
+                                    <ui:CursorPosition Position="Center">
+                                      <ui:CursorPosition.OffsetX>
+                                        <InArgument x:TypeArguments="x:Int32" />
+                                      </ui:CursorPosition.OffsetX>
+                                      <ui:CursorPosition.OffsetY>
+                                        <InArgument x:TypeArguments="x:Int32" />
+                                      </ui:CursorPosition.OffsetY>
+                                    </ui:CursorPosition>
+                                  </p:CvClickWithDescriptor.CursorPosition>
+                                  <p:CvClickWithDescriptor.DesignTimeDescriptor>
+                                    <uc:CvDescriptor Id="bd94c438-305a-4ce0-8952-d22a9384a7ca">
+                                      <uc:CvDescriptor.Target>
+                                        <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="90, 248, 63, 15" ElementType="Text" Text="Desktop" />
+                                      </uc:CvDescriptor.Target>
+                                    </uc:CvDescriptor>
+                                  </p:CvClickWithDescriptor.DesignTimeDescriptor>
+                                  <p:CvClickWithDescriptor.Target>
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="09368a3d-aa4b-4f83-b609-f6c135775747">
+                                      <ui:Target.TimeoutMS>
+                                        <InArgument x:TypeArguments="x:Int32" />
+                                      </ui:Target.TimeoutMS>
+                                      <ui:Target.WaitForReady>
+                                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                                      </ui:Target.WaitForReady>
+                                    </ui:Target>
+                                  </p:CvClickWithDescriptor.Target>
+                                </p:CvClickWithDescriptor>
+                                <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="338,179" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_2" Shortcuts="[d(hk)][k(f12)][u(hk)]" Version="V3" />
+                              </Sequence>
+                            </ui:IfElseIfBlock.Then>
+                          </ui:IfElseIfBlock>
+                        </sc:BindingList>
+                      </ui:IfElseIf.ConditionBlocks>
+                    </ui:IfElseIf>
+                  </Sequence>
+                </ActivityAction>
+              </p:CVScope.Body>
+              <p:CVScope.DesignTimeCache>
+                <uc:CVCache CvUiElements="{x:Null}" OcrTexts="{x:Null}" DataSent="False" />
+              </p:CVScope.DesignTimeCache>
+              <p:CVScope.DesignTimeCacheContainer>
+                <uc:CvCacheContainer>
+                  <uc:CvCacheContainer.Caches>
+                    <scg:List x:TypeArguments="uc:CVCache" Capacity="2">
+                      <uc:CVCache DataSent="False" DisplayName="Screen CV Click - 'Desktop' " Id="d12faecc-34c7-4045-97eb-09d7b4ca858e" InformativeScreenshot="043932e097481db0f84cdcf3b071a705" LogicalPosition="2447, 337" OcrText="Please enter your Client/Device name. A lookup to the Client Dictionary is available.&#xA;If your device is not defined in the client dictionary, please select one of the devices below.&#xA;| Generic Devices |&#xA;|© Desktop |&#xA;|O Laptop |&#xA;|O Phone |&#xA;| © Tablet |&#xA;|© Other |&#xA;* Client | |&#xA;Location | |" Position="2447, 337">
+                        <uc:CVCache.CvAnchorRelations>
+                          <scg:List x:TypeArguments="uc:AnchorRelationInfo" Capacity="0" />
+                        </uc:CVCache.CvAnchorRelations>
+                        <uc:CVCache.CvTables>
+                          <x:Array Type="uc:CvTableInfo">
+                            <uc:CvTableInfo>
+                              <uc:CvTableInfo.Columns>
+                                <x:Array Type="x:Int32">
+                                  <x:Int32>60</x:Int32>
+                                  <x:Int32>216</x:Int32>
+                                </x:Array>
+                              </uc:CvTableInfo.Columns>
+                              <uc:CvTableInfo.Rows>
+                                <x:Array Type="x:Int32">
+                                  <x:Int32>225</x:Int32>
+                                  <x:Int32>245</x:Int32>
+                                  <x:Int32>263</x:Int32>
+                                  <x:Int32>281</x:Int32>
+                                  <x:Int32>301</x:Int32>
+                                  <x:Int32>320</x:Int32>
+                                </x:Array>
+                              </uc:CvTableInfo.Rows>
+                            </uc:CvTableInfo>
+                          </x:Array>
+                        </uc:CVCache.CvTables>
+                        <uc:CVCache.CvUiElements>
+                          <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="32">
+                            <uc:CvElementInfo Category="RadioButton" Region="67, 266, 17, 18" />
+                            <uc:CvElementInfo Category="RadioButton" Region="67, 246, 18, 18" />
+                            <uc:CvElementInfo Category="RadioButton" Region="67, 285, 18, 18" />
+                            <uc:CvElementInfo Category="RadioButton" Region="67, 304, 18, 17" />
+                            <uc:CvElementInfo Category="InputBox" Region="153, 370, 419, 22" />
+                            <uc:CvElementInfo Category="RadioButton" Region="67, 323, 17, 18" />
+                            <uc:CvElementInfo Category="InputBox" Region="157, 393, 414, 21" />
+                            <uc:CvElementInfo Category="Cell" Region="60, 225, 156, 20" />
+                            <uc:CvElementInfo Category="Cell" Region="60, 245, 156, 18" />
+                            <uc:CvElementInfo Category="Cell" Region="60, 263, 156, 18" />
+                            <uc:CvElementInfo Category="Cell" Region="60, 281, 156, 20" />
+                            <uc:CvElementInfo Category="Cell" Region="60, 301, 156, 19" />
+                            <uc:CvElementInfo Category="CloseButton" Confidence="Runtime" Region="62, 371, 13, 13" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="40, 138, 759, 70" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="90, 303, 128, 19" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="88, 285, 126, 19" />
+                            <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="61, 370, 14, 14" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="76, 323, 143, 20" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="89, 265, 129, 20" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="69, 226, 149, 20" />
+                          </scg:List>
+                        </uc:CVCache.CvUiElements>
+                        <uc:CVCache.OcrTexts>
+                          <scg:List x:TypeArguments="uc:OcrTextInfo" Capacity="57">
+                            <uc:OcrTextInfo Region="91, 145, 48, 12" Text="Please" />
+                            <uc:OcrTextInfo Region="144, 147, 40, 10" Text="enter" />
+                            <uc:OcrTextInfo Region="189, 149, 36, 11" Text="your" />
+                            <uc:OcrTextInfo Region="228, 145, 104, 14" Text="Client/Device" />
+                            <uc:OcrTextInfo Region="334, 149, 45, 8" Text="name." />
+                            <uc:OcrTextInfo Region="390, 146, 11, 11" Text="A" />
+                            <uc:OcrTextInfo Region="407, 145, 54, 15" Text="lookup" />
+                            <uc:OcrTextInfo Region="462, 147, 14, 10" Text="to" />
+                            <uc:OcrTextInfo Region="482, 145, 24, 12" Text="the" />
+                            <uc:OcrTextInfo Region="512, 145, 48, 12" Text="Client" />
+                            <uc:OcrTextInfo Region="561, 146, 80, 14" Text="Dictionary" />
+                            <uc:OcrTextInfo Region="642, 146, 12, 11" Text="is" />
+                            <uc:OcrTextInfo Region="659, 145, 70, 12" Text="available." />
+                            <uc:OcrTextInfo Region="91, 181, 12, 12" Text="If" />
+                            <uc:OcrTextInfo Region="107, 185, 36, 11" Text="your" />
+                            <uc:OcrTextInfo Region="147, 181, 48, 12" Text="device" />
+                            <uc:OcrTextInfo Region="200, 182, 12, 11" Text="is" />
+                            <uc:OcrTextInfo Region="218, 183, 24, 10" Text="not" />
+                            <uc:OcrTextInfo Region="247, 181, 56, 12" Text="defined" />
+                            <uc:OcrTextInfo Region="308, 185, 12, 8" Text="in" />
+                            <uc:OcrTextInfo Region="326, 181, 24, 12" Text="the" />
+                            <uc:OcrTextInfo Region="356, 181, 42, 12" Text="client" />
+                            <uc:OcrTextInfo Region="402, 181, 77, 15" Text="dictionary," />
+                            <uc:OcrTextInfo Region="486, 181, 48, 15" Text="please" />
+                            <uc:OcrTextInfo Region="538, 181, 48, 12" Text="select" />
+                            <uc:OcrTextInfo Region="588, 185, 27, 8" Text="one" />
+                            <uc:OcrTextInfo Region="620, 181, 16, 12" Text="of" />
+                            <uc:OcrTextInfo Region="640, 181, 24, 12" Text="the" />
+                            <uc:OcrTextInfo Region="670, 181, 56, 12" Text="devices" />
+                            <uc:OcrTextInfo Region="731, 181, 48, 12" Text="below." />
+                            <uc:OcrTextInfo Region="64, 228, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="81, 230, 56, 11" Text="Generic" />
+                            <uc:OcrTextInfo Region="144, 230, 56, 11" Text="Devices" />
+                            <uc:OcrTextInfo Region="216, 228, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="64, 247, 20, 18" Text="|©" />
+                            <uc:OcrTextInfo Region="90, 248, 63, 15" Text="Desktop" />
+                            <uc:OcrTextInfo Region="216, 247, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="64, 266, 20, 18" Text="|O" />
+                            <uc:OcrTextInfo Region="90, 268, 54, 14" Text="Laptop" />
+                            <uc:OcrTextInfo Region="216, 266, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="64, 285, 20, 18" Text="|O" />
+                            <uc:OcrTextInfo Region="90, 286, 45, 12" Text="Phone" />
+                            <uc:OcrTextInfo Region="216, 285, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="64, 304, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="68, 300, 5, 26" Text="©" />
+                            <uc:OcrTextInfo Region="89, 305, 48, 12" Text="Tablet" />
+                            <uc:OcrTextInfo Region="216, 304, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="64, 323, 20, 18" Text="|©" />
+                            <uc:OcrTextInfo Region="90, 324, 45, 12" Text="Other" />
+                            <uc:OcrTextInfo Region="216, 323, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="65, 373, 8, 7" Text="*" />
+                            <uc:OcrTextInfo Region="80, 373, 42, 12" Text="Client" />
+                            <uc:OcrTextInfo Region="149, 372, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="574, 372, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="80, 395, 64, 11" Text="Location" />
+                            <uc:OcrTextInfo Region="149, 393, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="574, 393, 1, 18" Text="|" />
+                          </scg:List>
+                        </uc:CVCache.OcrTexts>
+                      </uc:CVCache>
+                      <uc:CVCache DataSent="False" DisplayName="Main Screen" Id="93809de3-e856-42e1-942d-97224d407f9f" InformativeScreenshot="03f5b587290d5b37d9f5e234c427d267" LogicalPosition="536, 156" OcrText="Please enter your Client/Device name. A lookup to the Client Dictionary is available.&#xA;If your device is not defined in the client dictionary, please select one of the devices below.&#xA;| Generic Devices |&#xA;|© Desktop |&#xA;|O Laptop |&#xA;|O Phone |&#xA;| © Tablet |&#xA;|© Other |&#xA;* Client | |&#xA;Location | |" Position="536, 156">
+                        <uc:CVCache.CvAnchorRelations>
+                          <scg:List x:TypeArguments="uc:AnchorRelationInfo" Capacity="0" />
+                        </uc:CVCache.CvAnchorRelations>
+                        <uc:CVCache.CvUiElements>
+                          <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="32">
+                            <uc:CvElementInfo Category="InputBox" Region="147, 370, 429, 22" />
+                            <uc:CvElementInfo Category="RadioButton" Region="67, 266, 18, 17" />
+                            <uc:CvElementInfo Category="InputBox" Region="147, 391, 429, 22" />
+                            <uc:CvElementInfo Category="RadioButton" Region="67, 248, 17, 17" />
+                            <uc:CvElementInfo Category="RadioButton" Region="67, 285, 18, 18" />
+                            <uc:CvElementInfo Category="RadioButton" Region="67, 323, 17, 17" />
+                            <uc:CvElementInfo Category="RadioButton" Region="67, 304, 18, 17" />
+                            <uc:CvElementInfo Category="Icon" Region="60, 368, 16, 15" />
+                            <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="59, 368, 17, 17" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="63, 303, 154, 20" />
+                            <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="63, 302, 153, 21" />
+                            <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="64, 227, 154, 20" />
+                            <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="63, 245, 153, 20" />
+                            <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="62, 322, 155, 21" />
+                            <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="67, 305, 18, 17" />
+                            <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="67, 323, 18, 17" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="63, 322, 155, 20" />
+                            <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="67, 267, 18, 17" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="55, 136, 737, 75" />
+                            <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="63, 284, 154, 20" />
+                            <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="59, 263, 158, 19" />
+                            <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="60, 224, 162, 19" />
+                            <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="60, 243, 161, 20" />
+                          </scg:List>
+                        </uc:CVCache.CvUiElements>
+                        <uc:CVCache.OcrTexts>
+                          <scg:List x:TypeArguments="uc:OcrTextInfo" Capacity="57">
+                            <uc:OcrTextInfo Region="91, 145, 48, 12" Text="Please" />
+                            <uc:OcrTextInfo Region="144, 147, 40, 10" Text="enter" />
+                            <uc:OcrTextInfo Region="189, 149, 36, 11" Text="your" />
+                            <uc:OcrTextInfo Region="228, 145, 104, 14" Text="Client/Device" />
+                            <uc:OcrTextInfo Region="334, 149, 45, 8" Text="name." />
+                            <uc:OcrTextInfo Region="390, 146, 11, 11" Text="A" />
+                            <uc:OcrTextInfo Region="407, 145, 54, 15" Text="lookup" />
+                            <uc:OcrTextInfo Region="462, 147, 14, 10" Text="to" />
+                            <uc:OcrTextInfo Region="482, 145, 24, 12" Text="the" />
+                            <uc:OcrTextInfo Region="512, 145, 48, 12" Text="Client" />
+                            <uc:OcrTextInfo Region="561, 146, 80, 14" Text="Dictionary" />
+                            <uc:OcrTextInfo Region="642, 146, 12, 11" Text="is" />
+                            <uc:OcrTextInfo Region="659, 145, 70, 12" Text="available." />
+                            <uc:OcrTextInfo Region="91, 181, 12, 12" Text="If" />
+                            <uc:OcrTextInfo Region="107, 185, 36, 11" Text="your" />
+                            <uc:OcrTextInfo Region="147, 181, 48, 12" Text="device" />
+                            <uc:OcrTextInfo Region="200, 182, 12, 11" Text="is" />
+                            <uc:OcrTextInfo Region="218, 183, 24, 10" Text="not" />
+                            <uc:OcrTextInfo Region="247, 181, 56, 12" Text="defined" />
+                            <uc:OcrTextInfo Region="308, 185, 12, 8" Text="in" />
+                            <uc:OcrTextInfo Region="326, 181, 24, 12" Text="the" />
+                            <uc:OcrTextInfo Region="356, 181, 42, 12" Text="client" />
+                            <uc:OcrTextInfo Region="402, 181, 77, 15" Text="dictionary," />
+                            <uc:OcrTextInfo Region="486, 181, 48, 15" Text="please" />
+                            <uc:OcrTextInfo Region="538, 181, 48, 12" Text="select" />
+                            <uc:OcrTextInfo Region="588, 185, 27, 8" Text="one" />
+                            <uc:OcrTextInfo Region="620, 181, 16, 12" Text="of" />
+                            <uc:OcrTextInfo Region="640, 181, 24, 12" Text="the" />
+                            <uc:OcrTextInfo Region="670, 181, 56, 12" Text="devices" />
+                            <uc:OcrTextInfo Region="731, 181, 48, 12" Text="below." />
+                            <uc:OcrTextInfo Region="64, 228, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="81, 230, 56, 11" Text="Generic" />
+                            <uc:OcrTextInfo Region="144, 230, 56, 11" Text="Devices" />
+                            <uc:OcrTextInfo Region="216, 228, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="64, 247, 20, 18" Text="|©" />
+                            <uc:OcrTextInfo Region="90, 248, 63, 15" Text="Desktop" />
+                            <uc:OcrTextInfo Region="216, 247, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="64, 266, 20, 18" Text="|O" />
+                            <uc:OcrTextInfo Region="90, 268, 54, 14" Text="Laptop" />
+                            <uc:OcrTextInfo Region="216, 266, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="64, 285, 20, 18" Text="|O" />
+                            <uc:OcrTextInfo Region="90, 286, 45, 12" Text="Phone" />
+                            <uc:OcrTextInfo Region="216, 285, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="64, 304, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="68, 300, 5, 26" Text="©" />
+                            <uc:OcrTextInfo Region="89, 305, 48, 12" Text="Tablet" />
+                            <uc:OcrTextInfo Region="216, 304, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="64, 323, 20, 18" Text="|©" />
+                            <uc:OcrTextInfo Region="90, 324, 45, 12" Text="Other" />
+                            <uc:OcrTextInfo Region="216, 323, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="65, 373, 8, 7" Text="*" />
+                            <uc:OcrTextInfo Region="80, 373, 42, 12" Text="Client" />
+                            <uc:OcrTextInfo Region="149, 372, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="574, 372, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="80, 395, 64, 11" Text="Location" />
+                            <uc:OcrTextInfo Region="149, 393, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="574, 393, 1, 18" Text="|" />
+                          </scg:List>
+                        </uc:CVCache.OcrTexts>
+                      </uc:CVCache>
+                    </scg:List>
+                  </uc:CvCacheContainer.Caches>
+                </uc:CvCacheContainer>
+              </p:CVScope.DesignTimeCacheContainer>
+              <p:CVScope.OCREngine>
+                <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                  <ActivityFunc.Argument>
+                    <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                  </ActivityFunc.Argument>
+                  <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" PredictionId="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="True" sap:VirtualizedContainerService.HintSize="200,25" sap2010:WorkflowViewState.IdRef="GoogleOCR_1" Image="[Image]" />
+                </ActivityFunc>
+              </p:CVScope.OCREngine>
+              <p:CVScope.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1159cdad-4aa7-435c-b11b-94fad08d9419" InformativeScreenshot="69a7c0ed4057a9b2c6bf28d2794661a8" Selector="&lt;webctrl class='overlayEle' parentid='displayArea' tag='DIV' /&gt;" WaitForReady="INTERACTIVE">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                </ui:Target>
+              </p:CVScope.Target>
+              <p:CVScope.UseLocalServer>
+                <InArgument x:TypeArguments="x:Boolean" />
+              </p:CVScope.UseLocalServer>
+            </p:CVScope>
+            <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" ScopeId="{x:Null}" ApiKey="f2dLBlXq+oAebvNEBnRoj39tAHm0xOgnGq7X9D1s9taTF1p386E96HXAbWaczxblznuDY2F7wdOvLTuAIyVxww==" CvMethod="ElementDetection, OCR" DesignTimeCacheId="61f016fe-7884-4889-844d-01d28b83cfd4" DisplayName="CV Screen Scope 'DIV'" sap:VirtualizedContainerService.HintSize="854,1017" sap2010:WorkflowViewState.IdRef="CVScope_2" SendOnPremData="False" Server="https://hcarpaprod.medcity.net/public/mlskills/754a660c-d3da-42a6-90c9-130b47795004/754a660c-d3da-42a6-90c9-130b47795004/computervision-cv" Version="V5">
+              <p:CVScope.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="CVSessionData" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:Boolean" Name="verifyMainMenuExists" />
+                    </Sequence.Variables>
+                    <p:CvElementExistsWithDescriptor DelayScreenshotAfterScroll="{x:Null}" DelayBefore="2" Descriptor="[&quot;Target: Text 'Clinical' (16,298,56,12)&quot;]" DesignTimeCacheId="61f016fe-7884-4889-844d-01d28b83cfd4" DesignTimeScaleFactor="1" DisplayName="CV Element Exists - Text" sap:VirtualizedContainerService.HintSize="478,137" sap2010:WorkflowViewState.IdRef="CvElementExistsWithDescriptor_5" InformativeScreenshot="f6a187594d1c2011e2fb54d5f1d9d406" NumberOfScrolls="2" Result="[verifyMainMenuExists]" ScrollDirection="None" Version="V5">
+                      <p:CvElementExistsWithDescriptor.DesignTimeDescriptor>
+                        <uc:CvDescriptor Id="93f4dcd1-1bdc-4dec-bf1f-243e793d1f29">
+                          <uc:CvDescriptor.Target>
+                            <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="16, 298, 56, 12" ElementType="Text" Text="Clinical" />
+                          </uc:CvDescriptor.Target>
+                        </uc:CvDescriptor>
+                      </p:CvElementExistsWithDescriptor.DesignTimeDescriptor>
+                    </p:CvElementExistsWithDescriptor>
+                    <If Condition="[verifyMainMenuExists]" sap:VirtualizedContainerService.HintSize="478,479" sap2010:WorkflowViewState.IdRef="If_3">
+                      <If.Then>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Login Successful&quot;]" />
+                      </If.Then>
+                      <If.Else>
+                        <Sequence sap:VirtualizedContainerService.HintSize="400,203" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[&quot;Login Failed: Main menu not found&quot;]" />
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                  </Sequence>
+                </ActivityAction>
+              </p:CVScope.Body>
+              <p:CVScope.DesignTimeCache>
+                <uc:CVCache CvUiElements="{x:Null}" OcrTexts="{x:Null}" DataSent="False" />
+              </p:CVScope.DesignTimeCache>
+              <p:CVScope.DesignTimeCacheContainer>
+                <uc:CvCacheContainer>
+                  <uc:CvCacheContainer.Caches>
+                    <scg:List x:TypeArguments="uc:CVCache" Capacity="1">
+                      <uc:CVCache DataSent="False" DisplayName="Screen CV Element Exists - 'Cl " Id="61f016fe-7884-4889-844d-01d28b83cfd4" InformativeScreenshot="97cfb03f66955a7daf92e92c6f17baf4" LogicalPosition="1921, 218" OcrText="| MPI Conversion »&#xA;| Clinical »&#xA;| Administrative »&#xA;| Ancillary |&#xA;| Financial |&#xA;| Ambulatory »&#xA;| Info Systems »&#xA;| Emulate Person |&#xA;| Applications Parameter Lists »&#xA;| Change Your Own User PIN |&#xA;| HCA EBCD Reports »&#xA;| HCA Corporate Reports »&#xA;| Ambulatory »" Position="1921, 218">
+                        <uc:CVCache.CvAnchorRelations>
+                          <scg:List x:TypeArguments="uc:AnchorRelationInfo" Capacity="0" />
+                        </uc:CVCache.CvAnchorRelations>
+                        <uc:CVCache.CvUiElements>
+                          <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="64">
+                            <uc:CvElementInfo Category="ArrowButton" Region="268, 279, 12, 16" />
+                            <uc:CvElementInfo Category="ArrowButton" Region="267, 489, 12, 17" />
+                            <uc:CvElementInfo Category="ArrowButton" Region="268, 374, 12, 16" />
+                            <uc:CvElementInfo Category="InputBox" Region="12, 372, 266, 19" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="20, 410, 260, 19" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="10, 448, 269, 18" />
+                            <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="8, 448, 273, 20" />
+                            <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="268, 509, 12, 16" />
+                            <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="10, 372, 269, 20" />
+                            <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="13, 429, 266, 20" />
+                            <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="5, 294, 273, 19" />
+                            <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="9, 332, 279, 19" />
+                            <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="10, 466, 264, 19" />
+                            <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="9, 426, 263, 19" />
+                            <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="8, 313, 271, 19" />
+                            <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="7, 408, 275, 18" />
+                            <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="261, 275, 16, 19" />
+                            <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="9, 486, 269, 19" />
+                            <uc:CvElementInfo Category="InputBox" Region="11, 506, 270, 20" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="10, 315, 271, 19" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="14, 353, 265, 19" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="13, 296, 268, 19" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="11, 391, 270, 19" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="13, 334, 266, 19" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="14, 429, 267, 19" />
+                            <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="9, 469, 271, 19" />
+                            <uc:CvElementInfo Category="ArrowButton" Region="267, 336, 12, 17" />
+                            <uc:CvElementInfo Category="ArrowButton" Region="267, 317, 13, 17" />
+                            <uc:CvElementInfo Category="ArrowButton" Region="267, 508, 13, 17" />
+                            <uc:CvElementInfo Category="ArrowButton" Region="268, 393, 12, 16" />
+                            <uc:CvElementInfo Category="ArrowButton" Region="267, 355, 12, 16" />
+                            <uc:CvElementInfo Category="ArrowButton" Region="267, 430, 13, 17" />
+                            <uc:CvElementInfo Category="ArrowButton" Region="267, 470, 12, 17" />
+                            <uc:CvElementInfo Category="ArrowButton" Region="268, 298, 12, 16" />
+                          </scg:List>
+                        </uc:CVCache.CvUiElements>
+                        <uc:CVCache.OcrTexts>
+                          <scg:List x:TypeArguments="uc:OcrTextInfo" Capacity="52">
+                            <uc:OcrTextInfo Region="9, 278, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="16, 280, 27, 11" Text="MPI" />
+                            <uc:OcrTextInfo Region="49, 280, 90, 11" Text="Conversion" />
+                            <uc:OcrTextInfo Region="272, 278, 8, 18" Text="»" />
+                            <uc:OcrTextInfo Region="9, 297, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="16, 298, 56, 12" Text="Clinical" />
+                            <uc:OcrTextInfo Region="272, 297, 8, 18" Text="»" />
+                            <uc:OcrTextInfo Region="9, 316, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="15, 317, 112, 12" Text="Administrative" />
+                            <uc:OcrTextInfo Region="272, 316, 8, 18" Text="»" />
+                            <uc:OcrTextInfo Region="9, 335, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="15, 325, 72, 32" Text="Ancillary" />
+                            <uc:OcrTextInfo Region="272, 335, 8, 18" Text="|" />
+                            <uc:OcrTextInfo Region="9, 354, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="16, 355, 72, 12" Text="Financial" />
+                            <uc:OcrTextInfo Region="272, 354, 8, 18" Text="|" />
+                            <uc:OcrTextInfo Region="9, 373, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="15, 369, 90, 26" Text="Ambulatory" />
+                            <uc:OcrTextInfo Region="272, 373, 8, 18" Text="»" />
+                            <uc:OcrTextInfo Region="9, 392, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="16, 393, 32, 12" Text="Info" />
+                            <uc:OcrTextInfo Region="51, 394, 63, 14" Text="Systems" />
+                            <uc:OcrTextInfo Region="272, 392, 8, 18" Text="»" />
+                            <uc:OcrTextInfo Region="9, 411, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="16, 412, 63, 12" Text="Emulate" />
+                            <uc:OcrTextInfo Region="83, 413, 48, 11" Text="Person" />
+                            <uc:OcrTextInfo Region="279, 411, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="9, 430, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="15, 430, 96, 18" Text="Applications" />
+                            <uc:OcrTextInfo Region="112, 432, 81, 11" Text="Parameter" />
+                            <uc:OcrTextInfo Region="195, 432, 35, 11" Text="Lists" />
+                            <uc:OcrTextInfo Region="272, 430, 8, 18" Text="»" />
+                            <uc:OcrTextInfo Region="9, 449, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="16, 450, 60, 15" Text="Change" />
+                            <uc:OcrTextInfo Region="77, 451, 36, 11" Text="Your" />
+                            <uc:OcrTextInfo Region="116, 451, 33, 11" Text="Own" />
+                            <uc:OcrTextInfo Region="156, 451, 36, 11" Text="User" />
+                            <uc:OcrTextInfo Region="195, 451, 24, 11" Text="PIN" />
+                            <uc:OcrTextInfo Region="279, 449, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="9, 470, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="16, 472, 33, 11" Text="HCA" />
+                            <uc:OcrTextInfo Region="54, 472, 40, 11" Text="EBCD" />
+                            <uc:OcrTextInfo Region="101, 472, 56, 14" Text="Reports" />
+                            <uc:OcrTextInfo Region="272, 470, 8, 18" Text="»" />
+                            <uc:OcrTextInfo Region="9, 489, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="16, 491, 33, 11" Text="HCA" />
+                            <uc:OcrTextInfo Region="53, 491, 81, 14" Text="Corporate" />
+                            <uc:OcrTextInfo Region="133, 491, 56, 14" Text="Reports" />
+                            <uc:OcrTextInfo Region="272, 489, 8, 18" Text="»" />
+                            <uc:OcrTextInfo Region="9, 508, 1, 18" Text="|" />
+                            <uc:OcrTextInfo Region="15, 504, 90, 26" Text="Ambulatory" />
+                            <uc:OcrTextInfo Region="272, 508, 8, 18" Text="»" />
+                          </scg:List>
+                        </uc:CVCache.OcrTexts>
+                      </uc:CVCache>
+                    </scg:List>
+                  </uc:CvCacheContainer.Caches>
+                </uc:CvCacheContainer>
+              </p:CVScope.DesignTimeCacheContainer>
+              <p:CVScope.OCREngine>
+                <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                  <ActivityFunc.Argument>
+                    <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                  </ActivityFunc.Argument>
+                  <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" PredictionId="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="True" sap:VirtualizedContainerService.HintSize="200,25" sap2010:WorkflowViewState.IdRef="GoogleOCR_2" Image="[Image]" />
+                </ActivityFunc>
+              </p:CVScope.OCREngine>
+              <p:CVScope.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0fd37b47-77c7-4e44-8ed7-2a1e0ef95b46" InformativeScreenshot="d41eccbd9d178dfe06294552c86db23b" Selector="&lt;webctrl class='overlayEle' parentid='displayArea' tag='DIV' /&gt;" WaitForReady="INTERACTIVE">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                </ui:Target>
+              </p:CVScope.Target>
+              <p:CVScope.UseLocalServer>
+                <InArgument x:TypeArguments="x:Boolean" />
+              </p:CVScope.UseLocalServer>
+            </p:CVScope>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABiSURBVDhP7cyxDYBADENRT8JIrMQytwQsRUmZM5bcOdU1FFj6VfSCZ9+qC9xxobre+//gEw/WN+5q4+pEdclH6LgEnXyEjkvQyUfouASdfISOS9DJR+i4BJ18hI5L0MmvDZhNnuSD8tzgJQAAAABJRU5ErkJggg==" InformativeScreenshot="9d679f82684c9520dae2b73a078a067b.jpg" Selector="&lt;html app='chrome.exe' url='https://ehr.corptst.hca.meditech.cloud/test/' /&gt;" Url="[in_ExpanseURL]" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
