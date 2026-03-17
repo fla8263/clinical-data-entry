@@ -1,0 +1,1313 @@
+{
+  "$schema": "https://cloud.uipath.com/draft/2024-12/entry-point",
+  "entryPoints": [
+    {
+      "filePath": "ClinicalDataEntrySubset\\Adding_labResults.xaml",
+      "uniqueId": "e3ff9d7a-59ee-406a-be40-e3c7d41076ee",
+      "type": "process",
+      "input": {
+        "type": "object",
+        "properties": {
+          "o_AccountNumber": {
+            "type": "string"
+          },
+          "o_MRN": {
+            "type": "string"
+          },
+          "o_PatientName": {
+            "type": "string"
+          },
+          "in_quantityOfPts": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "x-default-expression": "1",
+            "default": 1
+          },
+          "in_Facility": {
+            "type": "string"
+          },
+          "in_HCIS": {
+            "type": "string"
+          },
+          "in_3_4ID": {
+            "type": "string"
+          },
+          "in_ExpanseNetwork": {
+            "type": "string"
+          },
+          "in_Email": {
+            "type": "string",
+            "x-default-expression": "\"Yurii.Rybachuk@CereCore.net\"",
+            "default": "Yurii.Rybachuk@CereCore.net"
+          },
+          "in_AssetName": {
+            "type": "string",
+            "description": "Please, put your asset name where your credentials where stored under 'Assets' tab in Cloud Orchestrator."
+          },
+          "in_LabOrders": {
+            "type": "string",
+            "description": "Please, enter the lab orders by using mnemonic name (like GLU,HCT....). If this argument is empty then default lab orders will be taken from excel file."
+          },
+          "in_StorageBucket": {
+            "type": "string",
+            "x-default-expression": "\"DPX_Root\"",
+            "default": "DPX_Root"
+          }
+        },
+        "required": [
+          "in_AssetName"
+        ]
+      },
+      "output": {
+        "type": "object",
+        "properties": {
+          "statusAfterExecution": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "filePath": "PatientReg_Emergency.xaml",
+      "uniqueId": "c2c5fb01-26de-4888-a788-8bdc44718927",
+      "type": "process",
+      "input": {
+        "type": "object",
+        "properties": {
+          "o_AccountNumber": {
+            "type": "string"
+          },
+          "o_MRN": {
+            "type": "string"
+          },
+          "o_PatientName": {
+            "type": "string"
+          },
+          "in_quantityOfPts": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "x-default-expression": "1",
+            "default": 1
+          },
+          "in_Facility": {
+            "type": "string"
+          },
+          "in_HCIS": {
+            "type": "string"
+          },
+          "in_3_4ID": {
+            "type": "string"
+          },
+          "in_ExpanseNetwork": {
+            "type": "string",
+            "x-default-expression": "\"NHA\"",
+            "default": "NHA"
+          },
+          "in_Email": {
+            "type": "string",
+            "x-default-expression": "\"Yurii.Rybachuk@CereCore.net\"",
+            "default": "Yurii.Rybachuk@CereCore.net"
+          }
+        },
+        "required": []
+      }
+    },
+    {
+      "filePath": "Patients_with_Upcoming_visits\\Adding_Upcoming_Visits_for_ExistingPts.xaml",
+      "uniqueId": "ae51e6bf-2639-4122-ba61-ffbe8d4159c6",
+      "type": "process",
+      "input": {
+        "type": "object",
+        "properties": {
+          "in_TotalAppointments": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "description": "Default number - 1",
+            "x-default-expression": "2",
+            "default": 2
+          },
+          "in_StorageBucket": {
+            "type": "string",
+            "x-default-expression": "\"DPX_Root\"",
+            "default": "DPX_Root"
+          },
+          "in_Email": {
+            "type": "string",
+            "x-default-expression": "\"Yurii.Rybachuk@CereCore.net\"",
+            "default": "Yurii.Rybachuk@CereCore.net"
+          },
+          "in_AssetName": {
+            "type": "string",
+            "description": "Please, put your asset name where your credentials where stored under 'Assets' tab in Cloud Orchestrator.",
+            "x-default-expression": "\"MeditechExpanse_LoginCredentials\"",
+            "default": "MeditechExpanse_LoginCredentials"
+          },
+          "in_DateTimeSwitcher": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "in_AssetName"
+        ]
+      }
+    },
+    {
+      "filePath": "SmokeTest_Facilities_Observation\\Observation_with_ClinicalData_for_Careport.xaml",
+      "uniqueId": "ffffdb56-381e-42ba-b4a0-0fbee709da06",
+      "type": "process",
+      "input": {
+        "type": "object",
+        "properties": {
+          "o_AccountNumber": {
+            "type": "string"
+          },
+          "o_MRN": {
+            "type": "string"
+          },
+          "o_PatientName": {
+            "type": "string"
+          },
+          "in_quantityOfPts": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "description": "Enter the number of how many patients you want to be created.",
+            "x-default-expression": "1",
+            "default": 1
+          },
+          "in_Facility": {
+            "type": "string",
+            "description": "Please, enter there any facility you want from the list below:\nnot finished...",
+            "x-default-expression": "\"COCQC\"",
+            "default": "COCQC"
+          },
+          "in_HCIS": {
+            "type": "string"
+          },
+          "in_3_4ID": {
+            "type": "string"
+          },
+          "in_ExpanseNetwork": {
+            "type": "string",
+            "description": "Please, enter these provided mnemonic names of Expanse Networks:\n\"NCFL\" - North Central Florida;\n\"NHA\" - New Hampshire;\n\"ORL\" - Orlando (HCIS of North Central Florida);\n\"SAN\" - San Antonio.",
+            "x-default-expression": "\"NHA\"",
+            "default": "NHA"
+          },
+          "in_Email": {
+            "type": "string",
+            "description": "Please, enter your email here to get any failed test run message with provided screenshot. It can happen mostly due to performance issues in Meditech Expanse, but If it happens only in one place constantly, then reach out to Yurii Rybachuk (Yurii.Rybachuk@CereCore.net).",
+            "x-default-expression": "\"Yurii.Rybachuk@CereCore.net\"",
+            "default": "Yurii.Rybachuk@CereCore.net"
+          },
+          "in_AssesName": {
+            "type": "string",
+            "description": "Please, put your asset name where your credentials where stored under 'Assets' tab in Cloud Orchestrator."
+          },
+          "in_LabOrders": {
+            "type": "string"
+          },
+          "in_StorageBucket": {
+            "type": "string",
+            "x-default-expression": "\"DPX_Root\"",
+            "default": "DPX_Root"
+          }
+        },
+        "required": [
+          "in_quantityOfPts",
+          "in_Facility",
+          "in_ExpanseNetwork",
+          "in_Email",
+          "in_AssesName"
+        ]
+      }
+    },
+    {
+      "filePath": "SmokeTest_Facilities_Observation\\SmokeTest_Observation.xaml",
+      "uniqueId": "78dbc078-cec6-4a0e-b388-c89fa5d9c878",
+      "type": "process",
+      "input": {
+        "type": "object",
+        "properties": {
+          "o_AccountNumber": {
+            "type": "string"
+          },
+          "o_MRN": {
+            "type": "string"
+          },
+          "o_PatientName": {
+            "type": "string"
+          },
+          "in_Room": {
+            "type": "string",
+            "x-default-expression": "\"Z.TRN\"",
+            "default": "Z.TRN"
+          },
+          "in_Bed": {
+            "type": "string",
+            "x-default-expression": "\"49\"",
+            "default": "49"
+          },
+          "in_quantityOfPts": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "x-default-expression": "1",
+            "default": 1
+          },
+          "in_Facility": {
+            "type": "string"
+          },
+          "in_3_4ID": {
+            "type": "string"
+          },
+          "in_HCIS": {
+            "type": "string"
+          },
+          "in_ExpanseNetwork": {
+            "type": "string",
+            "x-default-expression": "\"NHA\"",
+            "default": "NHA"
+          },
+          "in_Email": {
+            "type": "string",
+            "x-default-expression": "\"Yurii.Rybachuk@CereCore.net\"",
+            "default": "Yurii.Rybachuk@CereCore.net"
+          },
+          "in_SwitcherToCloudOrch": {
+            "type": "string",
+            "x-default-expression": "\"Yes\"",
+            "default": "Yes"
+          },
+          "in_AssetName": {
+            "type": "string",
+            "description": "Please, put your asset name where your credentials where stored under 'Assets' tab in Cloud Orchestrator."
+          },
+          "in_LabOrders": {
+            "type": "string",
+            "description": "Please, enter the lab orders by using mnemonic name (like GLU,HCT....). If this argument is empty then default lab orders will be taken from excel file."
+          },
+          "in_StorageBucket": {
+            "type": "string",
+            "x-default-expression": "\"DPX_Root\"",
+            "default": "DPX_Root"
+          }
+        },
+        "required": [
+          "in_AssetName"
+        ]
+      }
+    },
+    {
+      "filePath": "SmokeTesting_Facilities_Newborn\\SmokeTest_Newborn.xaml",
+      "uniqueId": "ac308b44-2b6f-468c-ac3d-56dbc0d1332c",
+      "type": "process",
+      "input": {
+        "type": "object",
+        "properties": {
+          "o_AccountNumber": {
+            "type": "string"
+          },
+          "o_MRN": {
+            "type": "string"
+          },
+          "o_PatientName": {
+            "type": "string"
+          },
+          "in_quantityOfPts": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "x-default-expression": "1",
+            "default": 1
+          },
+          "in_Facility": {
+            "type": "string",
+            "x-default-expression": "\"COCQC\"",
+            "default": "COCQC"
+          },
+          "in_3_4ID": {
+            "type": "string"
+          },
+          "in_HCIS": {
+            "type": "string"
+          },
+          "in_ExpanseNetwork": {
+            "type": "string",
+            "x-default-expression": "\"NHA\"",
+            "default": "NHA"
+          },
+          "in_Email": {
+            "type": "string",
+            "x-default-expression": "\"Yurii.Rybachuk@CereCore.net\"",
+            "default": "Yurii.Rybachuk@CereCore.net"
+          },
+          "in_AssetName": {
+            "type": "string",
+            "description": "Please, put your asset name where your credentials where stored under 'Assets' tab in Cloud Orchestrator."
+          },
+          "in_LabOrders": {
+            "type": "string",
+            "description": "Please, enter the lab orders by using mnemonic name (like GLU,HCT....). If this argument is empty then default lab orders will be taken from excel file."
+          },
+          "in_StorageBucket": {
+            "type": "string",
+            "x-default-expression": "\"DPX_Root\"",
+            "default": "DPX_Root"
+          },
+          "in_MothersAcct": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "in_AssetName"
+        ]
+      }
+    },
+    {
+      "filePath": "SmokeTestingFacilities_Clinical\\Clinical_Patient_Registration.xaml",
+      "uniqueId": "d0cbbd77-97cb-4e71-b90e-7354c75e49a8",
+      "type": "process",
+      "input": {
+        "type": "object",
+        "properties": {
+          "o_AccountNumber": {
+            "type": "string"
+          },
+          "o_MRN": {
+            "type": "string"
+          },
+          "o_PatientName": {
+            "type": "string"
+          },
+          "in_quantityOfPts": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "x-default-expression": "1",
+            "default": 1
+          },
+          "in_Facility": {
+            "type": "string",
+            "x-default-expression": "\"COCYS\"",
+            "default": "COCYS"
+          },
+          "in_HCIS": {
+            "type": "string"
+          },
+          "in_3_4ID": {
+            "type": "string"
+          },
+          "in_ExpanseNetwork": {
+            "type": "string",
+            "x-default-expression": "\"NHA\"",
+            "default": "NHA"
+          },
+          "in_Email": {
+            "type": "string",
+            "x-default-expression": "\"Yurii.Rybachuk@CereCore.net\"",
+            "default": "Yurii.Rybachuk@CereCore.net"
+          },
+          "in_AssetName": {
+            "type": "string",
+            "description": "Please, put your asset name where your credentials where stored under 'Assets' tab in Cloud Orchestrator."
+          },
+          "in_LabOrders": {
+            "type": "string",
+            "description": "Please, enter the lab orders by using mnemonic name (like GLU,HCT....). If this argument is empty then default lab orders will be taken from excel file."
+          },
+          "in_StorageBucket": {
+            "type": "string",
+            "x-default-expression": "\"DPX_Root\"",
+            "default": "DPX_Root"
+          }
+        },
+        "required": [
+          "in_AssetName"
+        ]
+      }
+    },
+    {
+      "filePath": "SmokeTestingFacilities_Clinical\\Outpatient_with_ClinicalData_for_Careport.xaml",
+      "uniqueId": "189237a2-a417-4c39-8bf2-aeeab4e62ddd",
+      "type": "process",
+      "input": {
+        "type": "object",
+        "properties": {
+          "o_AccountNumber": {
+            "type": "string"
+          },
+          "o_MRN": {
+            "type": "string"
+          },
+          "o_PatientName": {
+            "type": "string"
+          },
+          "in_quantityOfPts": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "description": "Enter the number of how many patients you want to be created.",
+            "x-default-expression": "1",
+            "default": 1
+          },
+          "in_Facility": {
+            "type": "string",
+            "description": "Please, enter there any facility you want from the list below:\nnot finished...",
+            "x-default-expression": "\"COCQC\"",
+            "default": "COCQC"
+          },
+          "in_HCIS": {
+            "type": "string"
+          },
+          "in_3_4ID": {
+            "type": "string"
+          },
+          "in_ExpanseNetwork": {
+            "type": "string",
+            "description": "Please, enter these provided mnemonic names of Expanse Networks:\n\"NCFL\" - North Central Florida;\n\"NHA\" - New Hampshire;\n\"ORL\" - Orlando (HCIS of North Central Florida);\n\"SAN\" - San Antonio.",
+            "x-default-expression": "\"NHA\"",
+            "default": "NHA"
+          },
+          "in_Email": {
+            "type": "string",
+            "description": "Please, enter your email here to get any failed test run message with provided screenshot. It can happen mostly due to performance issues in Meditech Expanse, but If it happens only in one place constantly, then reach out to Yurii Rybachuk (Yurii.Rybachuk@CereCore.net).",
+            "x-default-expression": "\"Yurii.Rybachuk@CereCore.net\"",
+            "default": "Yurii.Rybachuk@CereCore.net"
+          },
+          "in_SwitcherToCloudOrch": {
+            "type": "string",
+            "x-default-expression": "\"Yes\"",
+            "default": "Yes"
+          },
+          "in_AssesName": {
+            "type": "string",
+            "description": "Please, put your asset name where your credentials where stored under 'Assets' tab in Cloud Orchestrator."
+          },
+          "in_StorageBucket": {
+            "type": "string",
+            "x-default-expression": "\"DPX_Root\"",
+            "default": "DPX_Root"
+          }
+        },
+        "required": [
+          "in_quantityOfPts",
+          "in_Facility",
+          "in_ExpanseNetwork",
+          "in_Email",
+          "in_AssesName"
+        ]
+      }
+    },
+    {
+      "filePath": "SmokeTestingFacilities_Clinical\\Outpatient_with_ClinicalData(Overloading).xaml",
+      "uniqueId": "f643a98e-ab31-45ea-9702-29b5c76000aa",
+      "type": "process",
+      "input": {
+        "type": "object",
+        "properties": {
+          "o_AccountNumber": {
+            "type": "string"
+          },
+          "o_MRN": {
+            "type": "string",
+            "x-default-expression": "\"F000540110\"",
+            "default": "F000540110"
+          },
+          "o_PatientName": {
+            "type": "string"
+          },
+          "in_quantityOfPts": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "description": "Enter the number of how many patients you want to be created.",
+            "x-default-expression": "1",
+            "default": 1
+          },
+          "in_Facility": {
+            "type": "string",
+            "description": "Please, enter there any facility you want from the list below:\nnot finished...",
+            "x-default-expression": "\"COCQC\"",
+            "default": "COCQC"
+          },
+          "in_HCIS": {
+            "type": "string"
+          },
+          "in_3_4ID": {
+            "type": "string"
+          },
+          "in_ExpanseNetwork": {
+            "type": "string",
+            "description": "Please, enter these provided mnemonic names of Expanse Networks:\n\"NCFL\" - North Central Florida;\n\"NHA\" - New Hampshire;\n\"ORL\" - Orlando (HCIS of North Central Florida);\n\"SAN\" - San Antonio.",
+            "x-default-expression": "\"NHA\"",
+            "default": "NHA"
+          },
+          "in_Email": {
+            "type": "string",
+            "description": "Please, enter your email here to get any failed test run message with provided screenshot. It can happen mostly due to performance issues in Meditech Expanse, but If it happens only in one place constantly, then reach out to Yurii Rybachuk (Yurii.Rybachuk@CereCore.net).",
+            "x-default-expression": "\"Yurii.Rybachuk@CereCore.net\"",
+            "default": "Yurii.Rybachuk@CereCore.net"
+          },
+          "in_Room": {
+            "type": "string"
+          },
+          "in_Bed": {
+            "type": "string"
+          },
+          "in_SheetName": {
+            "type": "string",
+            "description": "Enter any value to create the new excel sheet.\n",
+            "x-default-expression": "\"Yurii_Sheet\"",
+            "default": "Yurii_Sheet"
+          },
+          "in_AssetName": {
+            "type": "string"
+          },
+          "in_LabOrders": {
+            "type": "string"
+          },
+          "in_StorageBucket": {
+            "type": "string",
+            "x-default-expression": "\"DPX_Root\"",
+            "default": "DPX_Root"
+          }
+        },
+        "required": [
+          "in_quantityOfPts",
+          "in_Facility",
+          "in_ExpanseNetwork",
+          "in_Email",
+          "in_SheetName",
+          "in_AssetName"
+        ]
+      }
+    },
+    {
+      "filePath": "SmokeTestingFacilities_Clinical\\SmokeTest_Clinical.xaml",
+      "uniqueId": "dfbc31d6-aa97-43db-9a6b-83ed1b128f9f",
+      "type": "process",
+      "input": {
+        "type": "object",
+        "properties": {
+          "o_AccountNumber": {
+            "type": "string"
+          },
+          "o_MRN": {
+            "type": "string"
+          },
+          "o_PatientName": {
+            "type": "string"
+          },
+          "in_quantityOfPts": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "x-default-expression": "1",
+            "default": 1
+          },
+          "in_Facility": {
+            "type": "string",
+            "x-default-expression": "\"COCYS\"",
+            "default": "COCYS"
+          },
+          "in_HCIS": {
+            "type": "string"
+          },
+          "in_3_4ID": {
+            "type": "string"
+          },
+          "in_ExpanseNetwork": {
+            "type": "string",
+            "x-default-expression": "\"NHA\"",
+            "default": "NHA"
+          },
+          "in_Email": {
+            "type": "string",
+            "x-default-expression": "\"Yurii.Rybachuk@CereCore.net\"",
+            "default": "Yurii.Rybachuk@CereCore.net"
+          },
+          "in_AssetName": {
+            "type": "string",
+            "description": "Please, put your asset name where your credentials where stored under 'Assets' tab in Cloud Orchestrator."
+          },
+          "in_LabOrders": {
+            "type": "string",
+            "description": "Please, enter the lab orders by using mnemonic name (like GLU,HCT....). If this argument is empty then default lab orders will be taken from excel file."
+          },
+          "in_StorageBucket": {
+            "type": "string",
+            "x-default-expression": "\"DPX_Root\"",
+            "default": "DPX_Root"
+          }
+        },
+        "required": [
+          "in_AssetName"
+        ]
+      }
+    },
+    {
+      "filePath": "SmokeTestingFacilities_Emergency\\ER_with_ClinicalData_for_Careport.xaml",
+      "uniqueId": "773bb60e-e366-4bc3-8022-631bc509b8d2",
+      "type": "process",
+      "input": {
+        "type": "object",
+        "properties": {
+          "o_AccountNumber": {
+            "type": "string"
+          },
+          "o_MRN": {
+            "type": "string"
+          },
+          "o_PatientName": {
+            "type": "string"
+          },
+          "in_quantityOfPts": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "description": "Enter the number of how many patients you want to be created.",
+            "x-default-expression": "1",
+            "default": 1
+          },
+          "in_Facility": {
+            "type": "string",
+            "description": "Please, enter there any facility you want from the list below:\nnot finished...",
+            "x-default-expression": "\"COCQC\"",
+            "default": "COCQC"
+          },
+          "in_HCIS": {
+            "type": "string"
+          },
+          "in_3_4ID": {
+            "type": "string"
+          },
+          "in_ExpanseNetwork": {
+            "type": "string",
+            "description": "Please, enter these provided mnemonic names of Expanse Networks:\n\"NCFL\" - North Central Florida;\n\"NHA\" - New Hampshire;\n\"ORL\" - Orlando (HCIS of North Central Florida);\n\"SAN\" - San Antonio.",
+            "x-default-expression": "\"NHA\"",
+            "default": "NHA"
+          },
+          "in_Email": {
+            "type": "string",
+            "description": "Please, enter your email here to get any failed test run message with provided screenshot. It can happen mostly due to performance issues in Meditech Expanse, but If it happens only in one place constantly, then reach out to Yurii Rybachuk (Yurii.Rybachuk@CereCore.net).",
+            "x-default-expression": "\"Yurii.Rybachuk@CereCore.net\"",
+            "default": "Yurii.Rybachuk@CereCore.net"
+          },
+          "in_AssesName": {
+            "type": "string",
+            "description": "Please, put your asset name where your credentials where stored under 'Assets' tab in Cloud Orchestrator."
+          },
+          "in_StorageBucket": {
+            "type": "string",
+            "x-default-expression": "\"DPX_Root\"",
+            "default": "DPX_Root"
+          }
+        },
+        "required": [
+          "in_quantityOfPts",
+          "in_Facility",
+          "in_ExpanseNetwork",
+          "in_Email",
+          "in_AssesName"
+        ]
+      }
+    },
+    {
+      "filePath": "SmokeTestingFacilities_Emergency\\SmokeTest_Emergency.xaml",
+      "uniqueId": "f2bc7f6f-b893-46e7-b81f-47068dda5d41",
+      "type": "process",
+      "input": {
+        "type": "object",
+        "properties": {
+          "o_AccountNumber": {
+            "type": "string"
+          },
+          "o_MRN": {
+            "type": "string"
+          },
+          "o_PatientName": {
+            "type": "string"
+          },
+          "in_quantityOfPts": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "x-default-expression": "1",
+            "default": 1
+          },
+          "in_Facility": {
+            "type": "string",
+            "x-default-expression": "\"COCXS\"",
+            "default": "COCXS"
+          },
+          "in_HCIS": {
+            "type": "string"
+          },
+          "in_3_4ID": {
+            "type": "string"
+          },
+          "in_ExpanseNetwork": {
+            "type": "string",
+            "x-default-expression": "\"NHA\"",
+            "default": "NHA"
+          },
+          "in_Email": {
+            "type": "string",
+            "x-default-expression": "\"Yurii.Rybachuk@CereCore.net\"",
+            "default": "Yurii.Rybachuk@CereCore.net"
+          },
+          "in_AssetName": {
+            "type": "string",
+            "description": "Please, put your asset name where your credentials where stored under 'Assets' tab in Cloud Orchestrator."
+          },
+          "in_LabOrders": {
+            "type": "string",
+            "description": "Please, enter the lab orders by using mnemonic name (like GLU,HCT....). If this argument is empty then default lab orders will be taken from excel file."
+          },
+          "in_StorageBucket": {
+            "type": "string",
+            "x-default-expression": "\"DPX_Root\"",
+            "default": "DPX_Root"
+          }
+        },
+        "required": [
+          "in_AssetName"
+        ]
+      }
+    },
+    {
+      "filePath": "SmokeTestingFacilities_Inpatient\\Inpatient_with_ClinicalData_for_Careport.xaml",
+      "uniqueId": "eae39d2d-2b37-444e-9164-6b4a426cf6c5",
+      "type": "process",
+      "input": {
+        "type": "object",
+        "properties": {
+          "o_AccountNumber": {
+            "type": "string"
+          },
+          "o_MRN": {
+            "type": "string"
+          },
+          "o_PatientName": {
+            "type": "string"
+          },
+          "in_quantityOfPts": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "description": "Enter the number of how many patients you want to be created.",
+            "x-default-expression": "1",
+            "default": 1
+          },
+          "in_Facility": {
+            "type": "string",
+            "description": "Please, enter there any facility you want from the list below:\nnot finished...",
+            "x-default-expression": "\"COCQC\"",
+            "default": "COCQC"
+          },
+          "in_HCIS": {
+            "type": "string"
+          },
+          "in_3_4ID": {
+            "type": "string"
+          },
+          "in_ExpanseNetwork": {
+            "type": "string",
+            "description": "Please, enter these provided mnemonic names of Expanse Networks:\n\"NCFL\" - North Central Florida;\n\"NHA\" - New Hampshire;\n\"ORL\" - Orlando (HCIS of North Central Florida);\n\"SAN\" - San Antonio.",
+            "x-default-expression": "\"NHA\"",
+            "default": "NHA"
+          },
+          "in_Email": {
+            "type": "string",
+            "description": "Please, enter your email here to get any failed test run message with provided screenshot. It can happen mostly due to performance issues in Meditech Expanse, but If it happens only in one place constantly, then reach out to Yurii Rybachuk (Yurii.Rybachuk@CereCore.net).",
+            "x-default-expression": "\"Yurii.Rybachuk@CereCore.net\"",
+            "default": "Yurii.Rybachuk@CereCore.net"
+          },
+          "in_StorageBucket": {
+            "type": "string",
+            "x-default-expression": "\"DPX_Root\"",
+            "default": "DPX_Root"
+          },
+          "in_AssetName": {
+            "type": "string",
+            "description": "Please, put your asset name where your credentials where stored under 'Assets' tab in Cloud Orchestrator."
+          }
+        },
+        "required": [
+          "in_quantityOfPts",
+          "in_Facility",
+          "in_ExpanseNetwork",
+          "in_Email",
+          "in_AssetName"
+        ]
+      }
+    },
+    {
+      "filePath": "SmokeTestingFacilities_Inpatient\\Inpatient_with_ClinicalData(Overloading).xaml",
+      "uniqueId": "5a0ffd2f-d431-4931-83ee-7b49d3aa8659",
+      "type": "process",
+      "input": {
+        "type": "object",
+        "properties": {
+          "o_AccountNumber": {
+            "type": "string"
+          },
+          "o_MRN": {
+            "type": "string",
+            "x-default-expression": "\"F000540110\"",
+            "default": "F000540110"
+          },
+          "o_PatientName": {
+            "type": "string"
+          },
+          "in_quantityOfPts": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "description": "Enter the number of how many patients you want to be created.",
+            "x-default-expression": "1",
+            "default": 1
+          },
+          "in_Facility": {
+            "type": "string",
+            "description": "Please, enter there any facility you want from the list below:\nnot finished...",
+            "x-default-expression": "\"COCQC\"",
+            "default": "COCQC"
+          },
+          "in_HCIS": {
+            "type": "string"
+          },
+          "in_3_4ID": {
+            "type": "string"
+          },
+          "in_ExpanseNetwork": {
+            "type": "string",
+            "description": "Please, enter these provided mnemonic names of Expanse Networks:\n\"NCFL\" - North Central Florida;\n\"NHA\" - New Hampshire;\n\"ORL\" - Orlando (HCIS of North Central Florida);\n\"SAN\" - San Antonio.",
+            "x-default-expression": "\"NHA\"",
+            "default": "NHA"
+          },
+          "in_Email": {
+            "type": "string",
+            "description": "Please, enter your email here to get any failed test run message with provided screenshot. It can happen mostly due to performance issues in Meditech Expanse, but If it happens only in one place constantly, then reach out to Yurii Rybachuk (Yurii.Rybachuk@CereCore.net).",
+            "x-default-expression": "\"Yurii.Rybachuk@CereCore.net\"",
+            "default": "Yurii.Rybachuk@CereCore.net"
+          },
+          "in_Room": {
+            "type": "string"
+          },
+          "in_Bed": {
+            "type": "string"
+          },
+          "in_SheetName": {
+            "type": "string",
+            "description": "Enter any value to create the new excel sheet.\n",
+            "x-default-expression": "\"Yurii_Sheet\"",
+            "default": "Yurii_Sheet"
+          },
+          "in_AssetName": {
+            "type": "string"
+          },
+          "in_LabOrders": {
+            "type": "string"
+          },
+          "in_StorageBucket": {
+            "type": "string",
+            "x-default-expression": "\"DPX_Root\"",
+            "default": "DPX_Root"
+          }
+        },
+        "required": [
+          "in_quantityOfPts",
+          "in_Facility",
+          "in_ExpanseNetwork",
+          "in_Email",
+          "in_SheetName",
+          "in_AssetName"
+        ]
+      }
+    },
+    {
+      "filePath": "SmokeTestingFacilities_Inpatient\\SmokeTest_Inpatient.xaml",
+      "uniqueId": "d2e6f347-b810-41e7-9f87-03f8f3b3e3db",
+      "type": "process",
+      "input": {
+        "type": "object",
+        "properties": {
+          "o_AccountNumber": {
+            "type": "string"
+          },
+          "o_MRN": {
+            "type": "string"
+          },
+          "o_PatientName": {
+            "type": "string"
+          },
+          "in_Room": {
+            "type": "string",
+            "x-default-expression": "\"Z.TRN\"",
+            "default": "Z.TRN"
+          },
+          "in_Bed": {
+            "type": "string",
+            "x-default-expression": "\"49\"",
+            "default": "49"
+          },
+          "in_quantityOfPts": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "x-default-expression": "1",
+            "default": 1
+          },
+          "in_Facility": {
+            "type": "string",
+            "x-default-expression": "\"COCXJ\"",
+            "default": "COCXJ"
+          },
+          "in_HCIS": {
+            "type": "string"
+          },
+          "in_3_4ID": {
+            "type": "string"
+          },
+          "in_ExpanseNetwork": {
+            "type": "string",
+            "x-default-expression": "\"NCFL\"",
+            "default": "NCFL"
+          },
+          "in_Email": {
+            "type": "string",
+            "x-default-expression": "\"Yurii.Rybachuk@CereCore.net\"",
+            "default": "Yurii.Rybachuk@CereCore.net"
+          },
+          "in_AssetName": {
+            "type": "string",
+            "description": "Please, put your asset name where your credentials where stored under 'Assets' tab in Cloud Orchestrator."
+          },
+          "in_LabOrders": {
+            "type": "string",
+            "description": "Please, enter the lab orders by using mnemonic name (like GLU,HCT....). If this argument is empty then default lab orders will be taken from excel file."
+          },
+          "in_StorageBucket": {
+            "type": "string",
+            "x-default-expression": "\"DPX_Root\"",
+            "default": "DPX_Root"
+          }
+        },
+        "required": [
+          "in_AssetName"
+        ]
+      }
+    },
+    {
+      "filePath": "SmokeTestingFacilities_SDC\\SDC_Patient_Registration.xaml",
+      "uniqueId": "c6440a1e-24dd-4043-8314-f9234908a1a9",
+      "type": "process",
+      "input": {
+        "type": "object",
+        "properties": {
+          "o_AccountNumber": {
+            "type": "string"
+          },
+          "o_MRN": {
+            "type": "string"
+          },
+          "o_PatientName": {
+            "type": "string"
+          },
+          "in_quantityOfPts": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "x-default-expression": "1",
+            "default": 1
+          },
+          "in_Facility": {
+            "type": "string",
+            "x-default-expression": "\"COCULN\"",
+            "default": "COCULN"
+          },
+          "in_HCIS": {
+            "type": "string"
+          },
+          "in_3_4ID": {
+            "type": "string"
+          },
+          "in_ExpanseNetwork": {
+            "type": "string",
+            "x-default-expression": "\"ORL\"",
+            "default": "ORL"
+          }
+        },
+        "required": []
+      }
+    },
+    {
+      "filePath": "SmokeTestingFacilities_SDC\\SDC_with_ClinicalData_for_Careport.xaml",
+      "uniqueId": "07dfbccd-6815-4950-a3f2-962b5c37b853",
+      "type": "process",
+      "input": {
+        "type": "object",
+        "properties": {
+          "o_AccountNumber": {
+            "type": "string"
+          },
+          "o_MRN": {
+            "type": "string"
+          },
+          "o_PatientName": {
+            "type": "string"
+          },
+          "in_quantityOfPts": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "description": "Enter the number of how many patients you want to be created.",
+            "x-default-expression": "1",
+            "default": 1
+          },
+          "in_Facility": {
+            "type": "string",
+            "description": "Please, enter there any facility you want from the list below:\nnot finished...",
+            "x-default-expression": "\"COCQC\"",
+            "default": "COCQC"
+          },
+          "in_HCIS": {
+            "type": "string"
+          },
+          "in_3_4ID": {
+            "type": "string"
+          },
+          "in_ExpanseNetwork": {
+            "type": "string",
+            "description": "Please, enter these provided mnemonic names of Expanse Networks:\n\"NCFL\" - North Central Florida;\n\"NHA\" - New Hampshire;\n\"ORL\" - Orlando (HCIS of North Central Florida);\n\"SAN\" - San Antonio.",
+            "x-default-expression": "\"NHA\"",
+            "default": "NHA"
+          },
+          "in_Email": {
+            "type": "string",
+            "description": "Please, enter your email here to get any failed test run message with provided screenshot. It can happen mostly due to performance issues in Meditech Expanse, but If it happens only in one place constantly, then reach out to Yurii Rybachuk (Yurii.Rybachuk@CereCore.net).",
+            "x-default-expression": "\"Yurii.Rybachuk@CereCore.net\"",
+            "default": "Yurii.Rybachuk@CereCore.net"
+          },
+          "in_AssetName": {
+            "type": "string",
+            "description": "Please, put your asset name where your credentials where stored under 'Assets' tab in Cloud Orchestrator."
+          },
+          "in_StorageBucket": {
+            "type": "string",
+            "x-default-expression": "\"DPX_Root\"",
+            "default": "DPX_Root"
+          }
+        },
+        "required": [
+          "in_quantityOfPts",
+          "in_Facility",
+          "in_ExpanseNetwork",
+          "in_Email"
+        ]
+      }
+    },
+    {
+      "filePath": "SmokeTestingFacilities_SDC\\SDC_with_ClinicalData(Overloading).xaml",
+      "uniqueId": "f6ccdf44-5237-47ab-be30-1542434b325d",
+      "type": "process",
+      "input": {
+        "type": "object",
+        "properties": {
+          "o_AccountNumber": {
+            "type": "string"
+          },
+          "o_MRN": {
+            "type": "string",
+            "x-default-expression": "\"F000540110\"",
+            "default": "F000540110"
+          },
+          "o_PatientName": {
+            "type": "string"
+          },
+          "in_quantityOfPts": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "description": "Enter the number of how many patients you want to be created.",
+            "x-default-expression": "1",
+            "default": 1
+          },
+          "in_Facility": {
+            "type": "string",
+            "description": "Please, enter there any facility you want from the list below:\nnot finished...",
+            "x-default-expression": "\"COCQC\"",
+            "default": "COCQC"
+          },
+          "in_HCIS": {
+            "type": "string"
+          },
+          "in_3_4ID": {
+            "type": "string"
+          },
+          "in_ExpanseNetwork": {
+            "type": "string",
+            "description": "Please, enter these provided mnemonic names of Expanse Networks:\n\"NCFL\" - North Central Florida;\n\"NHA\" - New Hampshire;\n\"ORL\" - Orlando (HCIS of North Central Florida);\n\"SAN\" - San Antonio.",
+            "x-default-expression": "\"NHA\"",
+            "default": "NHA"
+          },
+          "in_Email": {
+            "type": "string",
+            "description": "Please, enter your email here to get any failed test run message with provided screenshot. It can happen mostly due to performance issues in Meditech Expanse, but If it happens only in one place constantly, then reach out to Yurii Rybachuk (Yurii.Rybachuk@CereCore.net).",
+            "x-default-expression": "\"Yurii.Rybachuk@CereCore.net\"",
+            "default": "Yurii.Rybachuk@CereCore.net"
+          },
+          "in_Room": {
+            "type": "string"
+          },
+          "in_Bed": {
+            "type": "string"
+          },
+          "in_SheetName": {
+            "type": "string",
+            "description": "Enter any value to create the new excel sheet.\n",
+            "x-default-expression": "\"Yurii_Sheet\"",
+            "default": "Yurii_Sheet"
+          },
+          "in_AssetName": {
+            "type": "string"
+          },
+          "in_LabOrders": {
+            "type": "string"
+          },
+          "in_StorageBucket": {
+            "type": "string",
+            "x-default-expression": "\"DPX_Root\"",
+            "default": "DPX_Root"
+          }
+        },
+        "required": [
+          "in_quantityOfPts",
+          "in_Facility",
+          "in_ExpanseNetwork",
+          "in_Email",
+          "in_SheetName",
+          "in_AssetName"
+        ]
+      }
+    },
+    {
+      "filePath": "SmokeTestingFacilities_SDC\\SmokeTest_SDC.xaml",
+      "uniqueId": "644c1476-356f-4d44-8b7a-85c74c8c0bd0",
+      "type": "process",
+      "input": {
+        "type": "object",
+        "properties": {
+          "o_AccountNumber": {
+            "type": "string"
+          },
+          "o_MRN": {
+            "type": "string"
+          },
+          "o_PatientName": {
+            "type": "string"
+          },
+          "in_quantityOfPts": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "x-default-expression": "1",
+            "default": 1
+          },
+          "in_Facility": {
+            "type": "string"
+          },
+          "in_HCIS": {
+            "type": "string"
+          },
+          "in_3_4ID": {
+            "type": "string"
+          },
+          "in_ExpanseNetwork": {
+            "type": "string"
+          },
+          "in_Email": {
+            "type": "string",
+            "x-default-expression": "\"christine.nelson@hcahealthcare.com\"",
+            "default": "christine.nelson@hcahealthcare.com"
+          },
+          "in_AssetName": {
+            "type": "string",
+            "description": "Please, put your asset name where your credentials where stored under 'Assets' tab in Cloud Orchestrator."
+          },
+          "in_LabOrders": {
+            "type": "string",
+            "description": "Please, enter the lab orders by using mnemonic name (like GLU,HCT....). If this argument is empty then default lab orders will be taken from excel file."
+          },
+          "in_StorageBucket": {
+            "type": "string",
+            "x-default-expression": "\"DPX_Root\"",
+            "default": "DPX_Root"
+          }
+        },
+        "required": [
+          "in_AssetName"
+        ]
+      },
+      "output": {
+        "type": "object",
+        "properties": {
+          "statusAfterExecution": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "filePath": "Utility\\Discharge\\Discharge_Patients.xaml",
+      "uniqueId": "dc8d8423-15e7-4f07-b11a-3bfedba17b45",
+      "type": "process",
+      "input": {
+        "type": "object",
+        "properties": {
+          "in_ExpanseBrowserUrl": {
+            "type": "string",
+            "x-default-expression": "\"https://ehr.nfl.hca.meditech.cloud/test/*/\"",
+            "default": "https://ehr.nfl.hca.meditech.cloud/test/*/"
+          },
+          "in_RegType": {
+            "type": "string",
+            "x-default-expression": "\"Observation\"",
+            "default": "Observation"
+          },
+          "in_ExpanseClinic": {
+            "type": "string"
+          },
+          "in_HCIS": {
+            "type": "string"
+          },
+          "in_34ID": {
+            "type": "string",
+            "x-default-expression": "\"NFO3893\"",
+            "default": "NFO3893"
+          },
+          "in_Email": {
+            "type": "string",
+            "x-default-expression": "\"Yurii.Rybachuk@CereCore.net\"",
+            "default": "Yurii.Rybachuk@CereCore.net"
+          },
+          "in_AssetName": {
+            "type": "string"
+          },
+          "in_StorageBucket": {
+            "type": "string",
+            "x-default-expression": "\"DPX_Root\"",
+            "default": "DPX_Root"
+          }
+        },
+        "required": [
+          "in_AssetName"
+        ]
+      }
+    }
+  ]
+}
